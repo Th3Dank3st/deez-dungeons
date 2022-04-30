@@ -102,7 +102,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 958002765241107158, guid: d527e0f54ab9e2b42856ba22c4450e2a, type: 3}
   bulletForce: 15
   rotationSpeed: 1000
-  bulletRateOfFire: 0.05
+  bulletRateOfFire: 0.03
 --- !u!50 &2474584269437852035
 Rigidbody2D:
   serializedVersion: 4
