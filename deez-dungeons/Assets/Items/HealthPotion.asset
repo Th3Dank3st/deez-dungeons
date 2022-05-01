@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   itemName: Red Pot
-  value: 20
+  value: 50
   icon: {fileID: 8222604357750818144, guid: fddc6c40c8153144fa871d137a156a4d, type: 3}
   itemType: 0
   amount: 1
