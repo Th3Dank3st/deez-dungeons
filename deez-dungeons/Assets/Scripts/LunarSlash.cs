@@ -14,20 +14,11 @@ public class LunarSlash : MonoBehaviour
     {
         Destroy(this.gameObject, range);
     }
-    //void Update()
-    //{
-       // if (rooted)
-       // {
-        //    Debug.Log("canMove = false");
-       //     enemy.GetComponent<Pathfinding.AIPath>().canMove = false;
-       // }
 
-       // if (!rooted)
-       // {
-       //     enemy.GetComponent<Pathfinding.AIPath>().canMove = true;
-       //     Debug.Log("canMove = True");
-       // }
-    //}
+
+
+
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         enemy = other.gameObject;
@@ -43,26 +34,7 @@ public class LunarSlash : MonoBehaviour
            // Destroy(this.gameObject);
         //}
     }
-    //private void Stop(int seconds)
-    //{
-
-    //if (waiting)
-    //return;
-    //StartCoroutine(Wait(seconds));
-    //}    
-    /*IEnumerator Wait(int seconds)
-    {
-        var path = enemy.GetComponent<Pathfinding.AIPath>();
-        var originalSpeed = path.maxSpeed;
-        Debug.Log("originalSpeed1 = " + originalSpeed.ToString());
-        path.maxSpeed = 0;
-        yield return new WaitForSeconds(seconds);
-
-        Debug.Log("originalSpeed2 = " + originalSpeed.ToString());
-        path.maxSpeed = originalSpeed;
-        Debug.Log("originalSpeed3 = " + originalSpeed.ToString());
-
-    }*/
+   
 }
 
    

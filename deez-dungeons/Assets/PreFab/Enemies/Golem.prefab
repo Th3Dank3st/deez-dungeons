@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1065310875610166941, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_Radius
-      value: 0.8
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065310875610166941, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549906, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_Enabled
@@ -85,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549908, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: pickNextWaypointDist
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549908, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: autoRepath.maximumInterval
@@ -112,6 +116,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549913, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: FireRate
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326105797061549913, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: bulletForce
       value: 20
       objectReference: {fileID: 0}
@@ -129,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549915, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: maxHealth
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6326105798877095800, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_Sprite
@@ -150,24 +158,3 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6326105798877095798, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
---- !u!1 &7972834134995529077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6326105797061549914, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
-  m_PrefabInstance: {fileID: 4138779280884691503}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &18213710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7972834134995529077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a57bb95fceca8469294cd7d2151fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 7
-  attackSpeed: 1.8
-  hitEffect: {fileID: 5140585466098312940, guid: 82302331ca8007b41ab2d598266de9c4, type: 3}
-  duration: 0.4
