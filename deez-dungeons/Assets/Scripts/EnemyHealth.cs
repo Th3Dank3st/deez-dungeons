@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     //private GameObject enemy;
     public bool alreadySlowed = false;
     public bool alreadyRooted = false;
+    public bool alreadyStunned = false;
     
 
     private float health = 0f;
@@ -58,11 +59,18 @@ public class EnemyHealth : MonoBehaviour
             }
         }
         //Stun
+        if (collisionGameObject.tag == "StunPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyStunned)
+            {
+                StartCoroutine(Stunned2S());
+            }
+        }
     }
 
 
 
-
+    //Chill
     public IEnumerator Chilled2S()
     {
         var path = gameObject.GetComponent<Pathfinding.AIPath>();
@@ -86,6 +94,7 @@ public class EnemyHealth : MonoBehaviour
          // All Done!        
     }
 
+    //Root
     public IEnumerator Root2S()
     {
         var path = gameObject.GetComponent<Pathfinding.AIPath>();
@@ -105,6 +114,32 @@ public class EnemyHealth : MonoBehaviour
         }
         path.maxSpeed = originalSpeed;
         alreadyRooted = false;
+        yield break;
+        // All Done!        
+    }
+
+    //Stun
+    public IEnumerator Stunned2S()
+    {
+        var path = gameObject.GetComponent<Pathfinding.AIPath>();
+        var originalSpeed = path.maxSpeed;
+        float i = 2f;
+
+        while (i > 0)
+        {
+            if (!alreadyStunned)
+            {
+                gameObject.GetComponent<PathEnemyShooting>().enabled = false;
+                path.maxSpeed = 0f;
+                alreadyStunned = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
+        }
+        gameObject.GetComponent<PathEnemyShooting>().enabled = true;
+        path.maxSpeed = originalSpeed;
+        alreadyStunned = false;
         yield break;
         // All Done!        
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3894690737584877752}
   m_Layer: 8
   m_Name: Lunar Slash
-  m_TagString: RootPlayerProjectile
+  m_TagString: StunPlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
