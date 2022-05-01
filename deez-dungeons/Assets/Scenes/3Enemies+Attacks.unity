@@ -1681,6 +1681,8 @@ MonoBehaviour:
   maxHealth: 100
   healthBarOverhead: {fileID: 213209782}
   healthBar: {fileID: 601683362}
+  regenAmount: 5
+  healthRegenCooldown: 5
   lunarCooldown: 10
   FireCooldown: 2
   dashSpeed: 30

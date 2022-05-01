@@ -43,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
     private float currentHealth;
     public HealthBar healthBarOverhead;
     public HealthBar healthBar;
+    public float regenAmount;
+    private float healthCoolCounter;
+    public float healthRegenCooldown;
 
 
 
@@ -203,10 +206,26 @@ public class PlayerMovement : MonoBehaviour
                 FireballCoolCounter = FireballCooldown;
             }
         }
-
+        
         if (FireballCoolCounter > 0)
         {
             FireballCoolCounter -= Time.deltaTime;
+        }
+
+        //Passive Regen
+        if (currentHealth < maxHealth)
+        {
+            if (healthCoolCounter <= 0)
+            {
+                UpdateHealth(+regenAmount);
+
+                healthCoolCounter = healthRegenCooldown;
+            }
+        }
+
+        if (healthCoolCounter > 0)
+        {
+            healthCoolCounter -= Time.deltaTime;
         }
     }
 
