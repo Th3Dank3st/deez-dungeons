@@ -1775,11 +1775,11 @@ MonoBehaviour:
   maxHealth: 250
   healthBarOverhead: {fileID: 213209782}
   healthBar: {fileID: 601683362}
-  lunarCooldown: 5
+  lunarCooldown: 6
   FireCooldown: 2
   dashSpeed: 30
   dashLength: 0.26
-  dashCooldown: 3
+  dashCooldown: 2.4
 --- !u!114 &326447360
 MonoBehaviour:
   m_ObjectHideFlags: 0

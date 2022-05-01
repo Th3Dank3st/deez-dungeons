@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 0.4
-  damage: 5
+  damage: 8
 --- !u!212 &4087886213929027592
 SpriteRenderer:
   m_ObjectHideFlags: 0
