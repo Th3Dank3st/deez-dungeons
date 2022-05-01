@@ -71,6 +71,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""One"",
+                    ""type"": ""Button"",
+                    ""id"": ""12addf00-c33f-4077-8fd1-590b3b140f12"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -296,23 +305,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""79c7b159-fd97-4020-ae0e-46e53c183c43"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""LunarSlash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c26aeb37-2297-42c8-b8c4-b6dc0196271a"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""ce074aec-c228-430c-8028-fc830ea69452"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dash"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -324,6 +322,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f9eb069-6fc5-4c6c-a88d-edf1f6f1ad70"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26ba5918-e85e-47dd-8751-9619c9186ed3"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""One"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ed9310d-b092-4392-ba76-1655be8b7b94"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LunarSlash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -916,6 +947,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_LunarSlash = m_Player.FindAction("LunarSlash", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_One = m_Player.FindAction("One", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -992,6 +1024,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_LunarSlash;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_One;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1001,6 +1034,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @LunarSlash => m_Wrapper.m_Player_LunarSlash;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @One => m_Wrapper.m_Player_One;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1025,6 +1059,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @One.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
+                @One.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
+                @One.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1044,6 +1081,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @One.started += instance.OnOne;
+                @One.performed += instance.OnOne;
+                @One.canceled += instance.OnOne;
             }
         }
     }
@@ -1205,6 +1245,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnLunarSlash(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnOne(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

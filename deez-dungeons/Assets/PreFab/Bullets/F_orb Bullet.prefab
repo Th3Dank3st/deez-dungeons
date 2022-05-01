@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2232807019474904050}
   - component: {fileID: 2965290957892748749}
   - component: {fileID: 2474584269437852035}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: F_orb Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7256697549362854445}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

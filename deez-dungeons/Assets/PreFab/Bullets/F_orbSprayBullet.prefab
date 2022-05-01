@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2935532341444775111}
   - component: {fileID: 4087886213929027592}
   - component: {fileID: 8386598710199820471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: F_orbSprayBullet
   m_TagString: ChillPlayerProjectile
   m_Icon: {fileID: 0}

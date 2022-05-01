@@ -13,6 +13,8 @@ public class EnemyHealth : MonoBehaviour
     public bool alreadySlowed = false;
     public bool alreadyRooted = false;
     public bool alreadyStunned = false;
+    public bool alreadyBurning = false;
+    private float burnDPS = 10;
     
 
     private float health = 0f;
@@ -64,6 +66,15 @@ public class EnemyHealth : MonoBehaviour
             if (!alreadyStunned)
             {
                 StartCoroutine(Stunned2S());
+            }
+        }
+
+        //Burn
+        if (collisionGameObject.tag == "FirePlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyBurning)
+            {
+                StartCoroutine(Burn4S());
             }
         }
     }
@@ -143,6 +154,30 @@ public class EnemyHealth : MonoBehaviour
         yield break;
         // All Done!        
     }
+
+    //Burn
+    public IEnumerator Burn4S()
+    {
+
+        float i = 4f;
+        
+        while (i > 0)
+        {
+            if (!alreadyBurning)
+            {
+                alreadyBurning = true;
+            }
+            UpdateHealth(-burnDPS);
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
+                
+        }
+        alreadyBurning = false;
+        yield break;
+        // All Done!        
+    }
+
 }
 
 

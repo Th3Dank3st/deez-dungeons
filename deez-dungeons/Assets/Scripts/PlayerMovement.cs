@@ -22,11 +22,20 @@ public class PlayerMovement : MonoBehaviour
     private InputAction fire;
     private InputAction lunarSlash;
     private InputAction dash;
+    private InputAction one;
     public Transform firePoint;
     public GameObject fireBulletPrefab;
     public GameObject lunarSlashPrefab;
     public float fireBulletForce = 20f;
     public float lunarSlashForce = 15f;
+
+
+    //fireball
+    public GameObject fireballBulletPrefab;
+    private float FireballCoolCounter;
+    public float FireballCooldown;
+    public float fireballBulletForce = 20f;
+
 
 
     //health
@@ -84,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
 
         dash = playerControls.Player.Dash;
         dash.Enable();
+
+        one = playerControls.Player.One;
+        one.Enable();
     }
 
     //WHEN YOU RELEASE IT
@@ -120,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
             
             if (isInvincible == true)
             {
-                Debug.Log("Player is INVINCIBLE!");
+                //Debug.Log("Player is INVINCIBLE!");
             }
         }
 
@@ -133,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
                 activeMoveSpeed = moveSpeed;
                 isInvincible = false;
                 dashCoolCounter = dashCooldown;
-                Debug.Log("Player is VULNERABLE!");
+                //Debug.Log("Player is VULNERABLE!");
             }
         }
 
@@ -176,6 +188,25 @@ public class PlayerMovement : MonoBehaviour
         if (FireCoolCounter > 0)
         {
             FireCoolCounter -= Time.deltaTime;
+        }
+
+
+        //Fireball
+        if (playerControls.Player.One.triggered)
+        {
+            if (FireballCoolCounter <= 0)
+            {
+                GameObject bullet = Instantiate(fireballBulletPrefab, firePoint.position, firePoint.rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(firePoint.up * fireballBulletForce, ForceMode2D.Impulse);
+
+                FireballCoolCounter = FireballCooldown;
+            }
+        }
+
+        if (FireballCoolCounter > 0)
+        {
+            FireballCoolCounter -= Time.deltaTime;
         }
     }
 
