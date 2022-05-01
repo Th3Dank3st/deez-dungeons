@@ -1678,7 +1678,7 @@ MonoBehaviour:
   fireballBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
   FireballCooldown: 0.5
   fireballBulletForce: 20
-  maxHealth: 100
+  maxHealth: 250
   healthBarOverhead: {fileID: 213209782}
   healthBar: {fileID: 601683362}
   regenAmount: 5
@@ -7886,8 +7886,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
+      propertyPath: m_Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
+      propertyPath: m_MaxValue
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6049334070313021826, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8611,6 +8619,14 @@ PrefabInstance:
     - target: {fileID: 6049334069560202221, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
+      propertyPath: m_Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
+      propertyPath: m_MaxValue
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6049334070313021826, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_AnchorMax.x
