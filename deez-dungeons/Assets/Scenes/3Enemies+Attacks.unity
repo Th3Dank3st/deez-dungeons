@@ -1675,6 +1675,9 @@ MonoBehaviour:
   lunarSlashPrefab: {fileID: 4445093454273237090, guid: f7a29d198fad3f9499691e3f4ae5946a, type: 3}
   fireBulletForce: 5
   lunarSlashForce: 15
+  fireballBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
+  FireballCooldown: 0
+  fireballBulletForce: 20
   maxHealth: 100
   healthBarOverhead: {fileID: 213209782}
   healthBar: {fileID: 601683362}
