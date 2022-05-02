@@ -138,6 +138,7 @@ MonoBehaviour:
   alreadySlowed: 1
   alreadyRooted: 1
   alreadyStunned: 0
+  alreadyBurning: 0
   maxHealth: 450
 --- !u!114 &5406842281089657229
 MonoBehaviour:
@@ -183,7 +184,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 50000
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
