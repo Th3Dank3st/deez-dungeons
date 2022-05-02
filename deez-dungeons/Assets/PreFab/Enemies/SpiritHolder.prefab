@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b72af4d93c9ff40b8e99f0d8ca0798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolPointPrefab: {fileID: 6696862428860695788, guid: 8e6fc26e5d878284c84e90cb0a33b94c, type: 3}
+  enemyTransform: {fileID: 8328666906649079137}
+  patrolRange: 15
+  patrolUnit: 1
 --- !u!58 &7016502216564684875
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -290,6 +294,7 @@ MonoBehaviour:
   alreadySlowed: 0
   alreadyRooted: 0
   alreadyStunned: 0
+  alreadyBurning: 0
   maxHealth: 350
 --- !u!50 &8328666906649079136
 Rigidbody2D:

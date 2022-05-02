@@ -29,11 +29,7 @@ public class SpawnOnTrigger : MonoBehaviour
 
     Vector3 GeneratedPosition()
     {
-        //int x, y, z;
-        //x = Random.Range(5, 10);
-        //y = Random.Range(5, 10);
-        //z = 0;
-        // return new Vector3(x, y, z);
+
         return (Vector2)spawner.position + spawnRange * Random.insideUnitCircle;
     }
 

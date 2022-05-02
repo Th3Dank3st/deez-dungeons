@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerPrefab
@@ -370,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval
@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval
@@ -1464,7 +1464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -6107,7 +6107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -6131,7 +6131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval
@@ -6449,7 +6449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -6461,7 +6461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval
@@ -6508,7 +6508,7 @@ MonoBehaviour:
   eliteInt2: 0.7
   spawner: {fileID: 1775017412}
   spawnerobject: {fileID: 1775017409}
-  spawnRange: 5
+  spawnRange: 2
   spawnerActiveTime: 1
 --- !u!4 &1775017412 stripped
 Transform:
@@ -8497,7 +8497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689235, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Radius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_Name
@@ -8509,7 +8509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval

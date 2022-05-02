@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5506096758455918525, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: patrolUnit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506096758455918525, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: patrolRange
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549906, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_Enabled
       value: 1
