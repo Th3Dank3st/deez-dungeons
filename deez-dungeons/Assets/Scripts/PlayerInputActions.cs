@@ -80,6 +80,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GroundTarget"",
+                    ""type"": ""Button"",
+                    ""id"": ""27d161d4-4b6c-4fff-94dc-ac70e62c9f8e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -305,17 +314,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ce074aec-c228-430c-8028-fc830ea69452"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ee12237d-8922-4184-a4ce-0199aae3a2e1"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
@@ -355,6 +353,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LunarSlash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3451667-17cb-4852-a296-5248756e42b7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GroundTarget"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -948,6 +957,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_LunarSlash = m_Player.FindAction("LunarSlash", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_One = m_Player.FindAction("One", throwIfNotFound: true);
+        m_Player_GroundTarget = m_Player.FindAction("GroundTarget", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1025,6 +1035,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LunarSlash;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_One;
+    private readonly InputAction m_Player_GroundTarget;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1035,6 +1046,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @LunarSlash => m_Wrapper.m_Player_LunarSlash;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @One => m_Wrapper.m_Player_One;
+        public InputAction @GroundTarget => m_Wrapper.m_Player_GroundTarget;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1062,6 +1074,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @One.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
                 @One.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
                 @One.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
+                @GroundTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
+                @GroundTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
+                @GroundTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1084,6 +1099,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @One.started += instance.OnOne;
                 @One.performed += instance.OnOne;
                 @One.canceled += instance.OnOne;
+                @GroundTarget.started += instance.OnGroundTarget;
+                @GroundTarget.performed += instance.OnGroundTarget;
+                @GroundTarget.canceled += instance.OnGroundTarget;
             }
         }
     }
@@ -1246,6 +1264,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLunarSlash(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnOne(InputAction.CallbackContext context);
+        void OnGroundTarget(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

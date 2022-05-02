@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GroundTarget",
+                    "type": "Button",
+                    "id": "27d161d4-4b6c-4fff-94dc-ac70e62c9f8e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -283,17 +292,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ce074aec-c228-430c-8028-fc830ea69452",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ee12237d-8922-4184-a4ce-0199aae3a2e1",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -333,6 +331,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LunarSlash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3451667-17cb-4852-a296-5248756e42b7",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroundTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

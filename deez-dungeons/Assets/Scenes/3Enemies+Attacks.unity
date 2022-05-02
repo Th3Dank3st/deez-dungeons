@@ -1676,18 +1676,19 @@ MonoBehaviour:
   fireBulletForce: 5
   lunarSlashForce: 15
   fireballBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
-  FireballCooldown: 0.5
+  FireballCooldown: 0.35
   fireballBulletForce: 20
   maxHealth: 250
   healthBarOverhead: {fileID: 213209782}
   healthBar: {fileID: 601683362}
   regenAmount: 5
   healthRegenCooldown: 5
+  go: {fileID: 3770482790508465757, guid: 19fdfba907c59dd4396d977ebcea90e5, type: 3}
   lunarCooldown: 10
-  FireCooldown: 2
+  FireCooldown: 1.9
   dashSpeed: 30
-  dashLength: 0.26
-  dashCooldown: 3
+  dashLength: 0.2
+  dashCooldown: 2.5
 --- !u!114 &326447360
 MonoBehaviour:
   m_ObjectHideFlags: 0
