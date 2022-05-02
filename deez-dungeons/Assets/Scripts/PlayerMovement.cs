@@ -6,15 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
-
-
     public float moveSpeed = 5f;
     public PlayerInputActions playerControls;
-
     public Rigidbody2D rb;
-    //public Rigidbody2D RB;
     public Animator animator;
-
     Vector2 movement;                                                                    //INPUT CONTAINER, CONAINS VALUE CONTAINERS FOR AXIS X AND Y IN THE SCENE
     Vector2 mousePos;
     public Camera cam;
@@ -30,14 +25,11 @@ public class PlayerMovement : MonoBehaviour
     public float fireBulletForce = 20f;
     public float lunarSlashForce = 15f;
 
-
     //fireball
     public GameObject fireballBulletPrefab;
     private float FireballCoolCounter;
     public float FireballCooldown;
     public float fireballBulletForce = 20f;
-
-
 
     //health
     public float maxHealth = 100f;
@@ -52,9 +44,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject go;
     bool canplace;
     bool releasedbutton;
-    //Vector3 mousePos1;
- 
-
 
     //lunar slash
     private float lunarCoolCounter;
@@ -67,13 +56,10 @@ public class PlayerMovement : MonoBehaviour
     //dash 
     private float activeMoveSpeed;
     public float dashSpeed;
-
     public float dashLength = .5f, dashCooldown = 1f;
-
     private float dashCounter;
     private float dashCoolCounter;
     private bool isInvincible = false;
-
 
     private void Awake()
     {
@@ -119,15 +105,12 @@ public class PlayerMovement : MonoBehaviour
         dash.Disable();
     }
 
-
     // Update is called once per frame (use this for input)
     void Update()
     {
         //movement.x = Input.GetAxisRaw("Horizontal");                                  //OLD INPUT system
         //movement.y = Input.GetAxisRaw("Vertical");                                    //OLD INPUT system
-
         movement = move.ReadValue<Vector2>();                                           //NEW INPUT system ---- updating our vector2(information type) movement container with the values stored in the move container defined above, which gets information from PlayerInputActions. this information is updated once per frame, so we don't want to put the equation that tells the engine to move here, because it would change based on the users framerate, so we will call upon this data in FixedUpdate when we perform the equation caluclating our movespeed
-
         animator.SetFloat("Horizontal", movement.x);                                    // INPUT FOR ANIMATIONS (TELLS THE ANIMATOR WHICH ANIMATION TO USE FOR EACH DIRECTION
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);                              //TELLS THE ANIMATOR IF WE ARE MOVING
@@ -174,7 +157,6 @@ public class PlayerMovement : MonoBehaviour
                 GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
-
                 lunarCoolCounter = lunarCooldown;
             }
         }
@@ -192,9 +174,7 @@ public class PlayerMovement : MonoBehaviour
                 GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
-
                 FireCoolCounter = FireCooldown;
-
             }
         }
 
@@ -212,7 +192,6 @@ public class PlayerMovement : MonoBehaviour
                 GameObject bullet = Instantiate(fireballBulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * fireballBulletForce, ForceMode2D.Impulse);
-
                 FireballCoolCounter = FireballCooldown;
             }
         }
@@ -228,7 +207,6 @@ public class PlayerMovement : MonoBehaviour
             if (healthCoolCounter <= 0)
             {
                 UpdateHealth(+regenAmount);
-
                 healthCoolCounter = healthRegenCooldown;
             }
         }
@@ -250,13 +228,10 @@ public class PlayerMovement : MonoBehaviour
             canplace = false;
         }
 
-
         if (releasedbutton == false && canplace)
-        {
-            
+        {            
             GameObject newEnemy = Instantiate(go, mousePos , Quaternion.identity);
-            Destroy(newEnemy, 2f);
-            
+            Destroy(newEnemy, 2f);           
             canplace = false;
         }
     }
@@ -265,11 +240,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {                                           //|NEWDASH BELOW|
         rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);    //accessing our "moveSpeed" float(data container) which we set at the top, and accessing our "movement" data which we collect from the user once per frame(look in the void Update method above), so that we can perform the equation for movement direction and speed. (our Vector2 x,y value container "movement" for direction) (our float container "moveSpeed" for speed), and send the result of the equation off to the rigidbody2d that we named rb at the top, and using the MovePosition function possessed by the game engine (unity) to move our player's rigidbody that we assigned it in the engine.
-
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
-        rb.rotation = angle;
-    
+        rb.rotation = angle;    
     }
 
     public void UpdateHealth(float damage)
