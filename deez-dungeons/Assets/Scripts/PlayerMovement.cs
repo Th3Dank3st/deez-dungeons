@@ -255,6 +255,7 @@ public class PlayerMovement : MonoBehaviour
         {
             
             GameObject newEnemy = Instantiate(go, mousePos , Quaternion.identity);
+            Destroy(newEnemy, 2f);
             
             canplace = false;
         }
