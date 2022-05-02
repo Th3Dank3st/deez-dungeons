@@ -13,6 +13,8 @@ public class PlayerDetection : MonoBehaviour
     private bool isWalking = false; //this is for the enum
     private bool alreadyPatroling = false;
     public bool patrolUnit = false;
+    private GameObject patrolPoint1;
+    private GameObject patrolPoint2;
     //private bool walkingToTarget1 = false;
     //private bool walkingToTarget2 = false;
     //private bool isAtTarget1 = false;
@@ -26,11 +28,11 @@ public class PlayerDetection : MonoBehaviour
     {
         //gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().enabled = false;          //changed lunar slash to luanr slash layer, changed the trigger collider for aggro on bat to lunar slash layer, need to make lunar slash collider not detect the aggro trigger collider
         gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
-        GameObject patrolPoint1 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
-        GameObject patrolPoint2 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
+        //GameObject patrolPoint1 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
+        //GameObject patrolPoint2 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
 
-        patrolTarget1 = patrolPoint1.gameObject.GetComponent<Transform>();
-        patrolTarget2 = patrolPoint2.gameObject.GetComponent<Transform>();
+        //patrolTarget1 = patrolPoint1.gameObject.GetComponent<Transform>();
+        //patrolTarget2 = patrolPoint2.gameObject.GetComponent<Transform>();
         gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = patrolTarget1;
         // }
         //patrolTarget1 = Instantiate(EnemyPosition, GeneratedPosition(), Quaternion.identity);
@@ -108,6 +110,7 @@ public class PlayerDetection : MonoBehaviour
     // patrol to target 1
     public IEnumerator PatrolPath()
     {
+        
         alreadyPatroling = true;
         Debug.Log("Starting patrol Routine to target 1");
         int v = 15;
@@ -117,21 +120,25 @@ public class PlayerDetection : MonoBehaviour
             {
                 Debug.Log("Walking to target1");
                 isWalking = true;
+                patrolPoint1 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
+                patrolTarget1 = patrolPoint1.gameObject.GetComponent<Transform>();
                 gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = patrolTarget1;
             }
             v--;
             yield return new WaitForSeconds(1);
         }
-
+        
         isWalking = false;
         Debug.Log("Ending patrol routine 1 and starting patrol routine 2!");
-
+        Destroy(patrolPoint1);
         int y = 15;
         while (y > 0)
         {
             if (!isWalking)
             {
                 isWalking = true;
+                GameObject patrolPoint2 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
+                patrolTarget2 = patrolPoint2.gameObject.GetComponent<Transform>();
                 gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = patrolTarget2;
                 Debug.Log("Walking to target2");
             }
@@ -140,6 +147,7 @@ public class PlayerDetection : MonoBehaviour
         }
         isWalking = false;
         alreadyPatroling = false;
+        Destroy(patrolPoint2);
         Debug.Log("done with patrol routine");
     }
 
