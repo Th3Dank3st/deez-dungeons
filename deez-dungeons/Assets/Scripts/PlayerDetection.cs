@@ -51,7 +51,7 @@ public class PlayerDetection : MonoBehaviour
         {
             if (!canSeePlayer && !alreadyPatroling)
             {
-                Debug.Log("StartingCoroutine");
+                //Debug.Log("StartingCoroutine");
                 StartCoroutine(PatrolPath());
             }
         }
@@ -112,13 +112,13 @@ public class PlayerDetection : MonoBehaviour
     {
         
         alreadyPatroling = true;
-        Debug.Log("Starting patrol Routine to target 1");
+        //Debug.Log("Starting patrol Routine to target 1");
         int v = 15;
         while (v > 0)
         {
             if (!isWalking)
             {
-                Debug.Log("Walking to target1");
+                //Debug.Log("Walking to target1");
                 isWalking = true;
                 patrolPoint1 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
                 patrolTarget1 = patrolPoint1.gameObject.GetComponent<Transform>();
@@ -129,7 +129,7 @@ public class PlayerDetection : MonoBehaviour
         }
         
         isWalking = false;
-        Debug.Log("Ending patrol routine 1 and starting patrol routine 2!");
+        //Debug.Log("Ending patrol routine 1 and starting patrol routine 2!");
         Destroy(patrolPoint1);
         int y = 15;
         while (y > 0)
@@ -140,7 +140,7 @@ public class PlayerDetection : MonoBehaviour
                 GameObject patrolPoint2 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
                 patrolTarget2 = patrolPoint2.gameObject.GetComponent<Transform>();
                 gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = patrolTarget2;
-                Debug.Log("Walking to target2");
+                //Debug.Log("Walking to target2");
             }
             v--;
             yield return new WaitForSeconds(1);
@@ -148,7 +148,7 @@ public class PlayerDetection : MonoBehaviour
         isWalking = false;
         alreadyPatroling = false;
         Destroy(patrolPoint2);
-        Debug.Log("done with patrol routine");
+        //Debug.Log("done with patrol routine");
     }
 
 
