@@ -625,7 +625,7 @@ public class PlayerMovement : MonoBehaviour
                 
                 dashRecharging = true;
 
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(8f);
             }
             if (dashRecharging)             //after 10 seconds one dash charge is added, dash recharging set back to false, keeping the loop going untill dashCharges = 3
             {
