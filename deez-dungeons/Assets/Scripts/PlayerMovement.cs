@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction fire;
     private InputAction lunarSlash;
     private InputAction dash;
-    private InputAction one;
+    private InputAction frozenOrb;
     private InputAction groundTarget;
     public Transform firePoint;
     public GameObject fireBulletPrefab;
@@ -28,11 +28,13 @@ public class PlayerMovement : MonoBehaviour
     //indicator
     private bool FOrbPending;
     public GameObject FOrbIndicator;
+    public bool lunarPending;
     private bool groundTargetPending;
     public Texture2D cursorForGroundTarget;
     public Texture2D cursorDefault;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+    private bool alreadyCasting = false;
 
 
 
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     //lunar slash
     private float lunarCoolCounter;
     public float lunarCooldown = 1f;
+    public GameObject lunarIndicator;
 
     //Frozen Orb
     private float FireCoolCounter;
@@ -103,8 +106,8 @@ public class PlayerMovement : MonoBehaviour
         dash = playerControls.Player.Dash;
         dash.Enable();
 
-        one = playerControls.Player.One;
-        one.Enable();
+        frozenOrb = playerControls.Player.FrozenOrb;
+        frozenOrb.Enable();
 
         groundTarget = playerControls.Player.GroundTarget;
         groundTarget.Enable();
@@ -117,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
         fire.Disable();
         lunarSlash.Disable();
         dash.Disable();
+        frozenOrb.Disable();
     }
 
     // Update is called once per frame (use this for input)
@@ -199,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Fireball
-        if (playerControls.Player.One.triggered)
+        /*if (playerControls.Player.One.triggered)
         {
             if (FireballCoolCounter <= 0)
             {
@@ -213,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
         if (FireballCoolCounter > 0)
         {
             FireballCoolCounter -= Time.deltaTime;
-        }
+        }*/
 
         //Passive Regen
         if (currentHealth < maxHealth)
@@ -255,13 +259,14 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Frozen Orb
-        if (playerControls.Player.GroundTarget.triggered)
+        if (playerControls.Player.FrozenOrb.triggered && !alreadyCasting)
         {            
             if (FireCoolCounter <= 0)
             {
                 Debug.Log("AIM INDICATOR FOR FROZEN ORB SPAWNED");
                 FOrbIndicator.SetActive(true);
                 FOrbPending = true;
+                alreadyCasting = true;
             }
                
         }
@@ -274,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
             FireCoolCounter = FireCooldown;
             FOrbIndicator.SetActive(false);
+            alreadyCasting = false;
             FOrbPending = false;
         }
 
@@ -282,16 +288,13 @@ public class PlayerMovement : MonoBehaviour
             FireCoolCounter -= Time.deltaTime;
         }
 
-
-
-
         //ground target aoe
-        if (playerControls.Player.LunarSlash.triggered)
+        if (playerControls.Player.GroundTarget.triggered && !alreadyCasting)
         {
             if (groundTargetCoolCounter <= 0)
             {
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
-                Debug.Log("AIM INDICATOR FOR GROUND TARGET SPAWNED");
+                alreadyCasting = true;
                 groundTargetPending = true;
             }
 
@@ -299,17 +302,48 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.Fire.triggered && groundTargetPending)
         {
-            Debug.Log("Ground Target Skill Casted");
+            
             GameObject newEnemy = Instantiate(go, mousePos, Quaternion.identity);
             Destroy(newEnemy, 4f);
             groundTargetCoolCounter = groundTargetCooldown;
             Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
             groundTargetPending = false;
+            alreadyCasting = false;
         }
 
         if (groundTargetCoolCounter > 0)
         {
             groundTargetCoolCounter -= Time.deltaTime;
+        }
+
+
+        //LunarSlash
+        if (playerControls.Player.LunarSlash.triggered && !alreadyCasting)
+        {
+            if (lunarCoolCounter <= 0)
+            {
+                alreadyCasting = true;
+                lunarIndicator.SetActive(true);
+                lunarPending = true;
+            }
+
+        }
+
+        if (playerControls.Player.Fire.triggered && lunarPending)
+        {
+
+            GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
+            lunarCoolCounter = lunarCooldown;
+            lunarIndicator.SetActive(false);
+            lunarPending = false;
+            alreadyCasting = false;
+        }
+
+        if (lunarCoolCounter > 0)
+        {
+            lunarCoolCounter -= Time.deltaTime;
         }
 
 

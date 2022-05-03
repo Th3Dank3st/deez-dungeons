@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "One",
+                    "name": "FrozenOrb",
                     "type": "Button",
                     "id": "12addf00-c33f-4077-8fd1-590b3b140f12",
                     "expectedControlType": "Button",
@@ -314,19 +314,8 @@
                 },
                 {
                     "name": "",
-                    "id": "26ba5918-e85e-47dd-8751-9619c9186ed3",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "One",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6ed9310d-b092-4392-ba76-1655be8b7b94",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -337,11 +326,22 @@
                 {
                     "name": "",
                     "id": "e3451667-17cb-4852-a296-5248756e42b7",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "GroundTarget",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "592f610c-bd77-430a-a6d4-81882349fa08",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FrozenOrb",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

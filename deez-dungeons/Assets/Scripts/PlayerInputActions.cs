@@ -73,7 +73,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""One"",
+                    ""name"": ""FrozenOrb"",
                     ""type"": ""Button"",
                     ""id"": ""12addf00-c33f-4077-8fd1-590b3b140f12"",
                     ""expectedControlType"": ""Button"",
@@ -336,19 +336,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""26ba5918-e85e-47dd-8751-9619c9186ed3"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""One"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6ed9310d-b092-4392-ba76-1655be8b7b94"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -359,11 +348,22 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e3451667-17cb-4852-a296-5248756e42b7"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""GroundTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""592f610c-bd77-430a-a6d4-81882349fa08"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FrozenOrb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -956,7 +956,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_LunarSlash = m_Player.FindAction("LunarSlash", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_One = m_Player.FindAction("One", throwIfNotFound: true);
+        m_Player_FrozenOrb = m_Player.FindAction("FrozenOrb", throwIfNotFound: true);
         m_Player_GroundTarget = m_Player.FindAction("GroundTarget", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1034,7 +1034,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_LunarSlash;
     private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_One;
+    private readonly InputAction m_Player_FrozenOrb;
     private readonly InputAction m_Player_GroundTarget;
     public struct PlayerActions
     {
@@ -1045,7 +1045,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @LunarSlash => m_Wrapper.m_Player_LunarSlash;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @One => m_Wrapper.m_Player_One;
+        public InputAction @FrozenOrb => m_Wrapper.m_Player_FrozenOrb;
         public InputAction @GroundTarget => m_Wrapper.m_Player_GroundTarget;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1071,9 +1071,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @One.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
-                @One.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
-                @One.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOne;
+                @FrozenOrb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrozenOrb;
+                @FrozenOrb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrozenOrb;
+                @FrozenOrb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrozenOrb;
                 @GroundTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
                 @GroundTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
                 @GroundTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
@@ -1096,9 +1096,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
-                @One.started += instance.OnOne;
-                @One.performed += instance.OnOne;
-                @One.canceled += instance.OnOne;
+                @FrozenOrb.started += instance.OnFrozenOrb;
+                @FrozenOrb.performed += instance.OnFrozenOrb;
+                @FrozenOrb.canceled += instance.OnFrozenOrb;
                 @GroundTarget.started += instance.OnGroundTarget;
                 @GroundTarget.performed += instance.OnGroundTarget;
                 @GroundTarget.canceled += instance.OnGroundTarget;
@@ -1263,7 +1263,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnLunarSlash(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-        void OnOne(InputAction.CallbackContext context);
+        void OnFrozenOrb(InputAction.CallbackContext context);
         void OnGroundTarget(InputAction.CallbackContext context);
     }
     public interface IUIActions
