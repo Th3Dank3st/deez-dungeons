@@ -1683,7 +1683,7 @@ MonoBehaviour:
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
   summonCooldown: 10
-  summonPrefab: {fileID: 8478338740251036559, guid: 7d76e008a08dd2842b3b81aa13632528, type: 3}
+  summonPrefab: {fileID: 2556956885129375784, guid: 55c9c74ff39c3fb40b684e2310f0bb1a, type: 3}
   fireballBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
   FireballCooldown: 0.35
   fireballBulletForce: 20

@@ -437,7 +437,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
-            Destroy(summon, 7f);
+            Destroy(summon, 0.3f);
             summonCoolCounter = summonCooldown;
             Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
             //groundTargetIndicator.SetActive(false);

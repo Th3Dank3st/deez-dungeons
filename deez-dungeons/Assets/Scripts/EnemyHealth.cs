@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     public bool alreadyRooted = false;
     public bool alreadyStunned = false;
     public bool alreadyBurning = false;
+    public bool alreadyShocked = false;
+    private float shockDPS = 50;
     private float burnDPS = 25;
     
 
@@ -75,6 +77,15 @@ public class EnemyHealth : MonoBehaviour
             if (!alreadyBurning)
             {
                 StartCoroutine(Burn4S());
+            }
+        }
+
+        //Shock
+        if (collisionGameObject.tag == "ShockPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyShocked)
+            {
+                StartCoroutine(Shock4S());
             }
         }
     }
@@ -159,7 +170,7 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator Burn4S()
     {
 
-        float i = 2f;
+        float i = 4f;
         
         while (i > 0)
         {
@@ -178,6 +189,53 @@ public class EnemyHealth : MonoBehaviour
         // All Done!        
     }
 
+
+    public IEnumerator Shock4S()
+    {
+
+        float i = 2f;
+
+        while (i > 0)
+        {
+            if (!alreadyShocked)
+            {
+                alreadyShocked = true;
+            }
+            StartCoroutine(Root1S());
+            UpdateHealth(-shockDPS);
+
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(2f);
+
+        }
+        alreadyShocked = false;
+        yield break;
+        // All Done!        
+    }
+
+    public IEnumerator Root1S()
+    {
+        var path = gameObject.GetComponent<Pathfinding.AIPath>();
+        var originalSpeed = path.maxSpeed;
+        float i = 1f;
+
+        while (i > 0)
+        {
+            if (!alreadyRooted)
+            {
+                path.maxSpeed = 0f;
+                alreadyRooted = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
+        }
+        path.maxSpeed = originalSpeed;
+        alreadyRooted = false;
+        yield break;
+        // All Done!        
+    }
 }
 
 
