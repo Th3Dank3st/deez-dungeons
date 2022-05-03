@@ -2,9 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+
+    //ability 1 cooldown image
+    public Image abilityImage1;
+    public float cooldown1 = 3f;
+    private bool isCooldown = false;
+    //ability 2 cooldown image
+    public Image abilityImage2;
+    public float cooldown2 = 4f;
+    private bool isCooldown2 = false;
+    //ability 3 cooldown image
+    public Image abilityImage3;
+    public float cooldown3 = 6f;
+    private bool isCooldown3 = false;
+    //ability 4 cooldown image
+    public Image abilityImage4;
+    public float cooldown4 = 10f;
+    private bool isCooldown4 = false;
+
+
+
     public static PlayerMovement Instance;
     public float moveSpeed = 5f;
     public PlayerInputActions playerControls;
@@ -95,6 +117,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        abilityImage4.fillAmount = 0;
+        abilityImage3.fillAmount = 0;
+        abilityImage2.fillAmount = 0;
+        abilityImage1.fillAmount = 0;
         //groundTargetRB = GetComponent<Rigidbody2D>();
         Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
         Instance = this;
@@ -344,8 +370,21 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
             FireCoolCounter = FireCooldown;
             FOrbIndicator.SetActive(false);
+            abilityImage2.fillAmount = 1;
+            isCooldown2 = true;
             alreadyCasting = false;
             FOrbPending = false;
+        }
+
+        if (isCooldown2)
+        {
+            abilityImage2.fillAmount -= 1 / cooldown2 * Time.deltaTime;
+
+            if (abilityImage2.fillAmount <= 0)
+            {
+                abilityImage2.fillAmount = 0;
+                isCooldown2 = false;
+            }
         }
 
         if (FireCoolCounter > 0)
@@ -357,15 +396,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.GroundTarget.triggered && !alreadyCasting)
         {
+            
             if (groundTargetCoolCounter <= 0)
             {
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
                 //groundTargetIndicator.SetActive(true);
-                alreadyCasting = true;
+                alreadyCasting = true;               
                 groundTargetPending = true;
             }
-
-
         }
 
         if (playerControls.Player.Fire.triggered && groundTargetPending)
@@ -376,8 +414,21 @@ public class PlayerMovement : MonoBehaviour
             groundTargetCoolCounter = groundTargetCooldown;
             Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
             //groundTargetIndicator.SetActive(false);
+            abilityImage1.fillAmount = 1;
+            isCooldown = true;
             groundTargetPending = false;
             alreadyCasting = false;
+        }
+
+        if (isCooldown)
+        {
+            abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
+
+            if (abilityImage1.fillAmount <= 0)
+            {
+                abilityImage1.fillAmount = 0;
+                isCooldown = false;
+            }
         }
 
         if (groundTargetCoolCounter > 0)
@@ -406,8 +457,21 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
             lunarCoolCounter = lunarCooldown;
             lunarIndicator.SetActive(false);
+            abilityImage3.fillAmount = 1;
+            isCooldown3 = true;
             lunarPending = false;
             alreadyCasting = false;
+        }
+
+        if (isCooldown3)
+        {
+            abilityImage3.fillAmount -= 1 / cooldown3 * Time.deltaTime;
+
+            if (abilityImage3.fillAmount <= 0)
+            {
+                abilityImage3.fillAmount = 0;
+                isCooldown3 = false;
+            }
         }
 
         if (lunarCoolCounter > 0)
@@ -441,8 +505,21 @@ public class PlayerMovement : MonoBehaviour
             summonCoolCounter = summonCooldown;
             Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
             //groundTargetIndicator.SetActive(false);
+            abilityImage4.fillAmount = 1;
+            isCooldown4 = true;
             summonPending = false;
             alreadyCasting = false;
+        }
+
+        if (isCooldown4)
+        {
+            abilityImage4.fillAmount -= 1 / cooldown4 * Time.deltaTime;
+
+            if (abilityImage4.fillAmount <= 0)
+            {
+                abilityImage4.fillAmount = 0;
+                isCooldown4 = false;
+            }
         }
 
         if (summonCoolCounter > 0)
@@ -582,4 +659,9 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Player is VULNERABLE!");
         }
     }*/
+
+    void Ability1()
+    {
+        
+    }
 }
