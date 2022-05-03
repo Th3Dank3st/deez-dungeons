@@ -1821,9 +1821,9 @@ MonoBehaviour:
   abilityImage2: {fileID: 1992790432}
   cooldown2: 4
   abilityImage3: {fileID: 23908654}
-  cooldown3: 6
+  cooldown3: 8
   abilityImage4: {fileID: 1089687750}
-  cooldown4: 10
+  cooldown4: 12
   moveSpeed: 7
   rb: {fileID: 326447357}
   animator: {fileID: 132153745}
@@ -1840,7 +1840,7 @@ MonoBehaviour:
   cursorDefault: {fileID: 2800000, guid: f8d327f88e3408f42b3dc6850224b676, type: 3}
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
-  summonCooldown: 10
+  summonCooldown: 12
   summonPrefab: {fileID: 2556956885129375784, guid: 55c9c74ff39c3fb40b684e2310f0bb1a, type: 3}
   fireballBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
   FireballCooldown: 0.35
@@ -1853,7 +1853,7 @@ MonoBehaviour:
   healthRegenCooldown: 5
   go: {fileID: 3770482790508465757, guid: 19fdfba907c59dd4396d977ebcea90e5, type: 3}
   groundTargetCooldown: 4
-  lunarCooldown: 6
+  lunarCooldown: 8
   lunarIndicator: {fileID: 1233080645}
   FireCooldown: 4
   dashSpeed: 30
@@ -2763,7 +2763,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

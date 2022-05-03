@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public bool alreadyStunned = false;
     public bool alreadyBurning = false;
     public bool alreadyShocked = false;
-    private float shockDPS = 50;
+    private float shockDPS = 60;
     private float burnDPS = 25;
     
 
@@ -85,7 +85,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyShocked)
             {
-                StartCoroutine(Shock4S());
+                StartCoroutine(Shock6S());
             }
         }
     }
@@ -190,10 +190,10 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public IEnumerator Shock4S()
+    public IEnumerator Shock6S()
     {
 
-        float i = 2f;
+        float i = 3f;
 
         while (i > 0)
         {
