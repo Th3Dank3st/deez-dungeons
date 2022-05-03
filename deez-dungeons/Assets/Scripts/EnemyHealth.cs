@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     public bool alreadyRooted = false;
     public bool alreadyStunned = false;
     public bool alreadyBurning = false;
-    private float burnDPS = 10;
+    private float burnDPS = 25;
     
 
     private float health = 0f;
@@ -159,7 +159,7 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator Burn4S()
     {
 
-        float i = 4f;
+        float i = 2f;
         
         while (i > 0)
         {
