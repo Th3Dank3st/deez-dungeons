@@ -89,6 +89,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Summon"",
+                    ""type"": ""Button"",
+                    ""id"": ""14c8eaf7-208f-47cb-bc52-fd5d60180689"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -364,6 +373,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FrozenOrb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00a22af0-54d4-4cd9-aa1c-25f84b4075a5"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Summon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -958,6 +978,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_FrozenOrb = m_Player.FindAction("FrozenOrb", throwIfNotFound: true);
         m_Player_GroundTarget = m_Player.FindAction("GroundTarget", throwIfNotFound: true);
+        m_Player_Summon = m_Player.FindAction("Summon", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1036,6 +1057,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_FrozenOrb;
     private readonly InputAction m_Player_GroundTarget;
+    private readonly InputAction m_Player_Summon;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1047,6 +1069,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @FrozenOrb => m_Wrapper.m_Player_FrozenOrb;
         public InputAction @GroundTarget => m_Wrapper.m_Player_GroundTarget;
+        public InputAction @Summon => m_Wrapper.m_Player_Summon;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1077,6 +1100,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @GroundTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
                 @GroundTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
                 @GroundTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGroundTarget;
+                @Summon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSummon;
+                @Summon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSummon;
+                @Summon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSummon;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1102,6 +1128,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @GroundTarget.started += instance.OnGroundTarget;
                 @GroundTarget.performed += instance.OnGroundTarget;
                 @GroundTarget.canceled += instance.OnGroundTarget;
+                @Summon.started += instance.OnSummon;
+                @Summon.performed += instance.OnSummon;
+                @Summon.canceled += instance.OnSummon;
             }
         }
     }
@@ -1265,6 +1294,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnFrozenOrb(InputAction.CallbackContext context);
         void OnGroundTarget(InputAction.CallbackContext context);
+        void OnSummon(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

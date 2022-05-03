@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;                                                                    //INPUT CONTAINER, CONAINS VALUE CONTAINERS FOR AXIS X AND Y IN THE SCENE
     Vector2 mousePos;
     public Camera cam;
+    private InputAction summon;
     private InputAction move;
     private InputAction fire;
     private InputAction lunarSlash;
@@ -37,7 +38,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 hotSpot = Vector2.zero;
     private bool alreadyCasting = false;
 
-
+    //summon
+    private bool summonPending;
+    private float summonCoolCounter;
+    public float summonCooldown;
+    public GameObject summonPrefab;
 
     //public int indicatorCooldown = 2;
 
@@ -82,8 +87,11 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed;
     public float dashLength = .5f, dashCooldown = 1f;
     private float dashCounter;
-    private float dashCoolCounter;
+    //private float dashCoolCounter;
     private bool isInvincible = false;
+    private int dashCharges = 2;
+    //private int currentCharges;
+    private bool dashRecharging = false;
 
     private void Awake()
     {
@@ -118,6 +126,9 @@ public class PlayerMovement : MonoBehaviour
 
         groundTarget = playerControls.Player.GroundTarget;
         groundTarget.Enable();
+
+        summon = playerControls.Player.Summon;
+        summon.Enable();
     }
 
     //WHEN YOU RELEASE IT
@@ -128,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
         lunarSlash.Disable();
         dash.Disable();
         frozenOrb.Disable();
+        summon.Disable();
     }
 
     // Update is called once per frame (use this for input)
@@ -144,8 +156,10 @@ public class PlayerMovement : MonoBehaviour
         //DASH
         if (playerControls.Player.Dash.triggered)
         {
-            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            if (dashCounter <= 0 && dashCharges > 0)
             {
+                dashCharges--;
+                StartCoroutine(DashChargeCooldown());
                 activeMoveSpeed = dashSpeed;
                 isInvincible = true;
                 dashCounter = dashLength;
@@ -165,15 +179,58 @@ public class PlayerMovement : MonoBehaviour
             {
                 activeMoveSpeed = moveSpeed;
                 isInvincible = false;
-                dashCoolCounter = dashCooldown;
+                //dashCoolCounter = dashCooldown;               
                 //Debug.Log("Player is VULNERABLE!");
             }
         }
+        
 
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
-        }
+        //if (dashCoolCounter > 0)
+        //{
+         //   dashCoolCounter -= Time.deltaTime;
+        //}
+
+
+
+
+
+
+
+
+
+        /* if (playerControls.Player.Dash.triggered)
+         {
+             if (dashCoolCounter <= 0 && dashCounter <= 0 && dashCharges >= 1)
+             {
+                 activeMoveSpeed = dashSpeed;
+                 isInvincible = true;
+                 dashCounter = dashLength;
+             }
+
+             if (isInvincible == true)
+             {
+                 //Debug.Log("Player is INVINCIBLE!");
+             }
+         }
+
+         if (dashCounter > 0)
+         {
+             dashCounter -= Time.deltaTime;
+
+             if (dashCounter <= 0)
+             {
+                 activeMoveSpeed = moveSpeed;
+                 isInvincible = false;
+                 dashCoolCounter = dashCooldown;
+                 dashCharges--;
+                 //Debug.Log("Player is VULNERABLE!");
+             }
+         }
+
+         if (dashCoolCounter > 0)
+         {
+             dashCoolCounter -= Time.deltaTime;
+         }*/
 
         //LUNARSLASH
         /*if (playerControls.Player.LunarSlash.triggered)
@@ -296,7 +353,7 @@ public class PlayerMovement : MonoBehaviour
             FireCoolCounter -= Time.deltaTime;
         }
         
-        //ground target aoe
+        //Inferno   //ground target aoe
 
         if (playerControls.Player.GroundTarget.triggered && !alreadyCasting)
         {
@@ -365,6 +422,57 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+        if (playerControls.Player.Summon.triggered && !alreadyCasting)
+        {
+            if (summonCoolCounter <= 0)   //summonCoolCounter
+            {
+                Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);   //cursorForSummon
+                //groundTargetIndicator.SetActive(true);
+                alreadyCasting = true;
+                summonPending = true;      //summonPending = true;
+            }
+        }
+
+        if (playerControls.Player.Fire.triggered && summonPending)   //&& summonPending
+        {
+
+            GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
+            Destroy(summon, 7f);
+            summonCoolCounter = summonCooldown;
+            Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+            //groundTargetIndicator.SetActive(false);
+            summonPending = false;
+            alreadyCasting = false;
+        }
+
+        if (summonCoolCounter > 0)
+        {
+            summonCoolCounter -= Time.deltaTime;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -421,4 +529,57 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<LevelManager>().Restart();
         }
     }
+
+    IEnumerator DashChargeCooldown()
+    {
+
+        while (dashCharges < 3)         //assuming i have something in update that does dashCharges--;
+        {
+            if (!dashRecharging)        // set dash recharging to true, wait 10s
+            {
+                dashRecharging = true;
+
+                yield return new WaitForSeconds(10f);
+            }
+            if (dashRecharging)             //after 10 seconds one dash charge is added, dash recharging set back to false, keeping the loop going untill dashCharges = 3
+            {
+                dashCharges++;
+                dashRecharging = false;
+                yield break;
+            }
+        }
+    }
+
+
+    // move this to update or fix update to look like this
+    //if (dashCharges > 0)
+    //{
+    /*if (playerControls.Player.Dash.triggered)
+    {
+        if (dashCoolCounter <= 0 && dashCounter <= 0)
+        {
+            dashCharges--;
+            activeMoveSpeed = dashSpeed;
+            isInvincible = true;
+            dashCounter = dashLength;
+        }
+
+        if (isInvincible == true)
+        {
+            //Debug.Log("Player is INVINCIBLE!");
+        }
+    }
+
+    if (dashCounter > 0)
+    {
+        dashCounter -= Time.deltaTime;
+
+        if (dashCounter <= 0)
+        {
+            activeMoveSpeed = moveSpeed;
+            isInvincible = false;
+            dashCoolCounter = dashCooldown;
+            //Debug.Log("Player is VULNERABLE!");
+        }
+    }*/
 }

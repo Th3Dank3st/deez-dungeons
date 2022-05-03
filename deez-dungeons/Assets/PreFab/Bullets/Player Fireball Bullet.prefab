@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472251208754153122, guid: 39b71b619f61b1f48b8d4ff5d2a8bd61, type: 3}
       propertyPath: damage
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3472251208754153122, guid: 39b71b619f61b1f48b8d4ff5d2a8bd61, type: 3}
       propertyPath: duration
@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 3472251208754153122, guid: 39b71b619f61b1f48b8d4ff5d2a8bd61, type: 3}
       propertyPath: hitEffect
       value: 
-      objectReference: {fileID: 3770482790508465757, guid: 19fdfba907c59dd4396d977ebcea90e5, type: 3}
+      objectReference: {fileID: 6246371926163153692, guid: a9b27a72cc75bc1458f160cf3dfbd420, type: 3}
     - target: {fileID: 5557963260462468080, guid: 39b71b619f61b1f48b8d4ff5d2a8bd61, type: 3}
       propertyPath: m_Name
       value: Player Fireball Bullet
