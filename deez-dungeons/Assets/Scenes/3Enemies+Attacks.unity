@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityImage1: {fileID: 1782964699}
-  cooldown1: 5
+  cooldown1: 4
   abilityImage2: {fileID: 1992790432}
   cooldown2: 4
   abilityImage3: {fileID: 23908654}
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   healthRegenCooldown: 5
   go: {fileID: 3770482790508465757, guid: 19fdfba907c59dd4396d977ebcea90e5, type: 3}
   groundTargetCooldown: 4
-  lunarCooldown: 5
+  lunarCooldown: 6
   lunarIndicator: {fileID: 1233080645}
   FireCooldown: 4
   dashSpeed: 30
