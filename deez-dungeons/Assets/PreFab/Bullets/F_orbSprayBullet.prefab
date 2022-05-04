@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2935532341444775111}
   - component: {fileID: 4087886213929027592}
   - component: {fileID: 8386598710199820471}
+  - component: {fileID: 8409593713220572613}
   m_Layer: 8
   m_Name: F_orbSprayBullet
   m_TagString: ChillPlayerProjectile
@@ -244,3 +245,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!95 &8409593713220572613
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958002765241107158}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0d80a5f1188b3e46b87f0af19e08d55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

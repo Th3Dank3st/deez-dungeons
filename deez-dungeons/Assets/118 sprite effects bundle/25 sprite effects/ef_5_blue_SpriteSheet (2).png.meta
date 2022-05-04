@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: f0561b0c91531f94c997bb602468928f
+guid: 06cb4521fb7c98140a668ca3e3a2e555
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9014134445694389373
-    second: ef_5_blue_SpriteSheet_0
+      213: 4622968439675265398
+    second: ef_5_blue_SpriteSheet (2)_0
   - first:
-      213: 6740222817360017484
-    second: ef_5_blue_SpriteSheet_1
+      213: 5670340763327748431
+    second: ef_5_blue_SpriteSheet (2)_1
   - first:
-      213: 675752194952540669
-    second: ef_5_blue_SpriteSheet_2
+      213: -7165352765475934324
+    second: ef_5_blue_SpriteSheet (2)_2
   - first:
-      213: 9219859001753773524
-    second: ef_5_blue_SpriteSheet_3
+      213: -5406223240169566756
+    second: ef_5_blue_SpriteSheet (2)_3
   - first:
-      213: 5801702991361830475
-    second: ef_5_blue_SpriteSheet_4
+      213: -3552104359292409339
+    second: ef_5_blue_SpriteSheet (2)_4
   - first:
-      213: -2158324591330732915
-    second: ef_5_blue_SpriteSheet_5
+      213: 577922629602560694
+    second: ef_5_blue_SpriteSheet (2)_5
   - first:
-      213: 5621413097492423924
-    second: ef_5_blue_SpriteSheet_6
+      213: -3334385055644693948
+    second: ef_5_blue_SpriteSheet (2)_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +82,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -124,7 +124,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_0
+      name: ef_5_blue_SpriteSheet (2)_0
       rect:
         serializedVersion: 2
         x: 21
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7c0a39f483a81d70800000000000000
-      internalID: 9014134445694389373
+      spriteID: 671afa66d45182040800000000000000
+      internalID: 4622968439675265398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_1
+      name: ef_5_blue_SpriteSheet (2)_1
       rect:
         serializedVersion: 2
         x: 634
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48f9bfe0f41a8d50800000000000000
-      internalID: 6740222817360017484
+      spriteID: f495199a1e811be40800000000000000
+      internalID: 5670340763327748431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_2
+      name: ef_5_blue_SpriteSheet (2)_2
       rect:
         serializedVersion: 2
         x: 639
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df136508a01c06900800000000000000
-      internalID: 675752194952540669
+      spriteID: c8fa17b9f9d8f8c90800000000000000
+      internalID: -7165352765475934324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_3
+      name: ef_5_blue_SpriteSheet (2)_3
       rect:
         serializedVersion: 2
         x: 110
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d5a8b6c9e483ff70800000000000000
-      internalID: 9219859001753773524
+      spriteID: cdd4b314b9c39f4b0800000000000000
+      internalID: -5406223240169566756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_4
+      name: ef_5_blue_SpriteSheet (2)_4
       rect:
         serializedVersion: 2
         x: 164
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4e6174c12ac38050800000000000000
-      internalID: 5801702991361830475
+      spriteID: 50a6243b7e364bec0800000000000000
+      internalID: -3552104359292409339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_5
+      name: ef_5_blue_SpriteSheet (2)_5
       rect:
         serializedVersion: 2
         x: 634
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d84ddbf28371c02e0800000000000000
-      internalID: -2158324591330732915
+      spriteID: 6bace15d191350800800000000000000
+      internalID: 577922629602560694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ef_5_blue_SpriteSheet_6
+      name: ef_5_blue_SpriteSheet (2)_6
       rect:
         serializedVersion: 2
         x: 639
@@ -264,8 +264,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f4a3cbbd65430e40800000000000000
-      internalID: 5621413097492423924
+      spriteID: 44a4ded4572e9b1d0800000000000000
+      internalID: -3334385055644693948
       vertices: []
       indices: 
       edges: []
