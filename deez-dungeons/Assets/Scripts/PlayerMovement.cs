@@ -61,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
     private bool alreadyCasting = false;
     public Transform aoeIndicator;
     public GameObject aoeIndicatorObject;
+    public GameObject infernoIndicatorObject;
+    public Transform infernoIndicator;
     
 
     //summon
@@ -187,8 +189,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);                              //TELLS THE ANIMATOR IF WE ARE MOVING
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());   // updates mouse position of the user in NEW INPUT SYSTEM
         aoeIndicator.position = mousePos;
-        
-        
+        infernoIndicator.position = mousePos;
+
+
         //mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //forgroundtargetindicator
         //DASH
         if (playerControls.Player.Dash.triggered)
@@ -418,6 +421,7 @@ public class PlayerMovement : MonoBehaviour
             if (groundTargetCoolCounter <= 0)
             {
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
+                infernoIndicatorObject.SetActive(true);
                 //groundTargetIndicator.SetActive(true);
                 alreadyCasting = true;               
                 groundTargetPending = true;
@@ -436,6 +440,7 @@ public class PlayerMovement : MonoBehaviour
             isCooldown = true;
             groundTargetPending = false;
             alreadyCasting = false;
+            infernoIndicatorObject.SetActive(false);
         }
 
         if (isCooldown)
