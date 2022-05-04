@@ -15,6 +15,7 @@ public class DetectionForTeleGraph : MonoBehaviour
     public bool patrolUnit = false;
     private GameObject patrolPoint1;
     private GameObject patrolPoint2;
+    public Collider2D triggerWalk;
     //private bool walkingToTarget1 = false;
     //private bool walkingToTarget2 = false;
     //private bool isAtTarget1 = false;
@@ -28,6 +29,7 @@ public class DetectionForTeleGraph : MonoBehaviour
     {
         //gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().enabled = false;          //changed lunar slash to luanr slash layer, changed the trigger collider for aggro on bat to lunar slash layer, need to make lunar slash collider not detect the aggro trigger collider
         gameObject.GetComponentInParent<EnemyTelegraphAttack>().enabled = false;
+        gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
         //GameObject patrolPoint1 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
         //GameObject patrolPoint2 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
 
@@ -47,6 +49,7 @@ public class DetectionForTeleGraph : MonoBehaviour
 
     private void Update()
     {
+
         if (patrolUnit)
         {
             if (!canSeePlayer && !alreadyPatroling)
@@ -82,7 +85,9 @@ public class DetectionForTeleGraph : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if(triggerWalk.IsTouching(other))
             {
+
                 // get player location
                 Transform transform = other.gameObject.GetComponent<Transform>();
                 canSeePlayer = true;
@@ -91,6 +96,7 @@ public class DetectionForTeleGraph : MonoBehaviour
                 gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = transform;                         //                 target =                      //other.gameObject.transform;
                 //shoot at player
                 gameObject.GetComponentInParent<EnemyTelegraphAttack>().enabled = true;
+                gameObject.GetComponentInParent<PathEnemyShooting>().enabled = true;
             }
 
         }
@@ -103,6 +109,7 @@ public class DetectionForTeleGraph : MonoBehaviour
             canSeePlayer = false;
             gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = patrolTarget1;
             gameObject.GetComponentInParent<EnemyTelegraphAttack>().enabled = false;
+            gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
         }
     }
 

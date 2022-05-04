@@ -8,7 +8,7 @@ public class EnemyTelegraphAttack : MonoBehaviour
     //public GameObject bulletPrefab;
     public float FireRate = 6.0f;
     public float NextFire = 1.0f;
-    public float bulletForce;
+    //public float bulletForce;
     private bool playerInRange;
     public Animator m_animator;
     private bool Attacking;
@@ -18,6 +18,7 @@ public class EnemyTelegraphAttack : MonoBehaviour
     public GameObject Tele1;
     public GameObject Attack1;
     private GameObject oldTele;
+    public Collider2D trigger;
 
 
 
@@ -41,11 +42,19 @@ public class EnemyTelegraphAttack : MonoBehaviour
         
         if (other.gameObject.tag == "Player")
         {
+            if(trigger.IsTouching(other))
             playerInRange = true;
             player = other.gameObject.transform;
-            playerPos = new Vector2(player.position.x, player.position.y);
-            
+            playerPos = new Vector2(player.position.x, player.position.y);            
         }       
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            playerInRange = false;
+        }
     }
 
     IEnumerator Attack()
