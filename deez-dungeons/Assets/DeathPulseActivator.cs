@@ -26,7 +26,7 @@ public class DeathPulseActivator : MonoBehaviour
         while (indicatorDuration > 0)
         {
             indicatorDuration--;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.3f);
         }
             GameObject newEnemy = Instantiate(deathPulse, indicatorPos, Quaternion.identity);
             Destroy(this.gameObject);
