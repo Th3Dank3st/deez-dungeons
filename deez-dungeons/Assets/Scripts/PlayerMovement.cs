@@ -59,6 +59,9 @@ public class PlayerMovement : MonoBehaviour
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     private bool alreadyCasting = false;
+    public Transform aoeIndicator;
+    public GameObject aoeIndicatorObject;
+    
 
     //summon
     private bool summonPending;
@@ -174,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame (use this for input)
     void Update()
     {
+        
         staminaBarOverhead.SetHealth(dashCharges);
         //movement.x = Input.GetAxisRaw("Horizontal");                                  //OLD INPUT system
         //movement.y = Input.GetAxisRaw("Vertical");                                    //OLD INPUT system
@@ -182,6 +186,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);                              //TELLS THE ANIMATOR IF WE ARE MOVING
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());   // updates mouse position of the user in NEW INPUT SYSTEM
+        aoeIndicator.position = mousePos;
+        
+        
         //mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //forgroundtargetindicator
         //DASH
         if (playerControls.Player.Dash.triggered)
@@ -192,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
                 
                 activeMoveSpeed = dashSpeed;
                 isInvincible = true;
+                animator.SetBool("isRolling", true);
                 dashCounter = dashLength;
             }
 
@@ -213,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
 
                 activeMoveSpeed = moveSpeed;
                 isInvincible = false;
+                animator.SetBool("isRolling", false);
                 //dashCoolCounter = dashCooldown;               
                 //Debug.Log("Player is VULNERABLE!");
             }
@@ -372,7 +381,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.Fire.triggered && FOrbPending)
         {
-            Debug.Log("FrozenOrb Casted");
+            animator.SetTrigger("Attack");
             GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
@@ -382,6 +391,7 @@ public class PlayerMovement : MonoBehaviour
             isCooldown2 = true;
             alreadyCasting = false;
             FOrbPending = false;
+            
         }
 
         if (isCooldown2)
@@ -416,7 +426,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.Fire.triggered && groundTargetPending)
         {
-            
+            animator.SetTrigger("Attack");
             GameObject newEnemy = Instantiate(go, mousePos, Quaternion.identity);
             Destroy(newEnemy, 4f);
             groundTargetCoolCounter = groundTargetCooldown;
@@ -459,7 +469,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.Fire.triggered && lunarPending)
         {
-
+            animator.SetTrigger("Attack");
             GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
@@ -493,12 +503,13 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+        //ShockBlast
         if (playerControls.Player.Summon.triggered && !alreadyCasting)
         {
             if (summonCoolCounter <= 0)   //summonCoolCounter
             {
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);   //cursorForSummon
+                aoeIndicatorObject.SetActive(true);
                 //groundTargetIndicator.SetActive(true);
                 alreadyCasting = true;
                 summonPending = true;      //summonPending = true;
@@ -507,7 +518,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.Fire.triggered && summonPending)   //&& summonPending
         {
-
+            animator.SetTrigger("Attack");
             GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
             Destroy(summon, 0.3f);
             summonCoolCounter = summonCooldown;
@@ -517,6 +528,7 @@ public class PlayerMovement : MonoBehaviour
             isCooldown4 = true;
             summonPending = false;
             alreadyCasting = false;
+            aoeIndicatorObject.SetActive(false);
         }
 
         if (isCooldown4)
