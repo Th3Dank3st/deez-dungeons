@@ -1853,7 +1853,7 @@ MonoBehaviour:
   healthBarOverhead: {fileID: 213209782}
   staminaBarOverhead: {fileID: 1322138029}
   healthBar: {fileID: 601683362}
-  regenAmount: 5
+  regenAmount: 10
   healthRegenCooldown: 5
   go: {fileID: 861577408144133275, guid: 86ac846351f4b0a4c850733bc6ef1fa7, type: 3}
   groundTargetCooldown: 4
