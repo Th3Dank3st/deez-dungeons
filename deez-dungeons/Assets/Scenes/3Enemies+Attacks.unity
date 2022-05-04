@@ -3987,6 +3987,7 @@ MonoBehaviour:
   alreadyShocked: 0
   isWarlock: 1
   phase2: {fileID: 429189615}
+  Phase1End: {fileID: 165281105}
   maxHealth: 1000
 --- !u!114 &682868458
 MonoBehaviour:
@@ -4050,9 +4051,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 769731371}
   bulletPrefab: {fileID: 9172471899553542958, guid: bd64b4d8dfc572f409358ba775ece396, type: 3}
-  FireRate: 1
+  FireRate: 4
   NextFire: 1
-  bulletForce: 20
+  bulletForce: 30
 --- !u!1 &686165464
 GameObject:
   m_ObjectHideFlags: 0
