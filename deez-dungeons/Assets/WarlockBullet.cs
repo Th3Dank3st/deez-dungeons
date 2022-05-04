@@ -14,7 +14,6 @@ public class WarlockBullet : MonoBehaviour
         Destroy(this.gameObject, range);
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collisionGameObject = collision.gameObject;
@@ -25,30 +24,9 @@ public class WarlockBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        //if (collisionGameObject.tag != "Player")
-        {
-            if (collisionGameObject/*.GetComponent<PlayerHealth>()*/ != null)
-            {
-                //collisionGameObject.GetComponent<PlayerHealth>().UpdateHealth(-damage);
-
-                //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                // Destroy(effect, explosionDuration);
-
-                // }
-
-                //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                //Destroy(effect, duration);
-                //Destroy(gameObject);
-            }
-            else if (collisionGameObject.tag != "Wall")
-            {
-                if (collisionGameObject != null)
-                {
-                    // GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                    // Destroy(effect, explosionDuration);
-                    Destroy(this.gameObject);
-                }
-            }
-        }
+        if (collisionGameObject.tag == "Wall")
+        {                
+                Destroy(this.gameObject);           
+        }        
     }
 }
