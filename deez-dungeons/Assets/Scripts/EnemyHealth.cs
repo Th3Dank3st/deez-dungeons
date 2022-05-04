@@ -15,8 +15,11 @@ public class EnemyHealth : MonoBehaviour
     public bool alreadyStunned = false;
     public bool alreadyBurning = false;
     public bool alreadyShocked = false;
+    public bool isWarlock;
     private float shockDPS = 60;
     private float burnDPS = 25;
+    public GameObject phase2;
+    private bool alreadyActive;
     
 
     private float health = 0f;
@@ -33,6 +36,11 @@ public class EnemyHealth : MonoBehaviour
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+        if(health < 500 && isWarlock && !alreadyActive)
+        {
+            alreadyActive = true;
+            phase2.SetActive(true);
         }
         else if (health <= 0f)
         {

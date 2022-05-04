@@ -1,9 +1,51 @@
 fileFormatVersion: 2
 guid: 8e0f077310cf84d4fb23664cd4805d13
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2120520438826527572
+    second: destruction_air_purple_SpriteSheet_0
+  - first:
+      213: 7322513905050767577
+    second: destruction_air_purple_SpriteSheet_1
+  - first:
+      213: 1483363202504614138
+    second: destruction_air_purple_SpriteSheet_2
+  - first:
+      213: -2679522564962467934
+    second: destruction_air_purple_SpriteSheet_3
+  - first:
+      213: -7244514536148041353
+    second: destruction_air_purple_SpriteSheet_4
+  - first:
+      213: 3195831707448130791
+    second: destruction_air_purple_SpriteSheet_5
+  - first:
+      213: 5952965090921544975
+    second: destruction_air_purple_SpriteSheet_6
+  - first:
+      213: 7175300006132873297
+    second: destruction_air_purple_SpriteSheet_7
+  - first:
+      213: 929751344861876763
+    second: destruction_air_purple_SpriteSheet_8
+  - first:
+      213: -1562670881088508573
+    second: destruction_air_purple_SpriteSheet_9
+  - first:
+      213: 1192893882148448838
+    second: destruction_air_purple_SpriteSheet_10
+  - first:
+      213: -4941968659577024877
+    second: destruction_air_purple_SpriteSheet_11
+  - first:
+      213: 1410010896117710667
+    second: destruction_air_purple_SpriteSheet_12
+  - first:
+      213: -6989147710026455139
+    second: destruction_air_purple_SpriteSheet_13
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -23,6 +65,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -31,16 +74,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -54,9 +97,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -70,9 +117,327 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1569
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca41ac855e56292e0800000000000000
+      internalID: -2120520438826527572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 1574
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0d86da99bce9560800000000000000
+      internalID: 7322513905050767577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 1576
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af06c2639f6f59410800000000000000
+      internalID: 1483363202504614138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 1572
+        width: 433
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2afb4c38c6c60dad0800000000000000
+      internalID: -2679522564962467934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1064
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7710eb69960567b90800000000000000
+      internalID: -7244514536148041353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1054
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec30647100e95c20800000000000000
+      internalID: 3195831707448130791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1067
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0dfda4c53e2d9250800000000000000
+      internalID: 5952965090921544975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 1061
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1587866d659c39360800000000000000
+      internalID: 7175300006132873297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 543
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b121fef0ce327ec00800000000000000
+      internalID: 929751344861876763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 546
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d6fdfec17405ae0800000000000000
+      internalID: -1562670881088508573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 551
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ae1346aa20e8010800000000000000
+      internalID: 1192893882148448838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 530
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e4cc210b99a6bb0800000000000000
+      internalID: -4941968659577024877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 35
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fb680807d519310800000000000000
+      internalID: 1410010896117710667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: destruction_air_purple_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 30
+        width: 435
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d976325103f810f90800000000000000
+      internalID: -6989147710026455139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
