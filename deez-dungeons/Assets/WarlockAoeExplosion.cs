@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WarlockAoeExplosion : MonoBehaviour
+{
+    public float damage;
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerMovement>().UpdateHealth(-damage);
+        }
+    }
+}
