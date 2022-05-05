@@ -14,7 +14,7 @@ public class WarlockBullet : MonoBehaviour
         Destroy(this.gameObject, range);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collisionGameObject = collision.gameObject;
 

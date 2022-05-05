@@ -19,7 +19,6 @@ public class EnemyHealth : MonoBehaviour
     private float shockDPS = 60;
     private float burnDPS = 25;
     public GameObject phase2;
-    public GameObject Phase1End;
     private bool alreadyActive;
     
 
@@ -42,7 +41,6 @@ public class EnemyHealth : MonoBehaviour
         {
             alreadyActive = true;
             phase2.SetActive(true);
-            Phase1End.SetActive(false);
         }
         else if (health <= 0f)
         {

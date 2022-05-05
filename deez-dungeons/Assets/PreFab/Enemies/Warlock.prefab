@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7537250076533077063}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7537250075713299289
 MonoBehaviour:
@@ -60,75 +60,6 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7537250075713299268}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 17
---- !u!1 &7537250075985082362
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7537250075985082361}
-  - component: {fileID: 7537250075985082367}
-  - component: {fileID: 7537250075985082360}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7537250075985082361
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537250075985082362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7537250076533077063}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7537250075985082367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537250075985082362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49769f60758887345923a438710e5533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swarmerPrefab: {fileID: 1895205299565793186, guid: 5dc2c65702ac9ba4aac34ea568fdb2be, type: 3}
-  bigSwarmerPrefab: {fileID: 1895205299565793186, guid: 5dc2c65702ac9ba4aac34ea568fdb2be, type: 3}
-  swarmerInterval: 4
-  eliteInterval: 6
-  spawner: {fileID: 7537250075985082361}
-  spawnerobject: {fileID: 7537250075985082362}
-  spawnRange: 5
-  spawnerActiveTime: 60
-  spawnTrigger: {fileID: 7537250075985082360}
---- !u!58 &7537250075985082360
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537250075985082362}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -287,7 +218,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 15
 --- !u!114 &7537250076395962832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolPointPrefab: {fileID: 6696862428860695788, guid: 8e6fc26e5d878284c84e90cb0a33b94c, type: 3}
   enemyTransform: {fileID: 7537250076533077063}
-  patrolRange: 10
+  patrolRange: 13
   patrolUnit: 0
   triggerWalk: {fileID: 7537250076395962833}
 --- !u!1 &7537250076533077066
@@ -346,7 +277,6 @@ Transform:
   - {fileID: 7537250076021026358}
   - {fileID: 7537250076395962834}
   - {fileID: 7537250076588548480}
-  - {fileID: 7537250075985082361}
   - {fileID: 7537250075713299291}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -399,7 +329,7 @@ MonoBehaviour:
   alreadyShocked: 0
   isWarlock: 1
   phase2: {fileID: 7537250075713299268}
-  Phase1End: {fileID: 7537250075985082362}
+  Phase1End: {fileID: 0}
   maxHealth: 2000
 --- !u!114 &7537250076533077059
 MonoBehaviour:
@@ -527,7 +457,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5000
+  m_Mass: 500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -551,7 +481,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 10
 --- !u!114 &7537250076533077062
 MonoBehaviour:
   m_ObjectHideFlags: 0

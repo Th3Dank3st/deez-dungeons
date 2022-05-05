@@ -19,6 +19,7 @@ public class EnemyTelegraphAttack : MonoBehaviour
     public GameObject Attack1;
     private GameObject oldTele;
     public Collider2D trigger;
+    private Collider2D otherc;
 
 
 
@@ -44,8 +45,7 @@ public class EnemyTelegraphAttack : MonoBehaviour
         {
             if(trigger.IsTouching(other))
             playerInRange = true;
-            player = other.gameObject.transform;
-            playerPos = new Vector2(player.position.x, player.position.y);            
+            otherc = other;
         }       
     }
 
@@ -59,6 +59,8 @@ public class EnemyTelegraphAttack : MonoBehaviour
 
     IEnumerator Attack()
     {
+        player = otherc.gameObject.transform;
+        playerPos = new Vector2(player.position.x, player.position.y);
         float i = 1;
         while (i > 0)
         {
@@ -70,7 +72,7 @@ public class EnemyTelegraphAttack : MonoBehaviour
                 m_animator.SetTrigger("Spellcast");
                 GameObject newTele = Instantiate(Tele1, playerPos, Quaternion.identity);
                 playerLastPos = playerPos;
-                oldTele = newTele;
+                Destroy(newTele, 1.5f);            
             }
 
             yield return new WaitForSeconds(1f);
@@ -79,7 +81,6 @@ public class EnemyTelegraphAttack : MonoBehaviour
         
         Debug.Log("Attack Casted");
         GameObject newAttack = Instantiate(Attack1, playerLastPos, Quaternion.identity);
-        Destroy(oldTele, 1f);
         Destroy (newAttack, 1f);
         Attacking = false;
     }
