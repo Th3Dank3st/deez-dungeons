@@ -189,6 +189,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6326105797061549907, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
   m_PrefabInstance: {fileID: 4138779280884691503}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &7972834133585646934 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6326105798877095801, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+  m_PrefabInstance: {fileID: 4138779280884691503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7972834134898745098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6326105797765852453, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
@@ -245,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireRate: 3
   NextFire: 1
-  m_animator: {fileID: 0}
+  m_animator: {fileID: 7972834133585646934}
   Tele1: {fileID: 7999798007595579466, guid: fbe36b5ec36af9e49b8a362ea1d969f8, type: 3}
   trigger: {fileID: 4597236156625039932}
   bulletForce: 0

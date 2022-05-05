@@ -80,7 +80,7 @@ public class GolemLazerAttack : MonoBehaviour
                 playerPos = new Vector2(player.position.x, player.position.y);
                 Attacking = true;
                 //set animation trigger
-                //m_animator.SetTrigger("Spellcast");
+                m_animator.SetTrigger("Ability");
                 GameObject bullet = Instantiate(Tele1, pos, rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
