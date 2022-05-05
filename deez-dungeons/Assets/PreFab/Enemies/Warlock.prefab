@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4794908792038431178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 201706935876490780}
+  - component: {fileID: 2357734856280510920}
+  - component: {fileID: 4744966400958724508}
+  m_Layer: 0
+  m_Name: Phase1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &201706935876490780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4794908792038431178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7537250076533077063}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2357734856280510920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4794908792038431178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49769f60758887345923a438710e5533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swarmerPrefab: {fileID: 2704828191300679799, guid: 9c08fd7b6c36c14489380dc17f0edc0f, type: 3}
+  bigSwarmerPrefab: {fileID: 1895205299565793186, guid: 5dc2c65702ac9ba4aac34ea568fdb2be, type: 3}
+  swarmerInterval: 0.175
+  eliteInterval: 32
+  spawner: {fileID: 201706935876490780}
+  spawnerobject: {fileID: 4794908792038431178}
+  spawnRange: 20
+  spawnerActiveTime: 30
+  spawnTrigger: {fileID: 4744966400958724508}
+--- !u!58 &4744966400958724508
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4794908792038431178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 17
 --- !u!1 &7537250075713299268
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +347,7 @@ Transform:
   - {fileID: 7537250076395962834}
   - {fileID: 7537250076588548480}
   - {fileID: 7537250075713299291}
+  - {fileID: 201706935876490780}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -329,7 +399,7 @@ MonoBehaviour:
   alreadyShocked: 0
   isWarlock: 1
   phase2: {fileID: 7537250075713299268}
-  Phase1End: {fileID: 0}
+  phase1: {fileID: 4794908792038431178}
   maxHealth: 2000
 --- !u!114 &7537250076533077059
 MonoBehaviour:
@@ -355,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8ee646ffd92374585b9685b6919158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 5
+  FireRate: 6
   NextFire: 1
   m_animator: {fileID: 7537250076021026357}
   Tele1: {fileID: 1407083298212485645, guid: 4d793ef0948f73549b381b4295364046, type: 3}

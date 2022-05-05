@@ -6,18 +6,24 @@ public class DeathPulse : MonoBehaviour
 {
     public float damage;
     public float duration = 1;
+    private bool alreadyHit;
     void Awake()
     {
         Destroy(this.gameObject, duration);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject collisionGameObject = collision.gameObject;
-
-        if (collisionGameObject.tag == "Player")
+        bool alreadyHit = false;
+        if (other.gameObject.tag == "Player")
         {
-            collisionGameObject.GetComponent<PlayerMovement>().UpdateHealth(-damage);
+            if (!alreadyHit)
+            {
+                other.gameObject.GetComponent<PlayerMovement>().UpdateHealth(-damage);
+                alreadyHit = true;
+            }
         }
+
+
     }
 }

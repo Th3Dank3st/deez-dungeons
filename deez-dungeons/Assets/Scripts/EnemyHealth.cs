@@ -19,7 +19,9 @@ public class EnemyHealth : MonoBehaviour
     private float shockDPS = 60;
     private float burnDPS = 25;
     public GameObject phase2;
-    private bool alreadyActive;
+    public GameObject phase1;
+    private bool alreadyActive = false;
+    private bool alreadyActivep2 = false;
     
 
     private float health = 0f;
@@ -40,6 +42,13 @@ public class EnemyHealth : MonoBehaviour
         if(health < 1000 && isWarlock && !alreadyActive)
         {
             alreadyActive = true;
+            phase1.SetActive(true);
+            gameObject.GetComponent<EnemyTelegraphAttack>().enabled = false;
+            
+        }
+        if (health <  500 && isWarlock && !alreadyActivep2)
+        {
+            phase1.SetActive(false);
             phase2.SetActive(true);
         }
         else if (health <= 0f)
