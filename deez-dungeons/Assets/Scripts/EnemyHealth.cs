@@ -161,7 +161,18 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyStunned)
             {
-                gameObject.GetComponent<PathEnemyShooting>().enabled = false;
+
+                if (gameObject.GetComponent<PathEnemyShooting>() != null)
+                {
+                    gameObject.GetComponent<PathEnemyShooting>().enabled = false;                    
+                }
+                if (gameObject.GetComponent<GolemLazerAttack>() != null)
+                {
+                    gameObject.GetComponent<GolemLazerAttack>().enabled = false;
+                }
+
+                
+
                 path.maxSpeed = 0f;
                 alreadyStunned = true;
             }
@@ -169,7 +180,16 @@ public class EnemyHealth : MonoBehaviour
             i--;
             yield return new WaitForSeconds(1f);
         }
-        gameObject.GetComponent<PathEnemyShooting>().enabled = true;
+        if (gameObject.GetComponent<PathEnemyShooting>() != null)
+        {
+            gameObject.GetComponent<PathEnemyShooting>().enabled = true;
+        }
+        if(gameObject.GetComponent<GolemLazerAttack>() != null)
+        {
+            gameObject.GetComponent<GolemLazerAttack>().enabled = true;
+        }
+
+
         path.maxSpeed = originalSpeed;
         alreadyStunned = false;
         yield break;
