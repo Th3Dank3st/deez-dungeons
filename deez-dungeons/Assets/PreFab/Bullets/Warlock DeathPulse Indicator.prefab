@@ -96,4 +96,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPulse: {fileID: 7286521650710290586, guid: ea0cd3706f6cf0447adb704af51aabd7, type: 3}
-  indicatorDuration: 1
+  indicatorDuration: 2

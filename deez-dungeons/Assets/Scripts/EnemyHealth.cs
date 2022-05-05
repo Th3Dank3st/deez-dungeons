@@ -46,11 +46,6 @@ public class EnemyHealth : MonoBehaviour
             gameObject.GetComponent<EnemyTelegraphAttack>().enabled = false;
             
         }
-        if (health <  500 && isWarlock && !alreadyActivep2)
-        {
-            phase1.SetActive(false);
-            phase2.SetActive(true);
-        }
         else if (health <= 0f)
         {
             health = 0f;

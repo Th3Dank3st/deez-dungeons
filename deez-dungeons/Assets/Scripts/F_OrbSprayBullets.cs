@@ -41,21 +41,22 @@ public class F_OrbSprayBullets : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)    
     {
-        enemy = other.gameObject;
-        if (enemy.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-           
+            if (other != null)
+            {
+                other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-damage);
+                Destroy(this.gameObject);
+            }
+         
+
             
-            //StartCoroutine(other.GetComponent<EnemyHealth>().Chilled());
-            
-            enemy.GetComponent<EnemyHealth>().UpdateHealth(-damage);
-            Destroy(this.gameObject);
             //gameObject.GetComponent<SpriteRenderer>().enabled = false;
             //gameObject.GetComponent<Collider2D>().enabled = false;
             //gameObject.GetComponent<TrailRenderer>().enabled = false;
         }
 
-        if (enemy.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Wall")
         {
             //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             //Destroy(effect, effectDuration);
