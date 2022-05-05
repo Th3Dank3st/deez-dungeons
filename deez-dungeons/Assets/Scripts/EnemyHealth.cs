@@ -18,7 +18,6 @@ public class EnemyHealth : MonoBehaviour
     public bool isWarlock;
     private float shockDPS = 60;
     private float burnDPS = 25;
-    public GameObject phase2;
     public GameObject phase1;
     private bool alreadyActive = false;
     private bool alreadyActivep2 = false;
@@ -43,8 +42,7 @@ public class EnemyHealth : MonoBehaviour
         {
             alreadyActive = true;
             phase1.SetActive(true);
-            gameObject.GetComponent<EnemyTelegraphAttack>().enabled = false;
-            
+            gameObject.GetComponent<PathEnemyShooting>().enabled = false;           
         }
         else if (health <= 0f)
         {
