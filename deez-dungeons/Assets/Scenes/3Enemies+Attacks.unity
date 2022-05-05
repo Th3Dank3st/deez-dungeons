@@ -259,16 +259,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689244, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
+      propertyPath: eliteInterval
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerPrefab
       value: 
       objectReference: {fileID: 326795930}
+    - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
+      propertyPath: swarmerInterval
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: bigSwarmerPrefab
       value: 
@@ -544,11 +552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnerobject
@@ -560,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 473155931}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerInterval
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: bigSwarmerPrefab
@@ -1658,7 +1666,7 @@ PrefabInstance:
       objectReference: {fileID: 1353984878}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerInterval
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: bigSwarmerPrefab
@@ -1820,7 +1828,7 @@ MonoBehaviour:
   cooldown3: 8
   abilityImage4: {fileID: 1089687750}
   cooldown4: 12
-  moveSpeed: 7
+  moveSpeed: 5
   rb: {fileID: 326447357}
   animator: {fileID: 132153741}
   cam: {fileID: 519420031}
@@ -7379,10 +7387,10 @@ PrefabInstance:
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerPrefab
       value: 
-      objectReference: {fileID: 473155931}
+      objectReference: {fileID: 2112309976}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerInterval
-      value: 0.23
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: bigSwarmerPrefab
@@ -7994,7 +8002,7 @@ PrefabInstance:
       objectReference: {fileID: 473155931}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerInterval
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: bigSwarmerPrefab
@@ -8025,11 +8033,11 @@ MonoBehaviour:
   elitePrefab2: {fileID: 2112309976}
   swarmerInterval: 0.2
   eliteInterval: 0.7
-  swarmerInt2: 0.2
-  eliteInt2: 0.7
+  swarmerInt2: 0.3
+  eliteInt2: 0.3
   spawner: {fileID: 1775017412}
   spawnerobject: {fileID: 1775017409}
-  spawnRange: 2
+  spawnRange: 20
   spawnerActiveTime: 1
 --- !u!4 &1775017412 stripped
 Transform:
@@ -10267,11 +10275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: spawnRange
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: eliteInterval
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerPrefab
@@ -10279,7 +10287,7 @@ PrefabInstance:
       objectReference: {fileID: 326795930}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: swarmerInterval
-      value: 0.08
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2771181365066689245, guid: e7ab79c184b7f0947bb42861a585e2da, type: 3}
       propertyPath: bigSwarmerPrefab

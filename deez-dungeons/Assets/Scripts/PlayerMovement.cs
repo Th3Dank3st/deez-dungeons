@@ -374,7 +374,7 @@ public class PlayerMovement : MonoBehaviour
         {            
             if (FireCoolCounter <= 0)
             {
-                Debug.Log("AIM INDICATOR FOR FROZEN ORB SPAWNED");
+                //Debug.Log("AIM INDICATOR FOR FROZEN ORB SPAWNED");
                 FOrbIndicator.SetActive(true);
                 FOrbPending = true;
                 alreadyCasting = true;
@@ -642,7 +642,7 @@ public class PlayerMovement : MonoBehaviour
                 
                 dashRecharging = true;
 
-                yield return new WaitForSeconds(8f);
+                yield return new WaitForSeconds(7f);
             }
             if (dashRecharging)             //after 10 seconds one dash charge is added, dash recharging set back to false, keeping the loop going untill dashCharges = 3
             {
