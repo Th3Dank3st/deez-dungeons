@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49769f60758887345923a438710e5533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swarmerPrefab: {fileID: 0}
-  bigSwarmerPrefab: {fileID: 0}
-  swarmerInterval: 0.2
-  eliteInterval: 2
+  swarmerPrefab: {fileID: 2704828191300679799, guid: 9c08fd7b6c36c14489380dc17f0edc0f, type: 3}
+  bigSwarmerPrefab: {fileID: 1895205299565793186, guid: 5dc2c65702ac9ba4aac34ea568fdb2be, type: 3}
+  swarmerInterval: 0.1
+  eliteInterval: 20
   spawner: {fileID: 7537250075713299291}
   spawnerobject: {fileID: 7537250075713299268}
   spawnRange: 20
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8ee646ffd92374585b9685b6919158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 7
+  FireRate: 6
   NextFire: 1
   m_animator: {fileID: 7537250076021026357}
   Tele1: {fileID: 1407083298212485645, guid: 4d793ef0948f73549b381b4295364046, type: 3}
