@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
-
+    private bool alreadySlowed = false;
     //ability 1 cooldown image
     public Image abilityImage1;
     public float cooldown1 = 3f;
@@ -652,42 +652,27 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-
-    // move this to update or fix update to look like this
-    //if (dashCharges > 0)
-    //{
-    /*if (playerControls.Player.Dash.triggered)
+    //slow
+    public IEnumerator Chilled2S()
     {
-        if (dashCoolCounter <= 0 && dashCounter <= 0)
-        {
-            dashCharges--;
-            activeMoveSpeed = dashSpeed;
-            isInvincible = true;
-            dashCounter = dashLength;
-        }
+        var originalSpeed = moveSpeed;
+        float i = 2f;
 
-        if (isInvincible == true)
+        while (i > 0)
         {
-            //Debug.Log("Player is INVINCIBLE!");
+            if (!alreadySlowed)
+            {
+                moveSpeed *= 0.5f;
+                alreadySlowed = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
         }
+        moveSpeed = originalSpeed;
+        alreadySlowed = false;
+        yield break;
+        // All Done!        
     }
 
-    if (dashCounter > 0)
-    {
-        dashCounter -= Time.deltaTime;
-
-        if (dashCounter <= 0)
-        {
-            activeMoveSpeed = moveSpeed;
-            isInvincible = false;
-            dashCoolCounter = dashCooldown;
-            //Debug.Log("Player is VULNERABLE!");
-        }
-    }*/
-
-    void Ability1()
-    {
-        
-    }
 }
