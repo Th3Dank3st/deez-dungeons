@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6394206277456252480}
   m_Layer: 7
   m_Name: Enemy SpiritBomb
-  m_TagString: Untagged
+  m_TagString: ChillEnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.09364295, y: -0.13340521}
@@ -85,9 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88418211b6fe2f42b1ee52a2565943a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  stoppingDistance: 1
-  retreaDistance: 1
+  speed: 7
+  stoppingDistance: 0
+  retreaDistance: 0
 --- !u!114 &5356703171397936607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionDuration: 0.4
   hitEffect: {fileID: 5140585466098312940, guid: 82302331ca8007b41ab2d598266de9c4, type: 3}
-  range: 2.3
+  range: 1.6
   damage: 22
 --- !u!1 &5356703171669732740
 GameObject:

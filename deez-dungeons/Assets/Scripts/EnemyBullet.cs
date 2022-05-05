@@ -15,38 +15,24 @@ public class EnemyBullet : MonoBehaviour
     }
 
     
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject collisionGameObject = collision.gameObject;
 
-        if (collisionGameObject.tag == "Player") 
+        if (other.gameObject.tag == "Player") 
         {
-            collisionGameObject.GetComponent<PlayerMovement>().UpdateHealth(-damage);
+            other.gameObject.GetComponent<PlayerMovement>().UpdateHealth(-damage);
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, explosionDuration);
+            Destroy(this.gameObject);
         }
 
-        if (collisionGameObject.tag != "Player")
+        if (other.gameObject.tag == "Wall")
         {
-            if (collisionGameObject/*.GetComponent<PlayerHealth>()*/ != null)
-            {
-                //collisionGameObject.GetComponent<PlayerHealth>().UpdateHealth(-damage);
 
                 GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
                 Destroy(effect, explosionDuration);
                 Destroy(this.gameObject);
-            }
-
-            //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            //Destroy(effect, duration);
-            //Destroy(gameObject);
-        }
-        else if (collisionGameObject.tag != "Wall")
-        {
-            if (collisionGameObject != null)
-            {
-                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                Destroy(effect, explosionDuration);
-                Destroy(this.gameObject);
-            }
+            
         }
     }
 

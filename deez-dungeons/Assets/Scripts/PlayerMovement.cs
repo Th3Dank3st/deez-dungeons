@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private bool alreadySlowed = false;
+
     //ability 1 cooldown image
     public Image abilityImage1;
     public float cooldown1 = 3f;
@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     public Image abilityImage4;
     public float cooldown4 = 10f;
     private bool isCooldown4 = false;
+    private bool alreadyStunned = false;
+    private bool alreadyRooted = false;
+    private bool alreadyChilled = false;
 
 
 
@@ -180,427 +183,506 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        staminaBarOverhead.SetHealth(dashCharges);
-        //movement.x = Input.GetAxisRaw("Horizontal");                                  //OLD INPUT system
-        //movement.y = Input.GetAxisRaw("Vertical");                                    //OLD INPUT system
-        movement = move.ReadValue<Vector2>();                                           //NEW INPUT system ---- updating our vector2(information type) movement container with the values stored in the move container defined above, which gets information from PlayerInputActions. this information is updated once per frame, so we don't want to put the equation that tells the engine to move here, because it would change based on the users framerate, so we will call upon this data in FixedUpdate when we perform the equation caluclating our movespeed
-        animator.SetFloat("Horizontal", movement.x);                                    // INPUT FOR ANIMATIONS (TELLS THE ANIMATOR WHICH ANIMATION TO USE FOR EACH DIRECTION
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);                              //TELLS THE ANIMATOR IF WE ARE MOVING
-        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());   // updates mouse position of the user in NEW INPUT SYSTEM
-        aoeIndicator.position = mousePos;
-        infernoIndicator.position = mousePos;
-
-
-        //mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //forgroundtargetindicator
-        //DASH
-        if (playerControls.Player.Dash.triggered)
-        {
-            if (dashCounter <= 0 && dashCharges >= 1)
-            {
-                               
-                
-                activeMoveSpeed = dashSpeed;
-                isInvincible = true;
-                animator.SetBool("isRolling", true);
-                dashCounter = dashLength;
-            }
-
-            if (isInvincible == true)
-            {
-                //Debug.Log("Player is INVINCIBLE!");
-            }
-        }
-
-        if (dashCounter > 0)
-        {
-            dashCounter -= Time.deltaTime;
-
-            if (dashCounter <= 0)
-            {
-                StartCoroutine(DashChargeCooldown());
-                dashCharges--;
-                staminaBarOverhead.SetHealth(dashCharges);
-
-                activeMoveSpeed = moveSpeed;
-                isInvincible = false;
-                animator.SetBool("isRolling", false);
-                //dashCoolCounter = dashCooldown;               
-                //Debug.Log("Player is VULNERABLE!");
-            }
-        }
         
-
-        //if (dashCoolCounter > 0)
-        //{
-         //   dashCoolCounter -= Time.deltaTime;
-        //}
-
-
-
-
-
+            staminaBarOverhead.SetHealth(dashCharges);
+            movement = move.ReadValue<Vector2>();                                           //NEW INPUT system ---- updating our vector2(information type) movement container with the values stored in the move container defined above, which gets information from PlayerInputActions. this information is updated once per frame, so we don't want to put the equation that tells the engine to move here, because it would change based on the users framerate, so we will call upon this data in FixedUpdate when we perform the equation caluclating our movespeed
+            animator.SetFloat("Horizontal", movement.x);                                    // INPUT FOR ANIMATIONS (TELLS THE ANIMATOR WHICH ANIMATION TO USE FOR EACH DIRECTION
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);                              //TELLS THE ANIMATOR IF WE ARE MOVING
+            mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());   // updates mouse position of the user in NEW INPUT SYSTEM
+            aoeIndicator.position = mousePos;
+            infernoIndicator.position = mousePos;
 
 
-
-
-        /* if (playerControls.Player.Dash.triggered)
-         {
-             if (dashCoolCounter <= 0 && dashCounter <= 0 && dashCharges >= 1)
-             {
-                 activeMoveSpeed = dashSpeed;
-                 isInvincible = true;
-                 dashCounter = dashLength;
-             }
-
-             if (isInvincible == true)
-             {
-                 //Debug.Log("Player is INVINCIBLE!");
-             }
-         }
-
-         if (dashCounter > 0)
-         {
-             dashCounter -= Time.deltaTime;
-
-             if (dashCounter <= 0)
-             {
-                 activeMoveSpeed = moveSpeed;
-                 isInvincible = false;
-                 dashCoolCounter = dashCooldown;
-                 dashCharges--;
-                 //Debug.Log("Player is VULNERABLE!");
-             }
-         }
-
-         if (dashCoolCounter > 0)
-         {
-             dashCoolCounter -= Time.deltaTime;
-         }*/
-
-        //LUNARSLASH
-        /*if (playerControls.Player.LunarSlash.triggered)
-        {
-            if (lunarCoolCounter <= 0)
+            //mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()); //forgroundtargetindicator
+            //DASH
+            if (playerControls.Player.Dash.triggered && !alreadyStunned)
             {
-                GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
-                lunarCoolCounter = lunarCooldown;
+                if (dashCounter <= 0 && dashCharges >= 1)
+                {
+
+
+                    activeMoveSpeed = dashSpeed;
+                    isInvincible = true;
+                    animator.SetBool("isRolling", true);
+                    dashCounter = dashLength;
+                }
+
+                if (isInvincible == true)
+                {
+                    //Debug.Log("Player is INVINCIBLE!");
+                }
             }
-        }
 
-        if (lunarCoolCounter > 0)
-        {
-            lunarCoolCounter -= Time.deltaTime;
-        }*/
-
-        //Frozen Orb
-        /*if (playerControls.Player.Fire.triggered)
-        {
-            if (FireCoolCounter <= 0)
+            if (dashCounter > 0)
             {
+                dashCounter -= Time.deltaTime;
+
+                if (dashCounter <= 0)
+                {
+                    StartCoroutine(DashChargeCooldown());
+                    dashCharges--;
+                    staminaBarOverhead.SetHealth(dashCharges);
+
+                    activeMoveSpeed = moveSpeed;
+                    isInvincible = false;
+                    animator.SetBool("isRolling", false);
+                    //dashCoolCounter = dashCooldown;               
+                    //Debug.Log("Player is VULNERABLE!");
+                }
+            }
+
+
+            //if (dashCoolCounter > 0)
+            //{
+            //   dashCoolCounter -= Time.deltaTime;
+            //}
+
+
+
+
+
+
+
+
+
+            /* if (playerControls.Player.Dash.triggered)
+             {
+                 if (dashCoolCounter <= 0 && dashCounter <= 0 && dashCharges >= 1)
+                 {
+                     activeMoveSpeed = dashSpeed;
+                     isInvincible = true;
+                     dashCounter = dashLength;
+                 }
+
+                 if (isInvincible == true)
+                 {
+                     //Debug.Log("Player is INVINCIBLE!");
+                 }
+             }
+
+             if (dashCounter > 0)
+             {
+                 dashCounter -= Time.deltaTime;
+
+                 if (dashCounter <= 0)
+                 {
+                     activeMoveSpeed = moveSpeed;
+                     isInvincible = false;
+                     dashCoolCounter = dashCooldown;
+                     dashCharges--;
+                     //Debug.Log("Player is VULNERABLE!");
+                 }
+             }
+
+             if (dashCoolCounter > 0)
+             {
+                 dashCoolCounter -= Time.deltaTime;
+             }*/
+
+            //LUNARSLASH
+            /*if (playerControls.Player.LunarSlash.triggered)
+            {
+                if (lunarCoolCounter <= 0)
+                {
+                    GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
+                    lunarCoolCounter = lunarCooldown;
+                }
+            }
+
+            if (lunarCoolCounter > 0)
+            {
+                lunarCoolCounter -= Time.deltaTime;
+            }*/
+
+            //Frozen Orb
+            /*if (playerControls.Player.Fire.triggered)
+            {
+                if (FireCoolCounter <= 0)
+                {
+                    GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, firePoint.rotation);
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
+                    FireCoolCounter = FireCooldown;
+                }
+            }
+
+            if (FireCoolCounter > 0)
+            {
+                FireCoolCounter -= Time.deltaTime;
+            }*/
+
+
+            //Fireball
+            /*if (playerControls.Player.One.triggered)
+            {
+                if (FireballCoolCounter <= 0)
+                {
+                    GameObject bullet = Instantiate(fireballBulletPrefab, firePoint.position, firePoint.rotation);
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.AddForce(firePoint.up * fireballBulletForce, ForceMode2D.Impulse);
+                    FireballCoolCounter = FireballCooldown;
+                }
+            }
+
+            if (FireballCoolCounter > 0)
+            {
+                FireballCoolCounter -= Time.deltaTime;
+            }*/
+
+            //Passive Regen
+            if (currentHealth < maxHealth)
+            {
+                if (healthCoolCounter <= 0)
+                {
+                    UpdateHealth(+regenAmount);
+                    healthCoolCounter = healthRegenCooldown;
+                }
+            }
+
+            if (healthCoolCounter > 0)
+            {
+                healthCoolCounter -= Time.deltaTime;
+            }
+
+            //groundtarget
+            /*if (playerControls.Player.GroundTarget.WasPressedThisFrame())
+            {
+                releasedbutton = false;
+                canplace = true;
+            }
+            if (playerControls.Player.GroundTarget.WasReleasedThisFrame())
+            {
+                releasedbutton = true;
+                canplace = false;
+            }
+
+            if (releasedbutton == false && canplace)
+            {            
+                GameObject newEnemy = Instantiate(go, mousePos , Quaternion.identity);
+                Destroy(newEnemy, 2f);           
+                canplace = false;
+            }*/
+
+            //First Indicator Test using frozen orb
+
+
+
+
+            //Frozen Orb
+            if (playerControls.Player.FrozenOrb.triggered && !alreadyCasting && !alreadyStunned)
+            {
+                if (FireCoolCounter <= 0)
+                {
+                    //Debug.Log("AIM INDICATOR FOR FROZEN ORB SPAWNED");
+                    FOrbIndicator.SetActive(true);
+                    FOrbPending = true;
+                    alreadyCasting = true;
+                }
+
+            }
+
+            if (playerControls.Player.Fire.triggered && FOrbPending && !alreadyStunned)
+            {
+                animator.SetTrigger("Attack");
                 GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
                 FireCoolCounter = FireCooldown;
+                FOrbIndicator.SetActive(false);
+                abilityImage2.fillAmount = 1;
+                isCooldown2 = true;
+                alreadyCasting = false;
+                FOrbPending = false;
+
             }
-        }
 
-        if (FireCoolCounter > 0)
-        {
-            FireCoolCounter -= Time.deltaTime;
-        }*/
-
-
-        //Fireball
-        /*if (playerControls.Player.One.triggered)
-        {
-            if (FireballCoolCounter <= 0)
+            if (isCooldown2)
             {
-                GameObject bullet = Instantiate(fireballBulletPrefab, firePoint.position, firePoint.rotation);
+                abilityImage2.fillAmount -= 1 / cooldown2 * Time.deltaTime;
+
+                if (abilityImage2.fillAmount <= 0)
+                {
+                    abilityImage2.fillAmount = 0;
+                    isCooldown2 = false;
+                }
+            }
+
+            if (FireCoolCounter > 0)
+            {
+                FireCoolCounter -= Time.deltaTime;
+            }
+
+            //Inferno   //ground target aoe
+
+            if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned)
+            {
+
+                if (groundTargetCoolCounter <= 0)
+                {
+                    Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
+                    infernoIndicatorObject.SetActive(true);
+                    //groundTargetIndicator.SetActive(true);
+                    alreadyCasting = true;
+                    groundTargetPending = true;
+                }
+            }
+
+            if (playerControls.Player.Fire.triggered && groundTargetPending && !alreadyStunned)
+            {
+                animator.SetTrigger("Attack");
+                GameObject newEnemy = Instantiate(go, mousePos, Quaternion.identity);
+                Destroy(newEnemy, 4f);
+                groundTargetCoolCounter = groundTargetCooldown;
+                Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+                //groundTargetIndicator.SetActive(false);
+                abilityImage1.fillAmount = 1;
+                isCooldown = true;
+                groundTargetPending = false;
+                alreadyCasting = false;
+                infernoIndicatorObject.SetActive(false);
+            }
+
+            if (isCooldown)
+            {
+                abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
+
+                if (abilityImage1.fillAmount <= 0)
+                {
+                    abilityImage1.fillAmount = 0;
+                    isCooldown = false;
+                }
+            }
+
+            if (groundTargetCoolCounter > 0)
+            {
+                groundTargetCoolCounter -= Time.deltaTime;
+            }
+
+
+            //LunarSlash
+            if (playerControls.Player.LunarSlash.triggered && !alreadyCasting && !alreadyStunned)
+            {
+                if (lunarCoolCounter <= 0)
+                {
+                    alreadyCasting = true;
+                    lunarIndicator.SetActive(true);
+                    lunarPending = true;
+                }
+
+            }
+
+            if (playerControls.Player.Fire.triggered && lunarPending && !alreadyStunned)
+            {
+                animator.SetTrigger("Attack");
+                GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * fireballBulletForce, ForceMode2D.Impulse);
-                FireballCoolCounter = FireballCooldown;
+                rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
+                lunarCoolCounter = lunarCooldown;
+                lunarIndicator.SetActive(false);
+                abilityImage3.fillAmount = 1;
+                isCooldown3 = true;
+                lunarPending = false;
+                alreadyCasting = false;
             }
-        }
 
-        if (FireballCoolCounter > 0)
-        {
-            FireballCoolCounter -= Time.deltaTime;
-        }*/
-
-        //Passive Regen
-        if (currentHealth < maxHealth)
-        {
-            if (healthCoolCounter <= 0)
+            if (isCooldown3)
             {
-                UpdateHealth(+regenAmount);
-                healthCoolCounter = healthRegenCooldown;
+                abilityImage3.fillAmount -= 1 / cooldown3 * Time.deltaTime;
+
+                if (abilityImage3.fillAmount <= 0)
+                {
+                    abilityImage3.fillAmount = 0;
+                    isCooldown3 = false;
+                }
             }
-        }
 
-        if (healthCoolCounter > 0)
-        {
-            healthCoolCounter -= Time.deltaTime;
-        }
-
-        //groundtarget
-        /*if (playerControls.Player.GroundTarget.WasPressedThisFrame())
-        {
-            releasedbutton = false;
-            canplace = true;
-        }
-        if (playerControls.Player.GroundTarget.WasReleasedThisFrame())
-        {
-            releasedbutton = true;
-            canplace = false;
-        }
-
-        if (releasedbutton == false && canplace)
-        {            
-            GameObject newEnemy = Instantiate(go, mousePos , Quaternion.identity);
-            Destroy(newEnemy, 2f);           
-            canplace = false;
-        }*/
-
-        //First Indicator Test using frozen orb
-
-
-
-
-        //Frozen Orb
-        if (playerControls.Player.FrozenOrb.triggered && !alreadyCasting)
-        {            
-            if (FireCoolCounter <= 0)
+            if (lunarCoolCounter > 0)
             {
-                //Debug.Log("AIM INDICATOR FOR FROZEN ORB SPAWNED");
-                FOrbIndicator.SetActive(true);
-                FOrbPending = true;
-                alreadyCasting = true;
+                lunarCoolCounter -= Time.deltaTime;
             }
-               
-        }
 
-        if (playerControls.Player.Fire.triggered && FOrbPending)
-        {
-            animator.SetTrigger("Attack");
-            GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
-            FireCoolCounter = FireCooldown;
-            FOrbIndicator.SetActive(false);
-            abilityImage2.fillAmount = 1;
-            isCooldown2 = true;
-            alreadyCasting = false;
-            FOrbPending = false;
-            
-        }
 
-        if (isCooldown2)
-        {
-            abilityImage2.fillAmount -= 1 / cooldown2 * Time.deltaTime;
 
-            if (abilityImage2.fillAmount <= 0)
+
+
+
+
+            //ShockBlast
+            if (playerControls.Player.Summon.triggered && !alreadyCasting && !alreadyStunned)
             {
-                abilityImage2.fillAmount = 0;
-                isCooldown2 = false;
+                if (summonCoolCounter <= 0)   //summonCoolCounter
+                {
+                    Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);   //cursorForSummon
+                    aoeIndicatorObject.SetActive(true);
+                    //groundTargetIndicator.SetActive(true);
+                    alreadyCasting = true;
+                    summonPending = true;      //summonPending = true;
+                }
             }
-        }
 
-        if (FireCoolCounter > 0)
-        {
-            FireCoolCounter -= Time.deltaTime;
-        }
+            if (playerControls.Player.Fire.triggered && summonPending && !alreadyStunned)   //&& summonPending
+            {
+                animator.SetTrigger("Attack");
+                GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
+                Destroy(summon, 0.3f);
+                summonCoolCounter = summonCooldown;
+                Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+                //groundTargetIndicator.SetActive(false);
+                abilityImage4.fillAmount = 1;
+                isCooldown4 = true;
+                summonPending = false;
+                alreadyCasting = false;
+                aoeIndicatorObject.SetActive(false);
+            }
+
+            if (isCooldown4)
+            {
+                abilityImage4.fillAmount -= 1 / cooldown4 * Time.deltaTime;
+
+                if (abilityImage4.fillAmount <= 0)
+                {
+                    abilityImage4.fillAmount = 0;
+                    isCooldown4 = false;
+                }
+            }
+
+            if (summonCoolCounter > 0)
+            {
+                summonCoolCounter -= Time.deltaTime;
+            }
         
-        //Inferno   //ground target aoe
-
-        if (playerControls.Player.GroundTarget.triggered && !alreadyCasting)
-        {
-            
-            if (groundTargetCoolCounter <= 0)
-            {
-                Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
-                infernoIndicatorObject.SetActive(true);
-                //groundTargetIndicator.SetActive(true);
-                alreadyCasting = true;               
-                groundTargetPending = true;
-            }
-        }
-
-        if (playerControls.Player.Fire.triggered && groundTargetPending)
-        {
-            animator.SetTrigger("Attack");
-            GameObject newEnemy = Instantiate(go, mousePos, Quaternion.identity);
-            Destroy(newEnemy, 4f);
-            groundTargetCoolCounter = groundTargetCooldown;
-            Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
-            //groundTargetIndicator.SetActive(false);
-            abilityImage1.fillAmount = 1;
-            isCooldown = true;
-            groundTargetPending = false;
-            alreadyCasting = false;
-            infernoIndicatorObject.SetActive(false);
-        }
-
-        if (isCooldown)
-        {
-            abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
-
-            if (abilityImage1.fillAmount <= 0)
-            {
-                abilityImage1.fillAmount = 0;
-                isCooldown = false;
-            }
-        }
-
-        if (groundTargetCoolCounter > 0)
-        {
-            groundTargetCoolCounter -= Time.deltaTime;
-        }
-
-
-        //LunarSlash
-        if (playerControls.Player.LunarSlash.triggered && !alreadyCasting)
-        {
-            if (lunarCoolCounter <= 0)
-            {
-                alreadyCasting = true;
-                lunarIndicator.SetActive(true);
-                lunarPending = true;
-            }
-
-        }
-
-        if (playerControls.Player.Fire.triggered && lunarPending)
-        {
-            animator.SetTrigger("Attack");
-            GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
-            lunarCoolCounter = lunarCooldown;
-            lunarIndicator.SetActive(false);
-            abilityImage3.fillAmount = 1;
-            isCooldown3 = true;
-            lunarPending = false;
-            alreadyCasting = false;
-        }
-
-        if (isCooldown3)
-        {
-            abilityImage3.fillAmount -= 1 / cooldown3 * Time.deltaTime;
-
-            if (abilityImage3.fillAmount <= 0)
-            {
-                abilityImage3.fillAmount = 0;
-                isCooldown3 = false;
-            }
-        }
-
-        if (lunarCoolCounter > 0)
-        {
-            lunarCoolCounter -= Time.deltaTime;
-        }
-
-
-
-
-
-
-
-        //ShockBlast
-        if (playerControls.Player.Summon.triggered && !alreadyCasting)
-        {
-            if (summonCoolCounter <= 0)   //summonCoolCounter
-            {
-                Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);   //cursorForSummon
-                aoeIndicatorObject.SetActive(true);
-                //groundTargetIndicator.SetActive(true);
-                alreadyCasting = true;
-                summonPending = true;      //summonPending = true;
-            }
-        }
-
-        if (playerControls.Player.Fire.triggered && summonPending)   //&& summonPending
-        {
-            animator.SetTrigger("Attack");
-            GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
-            Destroy(summon, 0.3f);
-            summonCoolCounter = summonCooldown;
-            Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
-            //groundTargetIndicator.SetActive(false);
-            abilityImage4.fillAmount = 1;
-            isCooldown4 = true;
-            summonPending = false;
-            alreadyCasting = false;
-            aoeIndicatorObject.SetActive(false);
-        }
-
-        if (isCooldown4)
-        {
-            abilityImage4.fillAmount -= 1 / cooldown4 * Time.deltaTime;
-
-            if (abilityImage4.fillAmount <= 0)
-            {
-                abilityImage4.fillAmount = 0;
-                isCooldown4 = false;
-            }
-        }
-
-        if (summonCoolCounter > 0)
-        {
-            summonCoolCounter -= Time.deltaTime;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Chill
+        if (other.gameObject.tag == "ChillEnemyProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyChilled)
+            {
+                StartCoroutine(Chilled2S());
+            }
+        }
+        //Root(immobilize)
+        if (other.gameObject.tag == "RootEnemyProjectile")
+        {
+            if (!alreadyRooted)
+            {
+                StartCoroutine(Root2S());
+            }
+        }
+        //Stun
+        if (other.gameObject.tag == "StunEnemyProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyStunned)
+            {
+                StartCoroutine(Stunned2S());
+            }
+        }
+    }
+
+    //chill
+    public IEnumerator Chilled2S()
+    {
+        var path = gameObject.GetComponent<PlayerMovement>();
+        var originalSpeed = path.activeMoveSpeed;
+        float i = 2f;
+
+        while (i > 0)
+        {
+            if (!alreadyChilled)
+            {
+                path.activeMoveSpeed *= 0.5f;
+                alreadyChilled = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
+        }
+        activeMoveSpeed = originalSpeed;
+        alreadyChilled = false;
+        yield break;
+        // All Done!        
+    }
+
+    //Root
+    public IEnumerator Root2S()
+    {
+        float i = 2f;
+
+        while (i > 0)
+        {
+            if (!alreadyRooted)
+            {
+                move.Disable();
+                alreadyRooted = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
+        }
+        move.Enable();
+
+        alreadyRooted = false;
+        yield break;
+        // All Done!        
+    }
+
+    //Stun
+    public IEnumerator Stunned2S()
+    {
+        float i = 2f;
+        
+        while (i > 0)
+        {
+            if (!alreadyStunned)
+            {
+                move.Disable();
+                alreadyStunned = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(1f);
+        }
+        move.Enable();
+        alreadyStunned = false;
+        yield break;
+        // All Done!        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //called 50 times per second     (use this for output)
     void FixedUpdate()
@@ -653,26 +735,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     //slow
-    public IEnumerator Chilled2S()
-    {
-        var originalSpeed = moveSpeed;
-        float i = 2f;
-
-        while (i > 0)
-        {
-            if (!alreadySlowed)
-            {
-                moveSpeed *= 0.5f;
-                alreadySlowed = true;
-            }
-            // ^^Do something for i ammount of times times^^
-            i--;
-            yield return new WaitForSeconds(1f);
-        }
-        moveSpeed = originalSpeed;
-        alreadySlowed = false;
-        yield break;
-        // All Done!        
-    }
+    
+    
 
 }

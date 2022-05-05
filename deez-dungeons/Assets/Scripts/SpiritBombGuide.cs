@@ -8,6 +8,7 @@ public class SpiritBombGuide : MonoBehaviour
     public float stoppingDistance;
     public float retreaDistance;
 
+
     //private float timeBtwShots;
     //public float startTimeBtwShots;
     //public Transform firePoint;
@@ -42,21 +43,22 @@ public class SpiritBombGuide : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
     }
-        //if (timeBtwShots <= 0)
-        //{
-            //Shoot();
-            //timeBtwShots = startTimeBtwShots;
-        //}
-        //else
-        //{
-            //timeBtwShots -= Time.deltaTime;
-        //}
+
+    //if (timeBtwShots <= 0)
+    //{
+    //Shoot();
+    //timeBtwShots = startTimeBtwShots;
+    //}
+    //else
+    //{
+    //timeBtwShots -= Time.deltaTime;
+    //}
     //}
     //void Shoot()
     //{
-     //  GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-      //  Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-     //   rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
-   // }
+    //  GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    //  Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+    //   rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
+    // }
 
 }

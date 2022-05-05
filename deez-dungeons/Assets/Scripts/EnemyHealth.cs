@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         {
             health = maxHealth;
         }
-        if(health < 500 && isWarlock && !alreadyActive)
+        if(health < 1000 && isWarlock && !alreadyActive)
         {
             alreadyActive = true;
             phase2.SetActive(true);

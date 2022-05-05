@@ -9,11 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1549734739, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: damage
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1549734739, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: bulletDuration
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 330775090470650574, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4637902261318736913, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: m_RootOrder

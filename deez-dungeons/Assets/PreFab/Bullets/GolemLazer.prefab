@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8158321158275917505}
   m_Layer: 7
   m_Name: GolemLazer
-  m_TagString: Untagged
+  m_TagString: StunPlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

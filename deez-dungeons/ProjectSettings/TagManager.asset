@@ -13,6 +13,9 @@ TagManager:
   - ConfusePlayerProjectile
   - FirePlayerProjectile
   - ShockPlayerProjectile
+  - StunEnemyProjectile
+  - RootEnemyProjectile
+  - ChillEnemyProjectile
   layers:
   - Default
   - TransparentFX
