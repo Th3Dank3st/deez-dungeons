@@ -636,7 +636,7 @@ public class PlayerMovement : MonoBehaviour
     //Stun
     public IEnumerator Stunned2S()
     {
-        float i = 2f;
+        float i = 1f;
         
         while (i > 0)
         {
