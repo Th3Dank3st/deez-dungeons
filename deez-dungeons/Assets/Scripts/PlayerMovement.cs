@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private bool alreadyChilled = false;
     //status effects
     public Image HitEffectImageChilled;
+    public Image HitEffectImageBackground;
     public float cooldownChilled = 2f;
     private bool isCooldownChilled = false;
     
@@ -565,6 +566,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 HitEffectImageChilled.fillAmount = 0;
                 isCooldownChilled = false;
+                HitEffectImageChilled.gameObject.SetActive(false);
+                HitEffectImageBackground.gameObject.SetActive(false);
             }
         }
     }
@@ -610,6 +613,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!alreadyChilled)
             {
+                HitEffectImageChilled.gameObject.SetActive(true);
+                HitEffectImageBackground.gameObject.SetActive(true);
                 path.activeMoveSpeed *= 0.5f;
                 HitEffectImageChilled.fillAmount = 1;
                 alreadyChilled = true;
