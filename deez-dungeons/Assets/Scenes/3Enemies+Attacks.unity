@@ -1854,7 +1854,7 @@ MonoBehaviour:
   fireballBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
   FireballCooldown: 0.35
   fireballBulletForce: 20
-  maxHealth: 250
+  maxHealth: 300
   healthBarOverhead: {fileID: 213209782}
   staminaBarOverhead: {fileID: 1322138029}
   healthBar: {fileID: 601683362}
@@ -9585,7 +9585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_MaxValue
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6049334070313021826, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10320,7 +10320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_MaxValue
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6049334070313021826, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_AnchorMax.x
