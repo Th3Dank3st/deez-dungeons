@@ -1845,13 +1845,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityImage1: {fileID: 1782964699}
-  cooldown1: 4
+  cooldown1: 10
   abilityImage2: {fileID: 1992790432}
-  cooldown2: 4
+  cooldown2: 6
   abilityImage3: {fileID: 23908654}
-  cooldown3: 8
+  cooldown3: 15
   abilityImage4: {fileID: 1089687750}
-  cooldown4: 12
+  cooldown4: 20
   basicImage: {fileID: 1666198613}
   HitEffectImageChilled: {fileID: 233486308}
   HitEffectChilledBackground: {fileID: 554508444}
@@ -1881,19 +1881,19 @@ MonoBehaviour:
   aoeIndicatorObject: {fileID: 1010162686}
   infernoIndicatorObject: {fileID: 1482202443}
   infernoIndicator: {fileID: 1482202445}
-  summonCooldown: 12
+  summonCooldown: 20
   summonPrefab: {fileID: 630614197923514433, guid: 9e1efefdb325fe445ba07361b480b8aa, type: 3}
   maxHealth: 300
   healthBarOverhead: {fileID: 213209782}
   staminaBarOverhead: {fileID: 1322138029}
   healthBar: {fileID: 601683362}
-  regenAmount: 10
+  regenAmount: 15
   healthRegenCooldown: 5
   go: {fileID: 861577408144133275, guid: 86ac846351f4b0a4c850733bc6ef1fa7, type: 3}
-  groundTargetCooldown: 4
-  lunarCooldown: 8
+  groundTargetCooldown: 10
+  lunarCooldown: 15
   lunarIndicator: {fileID: 1233080645}
-  FireCooldown: 4
+  FireCooldown: 6
   basicCooldown: 1
   basicBulletPrefab: {fileID: 1489767824666756010, guid: 314a5ef593192ee4ca250157c51a4465, type: 3}
   basicBulletForce: 13
