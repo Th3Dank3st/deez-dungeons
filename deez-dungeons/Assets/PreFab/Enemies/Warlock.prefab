@@ -46,11 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 2704828191300679799, guid: 9c08fd7b6c36c14489380dc17f0edc0f, type: 3}
   bigSwarmerPrefab: {fileID: 1895205299565793186, guid: 5dc2c65702ac9ba4aac34ea568fdb2be, type: 3}
-  swarmerInterval: 0.3
+  swarmerInterval: 0.5
   eliteInterval: 32
   spawner: {fileID: 201706935876490780}
   spawnerobject: {fileID: 4794908792038431178}
-  spawnRange: 20
+  spawnRange: 14
   spawnerActiveTime: 30
   spawnTrigger: {fileID: 4744966400958724508}
 --- !u!58 &4744966400958724508
