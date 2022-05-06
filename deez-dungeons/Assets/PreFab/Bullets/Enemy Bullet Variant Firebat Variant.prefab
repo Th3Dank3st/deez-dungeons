@@ -8,8 +8,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1549734739, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
+      propertyPath: range
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549734739, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: damage
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1549734739, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: bulletDuration
@@ -74,6 +78,10 @@ PrefabInstance:
     - target: {fileID: 6584211083630673412, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: m_Name
       value: Enemy Bullet Variant Firebat Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584211083630673412, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
+      propertyPath: m_TagString
+      value: ChillPlayerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 8465399058396413155, guid: fc20ae6629932b948bdae0beb2acc3dd, type: 3}
       propertyPath: m_Size.x

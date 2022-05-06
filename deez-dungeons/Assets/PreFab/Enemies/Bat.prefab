@@ -233,9 +233,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 6326105797765852453}
   bulletPrefab: {fileID: 7183082646647071996, guid: 490e65920f18ac54c973190e04c71998, type: 3}
-  FireRate: 0.32
+  FireRate: 0.5
   NextFire: 1
-  bulletForce: 15
+  bulletForce: 12
 --- !u!114 &6326105797061549912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +264,9 @@ MonoBehaviour:
   alreadyRooted: 0
   alreadyStunned: 0
   alreadyBurning: 0
+  alreadyShocked: 0
+  isWarlock: 0
+  phase1: {fileID: 0}
   maxHealth: 100
 --- !u!50 &6326105797061549904
 Rigidbody2D:
