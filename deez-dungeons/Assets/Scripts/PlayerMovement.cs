@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-
     //ability 1 cooldown image
     public Image abilityImage1;
     public float cooldown1 = 3f;
@@ -28,12 +26,21 @@ public class PlayerMovement : MonoBehaviour
     private bool alreadyRooted = false;
     private bool alreadyChilled = false;
     //status effects
+    //chilled
     public Image HitEffectImageChilled;
-    public Image HitEffectImageBackground;
-    public float cooldownChilled = 2f;
+    public Image HitEffectChilledBackground;
+    private float cooldownChilled = 2f;
     private bool isCooldownChilled = false;
-    
-    
+    //stunned
+    public Image HitEffectImageStunned;
+    public Image HitEffectStunnedBackground;
+    public float cooldownStunned = 2f;
+    private bool isCooldownStunned = false;
+    //Rooted
+    public Image HitEffectImageRoot;
+    public Image HitEffectRootBackground;
+    public float cooldownRoot = 2f;
+    private bool isCooldownRoot = false;
 
 
 
@@ -126,10 +133,8 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed;
     public float dashLength = .5f, dashCooldown = 1f;
     private float dashCounter;
-    //private float dashCoolCounter;
     private bool isInvincible = false;
     private int dashCharges = 2;
-    //private int currentCharges;
     private bool dashRecharging = false;
 
     private void Awake()
@@ -188,9 +193,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame (use this for input)
     void Update()
-    {
-        
-        
+    {        
             staminaBarOverhead.SetHealth(dashCharges);
             movement = move.ReadValue<Vector2>();                                           //NEW INPUT system ---- updating our vector2(information type) movement container with the values stored in the move container defined above, which gets information from PlayerInputActions. this information is updated once per frame, so we don't want to put the equation that tells the engine to move here, because it would change based on the users framerate, so we will call upon this data in FixedUpdate when we perform the equation caluclating our movespeed
             animator.SetFloat("Horizontal", movement.x);                                    // INPUT FOR ANIMATIONS (TELLS THE ANIMATOR WHICH ANIMATION TO USE FOR EACH DIRECTION
@@ -239,106 +242,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-
-            //if (dashCoolCounter > 0)
-            //{
-            //   dashCoolCounter -= Time.deltaTime;
-            //}
-
-
-
-
-
-
-
-
-
-            /* if (playerControls.Player.Dash.triggered)
-             {
-                 if (dashCoolCounter <= 0 && dashCounter <= 0 && dashCharges >= 1)
-                 {
-                     activeMoveSpeed = dashSpeed;
-                     isInvincible = true;
-                     dashCounter = dashLength;
-                 }
-
-                 if (isInvincible == true)
-                 {
-                     //Debug.Log("Player is INVINCIBLE!");
-                 }
-             }
-
-             if (dashCounter > 0)
-             {
-                 dashCounter -= Time.deltaTime;
-
-                 if (dashCounter <= 0)
-                 {
-                     activeMoveSpeed = moveSpeed;
-                     isInvincible = false;
-                     dashCoolCounter = dashCooldown;
-                     dashCharges--;
-                     //Debug.Log("Player is VULNERABLE!");
-                 }
-             }
-
-             if (dashCoolCounter > 0)
-             {
-                 dashCoolCounter -= Time.deltaTime;
-             }*/
-
-            //LUNARSLASH
-            /*if (playerControls.Player.LunarSlash.triggered)
-            {
-                if (lunarCoolCounter <= 0)
-                {
-                    GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
-                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                    rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
-                    lunarCoolCounter = lunarCooldown;
-                }
-            }
-
-            if (lunarCoolCounter > 0)
-            {
-                lunarCoolCounter -= Time.deltaTime;
-            }*/
-
-            //Frozen Orb
-            /*if (playerControls.Player.Fire.triggered)
-            {
-                if (FireCoolCounter <= 0)
-                {
-                    GameObject bullet = Instantiate(fireBulletPrefab, firePoint.position, firePoint.rotation);
-                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                    rb.AddForce(firePoint.up * fireBulletForce, ForceMode2D.Impulse);
-                    FireCoolCounter = FireCooldown;
-                }
-            }
-
-            if (FireCoolCounter > 0)
-            {
-                FireCoolCounter -= Time.deltaTime;
-            }*/
-
-
-            //Fireball
-            /*if (playerControls.Player.One.triggered)
-            {
-                if (FireballCoolCounter <= 0)
-                {
-                    GameObject bullet = Instantiate(fireballBulletPrefab, firePoint.position, firePoint.rotation);
-                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                    rb.AddForce(firePoint.up * fireballBulletForce, ForceMode2D.Impulse);
-                    FireballCoolCounter = FireballCooldown;
-                }
-            }
-
-            if (FireballCoolCounter > 0)
-            {
-                FireballCoolCounter -= Time.deltaTime;
-            }*/
-
             //Passive Regen
             if (currentHealth < maxHealth)
             {
@@ -353,30 +256,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 healthCoolCounter -= Time.deltaTime;
             }
-
-            //groundtarget
-            /*if (playerControls.Player.GroundTarget.WasPressedThisFrame())
-            {
-                releasedbutton = false;
-                canplace = true;
-            }
-            if (playerControls.Player.GroundTarget.WasReleasedThisFrame())
-            {
-                releasedbutton = true;
-                canplace = false;
-            }
-
-            if (releasedbutton == false && canplace)
-            {            
-                GameObject newEnemy = Instantiate(go, mousePos , Quaternion.identity);
-                Destroy(newEnemy, 2f);           
-                canplace = false;
-            }*/
-
-            //First Indicator Test using frozen orb
-
-
-
 
             //Frozen Orb
             if (playerControls.Player.FrozenOrb.triggered && !alreadyCasting && !alreadyStunned)
@@ -422,8 +301,7 @@ public class PlayerMovement : MonoBehaviour
                 FireCoolCounter -= Time.deltaTime;
             }
 
-            //Inferno   //ground target aoe
-
+            //Inferno
             if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned)
             {
 
@@ -467,7 +345,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 groundTargetCoolCounter -= Time.deltaTime;
             }
-
 
             //LunarSlash
             if (playerControls.Player.LunarSlash.triggered && !alreadyCasting && !alreadyStunned)
@@ -555,9 +432,8 @@ public class PlayerMovement : MonoBehaviour
                 summonCoolCounter -= Time.deltaTime;
             }
 
-
-
         //status effect cooldown timer indicators
+        //chilled
         if (isCooldownChilled)
         {
             HitEffectImageChilled.fillAmount -= 1 / cooldownChilled * Time.deltaTime;
@@ -567,13 +443,38 @@ public class PlayerMovement : MonoBehaviour
                 HitEffectImageChilled.fillAmount = 0;
                 isCooldownChilled = false;
                 HitEffectImageChilled.gameObject.SetActive(false);
-                HitEffectImageBackground.gameObject.SetActive(false);
+                HitEffectChilledBackground.gameObject.SetActive(false);
+            }
+        }
+
+        //rooted
+        if (isCooldownRoot)
+        {
+            HitEffectImageRoot.fillAmount -= 1 / cooldownRoot * Time.deltaTime;
+
+            if (HitEffectImageRoot.fillAmount <= 0)
+            {
+                HitEffectImageRoot.fillAmount = 0;
+                isCooldownRoot = false;
+                HitEffectImageRoot.gameObject.SetActive(false);
+                HitEffectRootBackground.gameObject.SetActive(false);
+            }
+        }
+
+        //stunned
+        if (isCooldownStunned)
+        {
+            HitEffectImageStunned.fillAmount -= 1 / cooldownStunned * Time.deltaTime;
+
+            if (HitEffectImageStunned.fillAmount <= 0)
+            {
+                HitEffectImageStunned.fillAmount = 0;
+                isCooldownStunned = false;
+                HitEffectImageStunned.gameObject.SetActive(false);
+                HitEffectStunnedBackground.gameObject.SetActive(false);
             }
         }
     }
-
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Chill
@@ -584,6 +485,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Chilled2S());
             }
         }
+
         //Root(immobilize)
         if (other.gameObject.tag == "RootEnemyProjectile")
         {
@@ -592,6 +494,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Root2S());
             }
         }
+
         //Stun
         if (other.gameObject.tag == "StunEnemyProjectile")   // the tag of the projectile that i want this effect to be triggered on
         {
@@ -614,7 +517,7 @@ public class PlayerMovement : MonoBehaviour
             if (!alreadyChilled)
             {
                 HitEffectImageChilled.gameObject.SetActive(true);
-                HitEffectImageBackground.gameObject.SetActive(true);
+                HitEffectChilledBackground.gameObject.SetActive(true);
                 path.activeMoveSpeed *= 0.5f;
                 HitEffectImageChilled.fillAmount = 1;
                 alreadyChilled = true;
@@ -638,17 +541,19 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!alreadyRooted)
             {
+                HitEffectImageRoot.gameObject.SetActive(true);
+                HitEffectRootBackground.gameObject.SetActive(true);
                 move.Disable();
+                HitEffectImageRoot.fillAmount = 1;
                 alreadyRooted = true;
+                isCooldownRoot = true;
             }
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(1f);
         }
         move.Enable();
-
         alreadyRooted = false;
-        yield break;
         // All Done!        
     }
 
@@ -661,8 +566,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!alreadyStunned)
             {
+                HitEffectImageStunned.gameObject.SetActive(true);
+                HitEffectStunnedBackground.gameObject.SetActive(true);
                 move.Disable();
+                HitEffectImageStunned.fillAmount = 1;
                 alreadyStunned = true;
+                isCooldownStunned = true;
             }
             // ^^Do something for i ammount of times times^^
             i--;
@@ -670,38 +579,8 @@ public class PlayerMovement : MonoBehaviour
         }
         move.Enable();
         alreadyStunned = false;
-        yield break;
         // All Done!        
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //called 50 times per second     (use this for output)
     void FixedUpdate()
@@ -753,8 +632,4 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    //slow
-    
-    
-
 }
