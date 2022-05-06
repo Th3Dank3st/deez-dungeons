@@ -16,6 +16,7 @@ TagManager:
   - StunEnemyProjectile
   - RootEnemyProjectile
   - ChillEnemyProjectile
+  - NormalPlayerProjectile
   layers:
   - Default
   - TransparentFX

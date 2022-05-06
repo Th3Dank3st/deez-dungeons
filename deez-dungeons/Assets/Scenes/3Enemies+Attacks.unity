@@ -1779,8 +1779,8 @@ MonoBehaviour:
   lunarIndicator: {fileID: 1233080645}
   FireCooldown: 4
   basicCooldown: 1
-  basicBulletPrefab: {fileID: 3798295507657087930, guid: 81ff0d8368abe7e4580fa59fa08f9493, type: 3}
-  basicBulletForce: 10
+  basicBulletPrefab: {fileID: 1489767824666756010, guid: 314a5ef593192ee4ca250157c51a4465, type: 3}
+  basicBulletForce: 13
   dashSpeed: 30
   dashLength: 0.2
   dashCooldown: 2.5
@@ -4635,63 +4635,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941828245}
   m_CullTransparentMesh: 1
---- !u!1001 &944308988
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079137, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328666906649079158, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
-      propertyPath: m_Name
-      value: SpiritHolder
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
 --- !u!1 &961989929
 GameObject:
   m_ObjectHideFlags: 0
