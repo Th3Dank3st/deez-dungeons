@@ -202,6 +202,9 @@ MonoBehaviour:
   alreadyRooted: 0
   alreadyStunned: 0
   alreadyBurning: 0
+  alreadyShocked: 0
+  isWarlock: 0
+  phase1: {fileID: 0}
   maxHealth: 100
 --- !u!50 &1895205299565793184
 Rigidbody2D:
