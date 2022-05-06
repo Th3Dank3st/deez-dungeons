@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4322675344067461912}
   m_Layer: 8
   m_Name: Player Basic Attack Explosion
-  m_TagString: ChillPlayerProjectile
+  m_TagString: MiniStunPlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.06223011, y: -0.21780062}
   serializedVersion: 2
-  m_Radius: 4.3893094
+  m_Radius: 2.5
 --- !u!58 &-4322675344067461912
 CircleCollider2D:
   m_ObjectHideFlags: 0

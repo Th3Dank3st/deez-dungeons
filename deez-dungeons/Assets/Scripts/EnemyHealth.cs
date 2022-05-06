@@ -81,6 +81,15 @@ public class EnemyHealth : MonoBehaviour
             }
         }
 
+        //Mini Stun
+        if (collisionGameObject.tag == "MiniStunPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyStunned)
+            {
+                StartCoroutine(MiniStun());
+            }
+        }
+
         //Burn
         if (collisionGameObject.tag == "FirePlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
         {
@@ -263,6 +272,51 @@ public class EnemyHealth : MonoBehaviour
         }
         path.maxSpeed = originalSpeed;
         alreadyRooted = false;
+        yield break;
+        // All Done!        
+    }
+
+    public IEnumerator MiniStun()
+    {
+        var path = gameObject.GetComponent<Pathfinding.AIPath>();
+        var originalSpeed = path.maxSpeed;
+        float i = 1f;
+
+        while (i > 0)
+        {
+            if (!alreadyStunned)
+            {
+
+                if (gameObject.GetComponent<PathEnemyShooting>() != null)
+                {
+                    gameObject.GetComponent<PathEnemyShooting>().enabled = false;
+                }
+                if (gameObject.GetComponent<GolemLazerAttack>() != null)
+                {
+                    gameObject.GetComponent<GolemLazerAttack>().enabled = false;
+                }
+
+
+
+                path.maxSpeed = 0f;
+                alreadyStunned = true;
+            }
+            // ^^Do something for i ammount of times times^^
+            i--;
+            yield return new WaitForSeconds(.4f);
+        }
+        if (gameObject.GetComponent<PathEnemyShooting>() != null)
+        {
+            gameObject.GetComponent<PathEnemyShooting>().enabled = true;
+        }
+        if (gameObject.GetComponent<GolemLazerAttack>() != null)
+        {
+            gameObject.GetComponent<GolemLazerAttack>().enabled = true;
+        }
+
+
+        path.maxSpeed = originalSpeed;
+        alreadyStunned = false;
         yield break;
         // All Done!        
     }

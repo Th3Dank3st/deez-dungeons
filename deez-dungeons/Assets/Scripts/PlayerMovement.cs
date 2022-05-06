@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public Image HitEffectRootBackground;
     public float cooldownRoot = 2f;
     private bool isCooldownRoot = false;
-    
+
 
 
 
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     public float basicCooldown;
     public GameObject basicBulletPrefab;
     public float basicBulletForce = 10f;
-   
+
 
     //dash 
     private float activeMoveSpeed;
@@ -256,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
 
         //global cooldown
         if (alreadyCasting)
-        {            
+        {
             StartCoroutine(GlobalCooldown());
         }
 
@@ -440,7 +440,7 @@ public class PlayerMovement : MonoBehaviour
                 basicCoolCounter = basicCooldown;
                 basicImage.fillAmount = 1;
                 imageBasicCooldown = true;
-            }          
+            }
         }
 
         if (imageBasicCooldown)
@@ -681,7 +681,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     IEnumerator GlobalCooldown()
-    {        
+    {
         int b = 1;
         while (b > 0)
         {
