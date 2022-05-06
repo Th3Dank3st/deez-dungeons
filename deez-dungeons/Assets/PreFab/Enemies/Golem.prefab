@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolPointPrefab: {fileID: 6696862428860695788, guid: 8e6fc26e5d878284c84e90cb0a33b94c, type: 3}
   enemyTransform: {fileID: 7972834134995529084}
-  patrolRange: 20
+  patrolRange: 15
   patrolUnit: 1
 --- !u!114 &5565121822923087520
 MonoBehaviour:

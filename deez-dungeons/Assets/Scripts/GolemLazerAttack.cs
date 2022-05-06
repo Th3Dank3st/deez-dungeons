@@ -85,7 +85,7 @@ public class GolemLazerAttack : MonoBehaviour
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
             }
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
             i--;
         }
         //Debug.Log("Attack Casted");
