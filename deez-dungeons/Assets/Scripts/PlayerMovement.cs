@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     private bool alreadyStunned = false;
     private bool alreadyRooted = false;
     private bool alreadyChilled = false;
+    //status effects
+    public Image HitEffectImageChilled;
+    public float cooldownChilled = 2f;
+    private bool isCooldownChilled = false;
+    
+    
 
 
 
@@ -504,12 +510,6 @@ public class PlayerMovement : MonoBehaviour
                 lunarCoolCounter -= Time.deltaTime;
             }
 
-
-
-
-
-
-
             //ShockBlast
             if (playerControls.Player.Summon.triggered && !alreadyCasting && !alreadyStunned)
             {
@@ -553,7 +553,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 summonCoolCounter -= Time.deltaTime;
             }
-        
+
+
+
+        //status effect cooldown timer indicators
+        if (isCooldownChilled)
+        {
+            HitEffectImageChilled.fillAmount -= 1 / cooldownChilled * Time.deltaTime;
+
+            if (HitEffectImageChilled.fillAmount <= 0)
+            {
+                HitEffectImageChilled.fillAmount = 0;
+                isCooldownChilled = false;
+            }
+        }
     }
 
 
@@ -598,7 +611,9 @@ public class PlayerMovement : MonoBehaviour
             if (!alreadyChilled)
             {
                 path.activeMoveSpeed *= 0.5f;
+                HitEffectImageChilled.fillAmount = 1;
                 alreadyChilled = true;
+                isCooldownChilled = true;
             }
             // ^^Do something for i ammount of times times^^
             i--;
@@ -606,7 +621,6 @@ public class PlayerMovement : MonoBehaviour
         }
         activeMoveSpeed = originalSpeed;
         alreadyChilled = false;
-        yield break;
         // All Done!        
     }
 
