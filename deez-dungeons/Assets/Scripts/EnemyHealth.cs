@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     private float health = 0f;
     public GameObject shockAnimation;
     public GameObject burnAnimation;
-    public GameObject slowAnimation;
+   //public GameObject slowAnimation;
 
     [SerializeField] public float maxHealth = 100f;
     void Start()
@@ -117,7 +117,7 @@ public class EnemyHealth : MonoBehaviour
          {
             if (!alreadySlowed)
             {
-                slowAnimation.SetActive(true);
+               // slowAnimation.SetActive(true);
                 path.maxSpeed *= 0.5f;
                 alreadySlowed = true;
             }
@@ -125,7 +125,7 @@ public class EnemyHealth : MonoBehaviour
             i--;
              yield return new WaitForSeconds(1f);
          }
-        slowAnimation.SetActive(false);
+       // slowAnimation.SetActive(false);
         path.maxSpeed = originalSpeed;
          alreadySlowed = false;
          yield break;
@@ -143,7 +143,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyRooted)
             {
-                slowAnimation.SetActive(true);
+             //   slowAnimation.SetActive(true);
                 path.maxSpeed = 0f;
                 alreadyRooted = true;
             }
@@ -151,7 +151,7 @@ public class EnemyHealth : MonoBehaviour
             i--;
             yield return new WaitForSeconds(1f);
         }
-        slowAnimation.SetActive(false);
+       // slowAnimation.SetActive(false);
         path.maxSpeed = originalSpeed;
         alreadyRooted = false;
         yield break;
