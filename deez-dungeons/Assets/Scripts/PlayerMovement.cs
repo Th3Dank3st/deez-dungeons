@@ -149,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isInvincible = false;
     private int dashCharges = 2;
     private bool dashRecharging = false;
+    public float shockDashSpeed;
+    public float shockDashLength;
 
     private void Awake()
     {
@@ -238,10 +240,10 @@ public class PlayerMovement : MonoBehaviour
                 UpdateMana(-5);
                 GameObject explosion = Instantiate(dashExplosion, playerPosition.transform.position, Quaternion.identity);
                 Destroy(explosion, dashExplosionDuration);
-                activeMoveSpeed = dashSpeed;
+                activeMoveSpeed = shockDashSpeed;
                 isInvincible = true;
                 animator.SetBool("isRolling", true);
-                dashCounter = dashLength;
+                dashCounter = shockDashLength;
             }
         }
 

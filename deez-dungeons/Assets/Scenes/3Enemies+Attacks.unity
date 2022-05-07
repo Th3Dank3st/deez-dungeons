@@ -1871,6 +1871,8 @@ MonoBehaviour:
   dashSpeed: 30
   dashLength: 0.2
   dashCooldown: 2.5
+  shockDashSpeed: 55
+  shockDashLength: 0.155
 --- !u!114 &326447360
 MonoBehaviour:
   m_ObjectHideFlags: 0
