@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3761825308043901032}
   - component: {fileID: 824916009104622463}
   - component: {fileID: 5553700431946895468}
+  - component: {fileID: 8255781883059380887}
   m_Layer: 0
   m_Name: Player ShockBlast
   m_TagString: ShockPlayerProjectile
@@ -119,3 +120,16 @@ CircleCollider2D:
   m_Offset: {x: -0.052854817, y: -0.060829435}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &8255781883059380887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630614197923514433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb8f46e50ca8854781807645ae3cdc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 75

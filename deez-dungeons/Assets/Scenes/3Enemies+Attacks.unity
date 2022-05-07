@@ -1875,7 +1875,7 @@ MonoBehaviour:
   dashExplosion: {fileID: 8133406146667864223, guid: 5f82121af8a8a9748808e01af5e7688a, type: 3}
   playerPosition: {fileID: 326447356}
   muzzleBlastAnimation: {fileID: 24757860}
-  maxMana: 350
+  maxMana: 400
   abilityImage1: {fileID: 1782964699}
   cooldown1: 10
   abilityImage2: {fileID: 1992790432}
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   abilityImage3: {fileID: 23908654}
   cooldown3: 15
   abilityImage4: {fileID: 1089687750}
-  cooldown4: 20
+  cooldown4: 30
   basicImage: {fileID: 1666198613}
   HitEffectImageChilled: {fileID: 233486308}
   HitEffectChilledBackground: {fileID: 554508444}
@@ -1913,14 +1913,14 @@ MonoBehaviour:
   aoeIndicatorObject: {fileID: 1010162686}
   infernoIndicatorObject: {fileID: 1482202443}
   infernoIndicator: {fileID: 1482202445}
-  summonCooldown: 20
+  summonCooldown: 30
   summonPrefab: {fileID: 630614197923514433, guid: 9e1efefdb325fe445ba07361b480b8aa, type: 3}
   maxHealth: 400
   healthBarOverhead: {fileID: 213209782}
   staminaBarOverhead: {fileID: 1322138029}
   healthBar: {fileID: 601683362}
   manaBar: {fileID: 1837798324}
-  regenAmount: 18
+  regenAmount: 19
   healthRegenCooldown: 5
   manaRegenAmount: 15
   manaRegenCooldown: 5

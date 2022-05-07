@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8133406146667864221}
   - component: {fileID: 8133406146667864220}
   - component: {fileID: 2863339180024047639}
+  - component: {fileID: 4914203462675479337}
   m_Layer: 8
   m_Name: explosion_1_06
   m_TagString: ShockPlayerProjectile
@@ -119,3 +120,16 @@ CircleCollider2D:
   m_Offset: {x: 0.0060338974, y: -0.05771803}
   serializedVersion: 2
   m_Radius: 1.4543508
+--- !u!114 &4914203462675479337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133406146667864223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb8f46e50ca8854781807645ae3cdc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 75

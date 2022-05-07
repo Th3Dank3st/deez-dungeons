@@ -225,20 +225,20 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dashCounter <= 0 && dashCharges >= 1)
             {
-                if (shockDashing)
-                {
-                    GameObject explosion = Instantiate(dashExplosion, playerPosition.transform.position, Quaternion.identity);
-                    Destroy (explosion, dashExplosionDuration);
-                    dashCharges += 1;
-                }
                 activeMoveSpeed = dashSpeed;
                 isInvincible = true;
                 animator.SetBool("isRolling", true);
                 dashCounter = dashLength;
             }
-            if (isInvincible == true)
+            if (shockDashing && currentMana > 5)
             {
-                //Debug.Log("Player is INVINCIBLE!");
+                UpdateMana(-5);
+                GameObject explosion = Instantiate(dashExplosion, playerPosition.transform.position, Quaternion.identity);
+                Destroy(explosion, dashExplosionDuration);
+                activeMoveSpeed = dashSpeed;
+                isInvincible = true;
+                animator.SetBool("isRolling", true);
+                dashCounter = dashLength;
             }
         }
 
@@ -426,9 +426,9 @@ public class PlayerMovement : MonoBehaviour
         //ShockBlast
         if (playerControls.Player.Summon.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
-            if (summonCoolCounter <= 0 && currentMana >= 50)   //summonCoolCounter
+            if (summonCoolCounter <= 0 && currentMana >= 40)   //summonCoolCounter
             {
-                UpdateMana(-50);
+                UpdateMana(-40);
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);   //cursorForSummon
                 aoeIndicatorObject.SetActive(true);
                 alreadyCasting = true;
@@ -782,7 +782,7 @@ IEnumerator DashChargeCooldown()
                 shockDashing = true;
             }
             o--;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
         }
         shockDashing = false;
     }
