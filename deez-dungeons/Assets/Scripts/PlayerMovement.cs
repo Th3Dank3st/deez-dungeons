@@ -341,9 +341,9 @@ public class PlayerMovement : MonoBehaviour
         if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
 
-            if (groundTargetCoolCounter <= 0 && currentMana >= 40)
+            if (groundTargetCoolCounter <= 0 && currentMana >= 30)
             {
-                UpdateMana(-40);
+                UpdateMana(-30);
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
                 infernoIndicatorObject.SetActive(true);
                 alreadyCasting = true;

@@ -10,8 +10,8 @@ public class EnemyHealth : MonoBehaviour
     public bool alreadyBurning = false;
     public bool alreadyShocked = false;
     public bool isWarlock;
-    private float shockDPS = 60;
-    private float burnDPS = 25;
+    private float shockDPS = 50;
+    private float burnDPS = 20;
     public GameObject phase1;
     private bool alreadyActive = false;
     private float health = 0f;
