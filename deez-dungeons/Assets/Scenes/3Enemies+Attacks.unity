@@ -1871,6 +1871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87860bad8e699294094b8e8a09505048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashExplosionDuration: 0.6
+  dashExplosion: {fileID: 8133406146667864223, guid: 5f82121af8a8a9748808e01af5e7688a, type: 3}
+  playerPosition: {fileID: 326447356}
   muzzleBlastAnimation: {fileID: 24757860}
   maxMana: 350
   abilityImage1: {fileID: 1782964699}

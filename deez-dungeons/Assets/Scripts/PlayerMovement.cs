@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float dashExplosionDuration = 0.6f;
+    private bool shockDashing = false;
+    public GameObject dashExplosion;
+    public GameObject playerPosition;
     public GameObject muzzleBlastAnimation;
     public float maxMana = 400f;
     private float currentMana;
@@ -221,6 +225,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dashCounter <= 0 && dashCharges >= 1)
             {
+                if (shockDashing)
+                {
+                    GameObject explosion = Instantiate(dashExplosion, playerPosition.transform.position, Quaternion.identity);
+                    Destroy (explosion, dashExplosionDuration);
+                    dashCharges += 1;
+                }
                 activeMoveSpeed = dashSpeed;
                 isInvincible = true;
                 animator.SetBool("isRolling", true);
@@ -428,6 +438,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerControls.Player.Fire.triggered && summonPending && !alreadyStunned)   //&& summonPending
         {
+            StartCoroutine(ShockDashing());
             animator.SetTrigger("Attack");
             GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
             Destroy(summon, 0.3f);
@@ -758,5 +769,21 @@ IEnumerator DashChargeCooldown()
         }
         muzzleBlast = false;
         muzzleBlastAnimation.SetActive(false);
+    }
+
+    IEnumerator ShockDashing()
+    {
+        int o = 1;
+        while (o > 0)
+        {
+
+            if (!shockDashing)
+            {
+                shockDashing = true;
+            }
+            o--;
+            yield return new WaitForSeconds(3f);
+        }
+        shockDashing = false;
     }
 }
