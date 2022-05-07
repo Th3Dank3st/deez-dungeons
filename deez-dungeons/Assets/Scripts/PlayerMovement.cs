@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject muzzleBlastAnimation;
     public float maxMana = 400f;
     private float currentMana;
 
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public Image HitEffectRootBackground;
     public float cooldownRoot = 2f;
     private bool isCooldownRoot = false;
+    private bool muzzleBlast = false;
 
 
 
@@ -285,9 +287,9 @@ public class PlayerMovement : MonoBehaviour
         //Frozen Orb
         if (playerControls.Player.FrozenOrb.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
-            if (FireCoolCounter <= 0 && currentMana >= 20)
+            if (FireCoolCounter <= 0 && currentMana >= 30)
             {
-                UpdateMana(-20);
+                UpdateMana(-30);
                 FOrbIndicator.SetActive(true);
                 FOrbPending = true;
                 alreadyCasting = true;
@@ -329,9 +331,9 @@ public class PlayerMovement : MonoBehaviour
         if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
 
-            if (groundTargetCoolCounter <= 0 && currentMana >= 30)
+            if (groundTargetCoolCounter <= 0 && currentMana >= 40)
             {
-                UpdateMana(-30);
+                UpdateMana(-40);
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
                 infernoIndicatorObject.SetActive(true);
                 alreadyCasting = true;
@@ -371,9 +373,9 @@ public class PlayerMovement : MonoBehaviour
         //LunarSlash
         if (playerControls.Player.LunarSlash.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
-            if (lunarCoolCounter <= 0 && currentMana >= 40)
+            if (lunarCoolCounter <= 0 && currentMana >= 50)
             {
-                UpdateMana(-40);
+                UpdateMana(-50);
                 alreadyCasting = true;
                 lunarIndicator.SetActive(true);
                 lunarPending = true;
@@ -414,9 +416,9 @@ public class PlayerMovement : MonoBehaviour
         //ShockBlast
         if (playerControls.Player.Summon.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
-            if (summonCoolCounter <= 0 && currentMana >= 40)   //summonCoolCounter
+            if (summonCoolCounter <= 0 && currentMana >= 50)   //summonCoolCounter
             {
-                UpdateMana(-40);
+                UpdateMana(-50);
                 Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);   //cursorForSummon
                 aoeIndicatorObject.SetActive(true);
                 alreadyCasting = true;
@@ -459,6 +461,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (basicCoolCounter <= 0)
             {
+                StartCoroutine(MuzzleBlast());
                 animator.SetTrigger("Attack");
                 GameObject bullet = Instantiate(basicBulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -738,5 +741,22 @@ IEnumerator DashChargeCooldown()
             yield return new WaitForSeconds(1f);
         }
         globalCooldownActive = false;
+    }
+
+    IEnumerator MuzzleBlast()
+    {
+        int T = 1;
+        while (T > 0)
+        {
+            if (!muzzleBlast)
+            {
+                muzzleBlastAnimation.SetActive(true);
+                muzzleBlast = true;
+            }
+            T--;
+            yield return new WaitForSeconds(.1f);
+        }
+        muzzleBlast = false;
+        muzzleBlastAnimation.SetActive(false);
     }
 }
