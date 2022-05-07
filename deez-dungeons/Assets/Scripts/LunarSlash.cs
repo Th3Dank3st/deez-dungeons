@@ -5,7 +5,6 @@ using UnityEngine;
 public class LunarSlash : MonoBehaviour
 {
     public float range, damage;
-
     void Start()
     {
         Destroy(this.gameObject, range);

@@ -26,12 +26,15 @@ public class EnemyHealth : MonoBehaviour
         //enemyHealthBar.SetMaxHealth(maxHealth);
         health = maxHealth;        
     }
+    private void Update()
+    {
+        Healthbar.SetHealth(health, maxHealth);
+    }
 
     public void UpdateHealth(float mod)
     {
         health += mod;
         healthBar.SetActive(true);
-        Healthbar.SetHealth(health, maxHealth);
         //enemyHealthBar.SetHealth(health);
 
         if (health > maxHealth)
