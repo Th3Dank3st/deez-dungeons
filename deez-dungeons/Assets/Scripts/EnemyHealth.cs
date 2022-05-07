@@ -14,22 +14,24 @@ public class EnemyHealth : MonoBehaviour
     private float burnDPS = 20;
     public GameObject phase1;
     private bool alreadyActive = false;
-    private float health = 0f;
+    private float health;
     public GameObject shockAnimation;
     public GameObject burnAnimation;
-    //public EnemyHealthBar enemyHealthBar;
-   //public GameObject slowAnimation;
+    public HealthbarBehaviour Healthbar;
+    public GameObject healthBar;
 
-    [SerializeField] public float maxHealth = 100f;
+    [SerializeField] public float maxHealth;
     void Awake()
     {
         //enemyHealthBar.SetMaxHealth(maxHealth);
-        health = maxHealth;
+        health = maxHealth;        
     }
 
     public void UpdateHealth(float mod)
     {
         health += mod;
+        healthBar.SetActive(true);
+        Healthbar.SetHealth(health, maxHealth);
         //enemyHealthBar.SetHealth(health);
 
         if (health > maxHealth)
