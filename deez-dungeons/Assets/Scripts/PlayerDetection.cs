@@ -15,6 +15,7 @@ public class PlayerDetection : MonoBehaviour
     public bool patrolUnit = false;
     private GameObject patrolPoint1;
     private GameObject patrolPoint2;
+    public bool pathEnemyShooting = true;
     //private bool walkingToTarget1 = false;
     //private bool walkingToTarget2 = false;
     //private bool isAtTarget1 = false;
@@ -27,7 +28,11 @@ public class PlayerDetection : MonoBehaviour
     private void Start()
     {
         //gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().enabled = false;          //changed lunar slash to luanr slash layer, changed the trigger collider for aggro on bat to lunar slash layer, need to make lunar slash collider not detect the aggro trigger collider
-        gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
+        if (pathEnemyShooting)
+        {
+            gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
+        }
+        
         //GameObject patrolPoint1 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
         //GameObject patrolPoint2 = Instantiate(patrolPointPrefab, GeneratedPosition(), Quaternion.identity);
 
@@ -89,8 +94,12 @@ public class PlayerDetection : MonoBehaviour
 
                 //move to player
                 gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = transform;                         //                 target =                      //other.gameObject.transform;
-                //shoot at player
-                gameObject.GetComponentInParent<PathEnemyShooting>().enabled = true;
+                                                                                                                               //shoot at player
+                if (pathEnemyShooting)
+                {
+                    gameObject.GetComponentInParent<PathEnemyShooting>().enabled = true;
+
+                }
             }
 
         }
@@ -102,7 +111,12 @@ public class PlayerDetection : MonoBehaviour
         {
             canSeePlayer = false;
             gameObject.GetComponentInParent<Pathfinding.AIDestinationSetter>().target = patrolTarget1;
-            gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
+            if (pathEnemyShooting)
+            {
+                gameObject.GetComponentInParent<PathEnemyShooting>().enabled = false;
+
+            }
+
         }
     }
 

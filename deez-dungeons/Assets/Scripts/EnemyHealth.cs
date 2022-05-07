@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    //public float range = 2.3f;
-    //public float damage;
-    //public GameObject hitEffect;
-    //private Rigidbody2D rb;
-    //public float slowDurationMustBe2 = 2f;
-    //private GameObject enemy;
     public bool alreadySlowed = false;
     public bool alreadyRooted = false;
     public bool alreadyStunned = false;
@@ -20,10 +14,11 @@ public class EnemyHealth : MonoBehaviour
     private float burnDPS = 25;
     public GameObject phase1;
     private bool alreadyActive = false;
-    private bool alreadyActivep2 = false;
-    
-
     private float health = 0f;
+    public GameObject shockAnimation;
+    public GameObject burnAnimation;
+    public GameObject slowAnimation;
+
     [SerializeField] public float maxHealth = 100f;
     void Start()
     {
@@ -122,14 +117,16 @@ public class EnemyHealth : MonoBehaviour
          {
             if (!alreadySlowed)
             {
+                slowAnimation.SetActive(true);
                 path.maxSpeed *= 0.5f;
                 alreadySlowed = true;
             }
             // ^^Do something for i ammount of times times^^
             i--;
              yield return new WaitForSeconds(1f);
-         }            
-         path.maxSpeed = originalSpeed;
+         }
+        slowAnimation.SetActive(false);
+        path.maxSpeed = originalSpeed;
          alreadySlowed = false;
          yield break;
          // All Done!        
@@ -146,6 +143,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyRooted)
             {
+                slowAnimation.SetActive(true);
                 path.maxSpeed = 0f;
                 alreadyRooted = true;
             }
@@ -153,6 +151,7 @@ public class EnemyHealth : MonoBehaviour
             i--;
             yield return new WaitForSeconds(1f);
         }
+        slowAnimation.SetActive(false);
         path.maxSpeed = originalSpeed;
         alreadyRooted = false;
         yield break;
@@ -170,7 +169,6 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyStunned)
             {
-
                 if (gameObject.GetComponent<PathEnemyShooting>() != null)
                 {
                     gameObject.GetComponent<PathEnemyShooting>().enabled = false;                    
@@ -179,9 +177,6 @@ public class EnemyHealth : MonoBehaviour
                 {
                     gameObject.GetComponent<GolemLazerAttack>().enabled = false;
                 }
-
-                
-
                 path.maxSpeed = 0f;
                 alreadyStunned = true;
             }
@@ -197,8 +192,6 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.GetComponent<GolemLazerAttack>().enabled = true;
         }
-
-
         path.maxSpeed = originalSpeed;
         alreadyStunned = false;
         yield break;
@@ -208,46 +201,44 @@ public class EnemyHealth : MonoBehaviour
     //Burn
     public IEnumerator Burn4S()
     {
-
         float i = 4f;
         
         while (i > 0)
         {
             if (!alreadyBurning)
             {
+                burnAnimation.SetActive(true);
                 alreadyBurning = true;
             }
             UpdateHealth(-burnDPS);
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(1f);
-                
         }
+        burnAnimation.SetActive(false);
         alreadyBurning = false;
         yield break;
         // All Done!        
     }
 
-
     public IEnumerator Shock6S()
     {
-
         float i = 3f;
-
         while (i > 0)
         {
             if (!alreadyShocked)
             {
                 alreadyShocked = true;
+                shockAnimation.SetActive(true);
             }
+            
             StartCoroutine(Root1S());
             UpdateHealth(-shockDPS);
-
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(2f);
-
         }
+        shockAnimation.SetActive(false);
         alreadyShocked = false;
         yield break;
         // All Done!        
@@ -286,7 +277,6 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyStunned)
             {
-
                 if (gameObject.GetComponent<PathEnemyShooting>() != null)
                 {
                     gameObject.GetComponent<PathEnemyShooting>().enabled = false;
@@ -295,9 +285,6 @@ public class EnemyHealth : MonoBehaviour
                 {
                     gameObject.GetComponent<GolemLazerAttack>().enabled = false;
                 }
-
-
-
                 path.maxSpeed = 0f;
                 alreadyStunned = true;
             }
@@ -313,8 +300,6 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.GetComponent<GolemLazerAttack>().enabled = true;
         }
-
-
         path.maxSpeed = originalSpeed;
         alreadyStunned = false;
         yield break;
