@@ -164,6 +164,8 @@ public class PlayerMovement : MonoBehaviour
         currentMana = maxMana;
         healthBar.SetMaxHealth(maxHealth);//this is for health        
         staminaBarOverhead.SetMaxHealth(dashCharges);//this is max stamina
+        manaBar.SetMaxHealth(maxMana);
+        healthBarOverhead.SetMaxHealth(maxHealth);
     }
 
     // WHEN YOU PRESS A BUTTON    
