@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform plasmaBlastFirepoint;
     public float dashExplosionDuration = 0.6f;
     private bool shockDashing = false;
     public GameObject dashExplosion;
@@ -401,7 +402,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerControls.Player.Fire.triggered && lunarPending && !alreadyStunned)
         {
             animator.SetTrigger("Attack");
-            GameObject bullet = Instantiate(lunarSlashPrefab, firePoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(lunarSlashPrefab, plasmaBlastFirepoint.position, plasmaBlastFirepoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
             lunarCoolCounter = lunarCooldown;
