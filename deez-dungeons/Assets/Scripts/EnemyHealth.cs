@@ -17,17 +17,20 @@ public class EnemyHealth : MonoBehaviour
     private float health = 0f;
     public GameObject shockAnimation;
     public GameObject burnAnimation;
+    //public EnemyHealthBar enemyHealthBar;
    //public GameObject slowAnimation;
 
     [SerializeField] public float maxHealth = 100f;
-    void Start()
+    void Awake()
     {
+        //enemyHealthBar.SetMaxHealth(maxHealth);
         health = maxHealth;
     }
 
     public void UpdateHealth(float mod)
     {
         health += mod;
+        //enemyHealthBar.SetHealth(health);
 
         if (health > maxHealth)
         {
