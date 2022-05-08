@@ -83,7 +83,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549908, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: maxSpeed
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549908, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: enableRotation
@@ -111,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549914, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_Name
-      value: Slime
+      value: Slime Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6326105797061549915, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: maxHealth
