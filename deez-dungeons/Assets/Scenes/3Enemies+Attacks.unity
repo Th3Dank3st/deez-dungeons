@@ -322,7 +322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &55833870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   dashExplosion: {fileID: 8133406146667864223, guid: 5f82121af8a8a9748808e01af5e7688a, type: 3}
   playerPosition: {fileID: 326447356}
   muzzleBlastAnimation: {fileID: 24757860}
-  maxMana: 400
+  maxMana: 375
   abilityImage1: {fileID: 1782964699}
   cooldown1: 13
   abilityImage2: {fileID: 1992790432}
@@ -1938,7 +1938,7 @@ MonoBehaviour:
   manaBar: {fileID: 1837798324}
   regenAmount: 19
   healthRegenCooldown: 5
-  manaRegenAmount: 15
+  manaRegenAmount: 12
   manaRegenCooldown: 5
   go: {fileID: 861577408144133275, guid: 86ac846351f4b0a4c850733bc6ef1fa7, type: 3}
   groundTargetCooldown: 13
@@ -6838,7 +6838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1314711531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7587,7 +7587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_MaxValue
-      value: 400
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 6049334069560202222, guid: 26151bc4e2eda7e46a514a75d315a815, type: 3}
       propertyPath: m_WholeNumbers
