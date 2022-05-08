@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private float durationShockDash = 6;
+    private bool isShockDashing = false;
+    public Image shockDashTimer;
+    public Image shockDashTimerBackground; 
+    public GameObject shockDashIndicator;
     public Transform plasmaBlastFirepoint;
     public float dashExplosionDuration = 0.6f;
     private bool shockDashing = false;
@@ -537,6 +542,21 @@ public class PlayerMovement : MonoBehaviour
 
 
         //status effect cooldown timer indicators__________________________________________________________________
+
+
+        //is shockdashing
+        if (isShockDashing)
+        {
+            shockDashTimer.fillAmount -= 1 / durationShockDash * Time.deltaTime;
+
+            if (shockDashTimer.fillAmount <= 0)
+            {
+                shockDashTimer.fillAmount = 0;
+                isShockDashing = false;
+                shockDashTimer.gameObject.SetActive(false);
+                shockDashTimerBackground.gameObject.SetActive(false);
+            }
+        }
         //chilled
         if (isCooldownChilled)
         {
@@ -787,11 +807,17 @@ IEnumerator DashChargeCooldown()
 
             if (!shockDashing)
             {
+                shockDashTimer.gameObject.SetActive(true);
+                shockDashTimerBackground.gameObject.SetActive(true);               
+                shockDashIndicator.SetActive(true);
+                isShockDashing = true;
                 shockDashing = true;
+                shockDashTimer.fillAmount = 1;
             }
             o--;
             yield return new WaitForSeconds(6f);
         }
+        shockDashIndicator.SetActive(false);
         shockDashing = false;
     }
 }
