@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //stats
-    
 
 
 
@@ -17,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    public GameObject slowEffect;
     //unorganized
     private float currentLevel = 1f;
     private float currentXP;
@@ -655,6 +655,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!alreadyChilled)
             {
+                slowEffect.SetActive(true);
                 HitEffectImageChilled.gameObject.SetActive(true);
                 HitEffectChilledBackground.gameObject.SetActive(true);
                 path.activeMoveSpeed *= 0.5f;
@@ -666,6 +667,7 @@ public class PlayerMovement : MonoBehaviour
             i--;
             yield return new WaitForSeconds(1f);
         }
+        slowEffect.SetActive(false);
         activeMoveSpeed = originalSpeed;
         alreadyChilled = false;
         // All Done!        

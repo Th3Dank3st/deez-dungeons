@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public GameObject slowIndicator;
     public float Experience;
     public bool alreadySlowed = false;
     public bool alreadyRooted = false;
@@ -127,7 +128,7 @@ public class EnemyHealth : MonoBehaviour
          {
             if (!alreadySlowed)
             {
-               // slowAnimation.SetActive(true);
+                slowIndicator.SetActive(true);
                 path.maxSpeed *= 0.5f;
                 alreadySlowed = true;
             }
@@ -135,7 +136,7 @@ public class EnemyHealth : MonoBehaviour
             i--;
              yield return new WaitForSeconds(1f);
          }
-       // slowAnimation.SetActive(false);
+        slowIndicator.SetActive(false);
         path.maxSpeed = originalSpeed;
          alreadySlowed = false;
          yield break;
