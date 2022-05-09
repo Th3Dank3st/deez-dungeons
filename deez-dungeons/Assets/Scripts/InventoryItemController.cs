@@ -20,18 +20,29 @@ public class InventoryItemController : MonoBehaviour
         item = newItem;
     }
 
+
+    //var totalDefense = 1f - (defense * 0.01f);
+    //currentHealth += (damage* totalDefense);
+    
+
+
     public void UseItem()
     {
+        var speedcalc = (item.speed * 0.01f) + 1f;
         switch (item.itemType)
         {
             case Item.ItemType.Potion:
-                PlayerMovement.Instance.UpdateHealth(+(item.value));
+                PlayerMovement.Instance.UpdateHealth(+(item.healValue));
                 break;
-            //case Item.ItemType.Sword:
-            //whatever the sword does or however we equip it here, not sure which one yet.
-            //  break;
-
+            case Item.ItemType.Armor:
+                PlayerMovement.Instance.defense += (+(item.defense));
+              break;
+            case Item.ItemType.Boots:
+                PlayerMovement.Instance.moveSpeed *= speedcalc;
+                break;
         }
+        var d = PlayerMovement.Instance.moveSpeed;
+        PlayerMovement.Instance.activeMoveSpeed = d;
         RemoveItem();
     }
 }

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+    public float defense;
     public Text XPGoalText;
     public Text currentXPText;
     public HealthBar XPBar;
@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //dash 
-    private float activeMoveSpeed;
+    public float activeMoveSpeed;
     public float dashSpeed;
     public float dashLength = .5f, dashCooldown = 1f;
     private float dashCounter;
@@ -175,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        defense = 1f;
         currentLevel = 1f;
         levelText.text = currentLevel.ToString();
         XPGoal = 1000;
@@ -771,7 +772,8 @@ public class PlayerMovement : MonoBehaviour
     public void UpdateHealth(float damage)
     {
         if (isInvincible) return;
-        currentHealth += damage;
+        var totalDefense = 1f - (defense * 0.01f);
+        currentHealth += (damage * totalDefense);
         healthBar.SetHealth(currentHealth);
         healthBarOverhead.SetHealth(currentHealth);
 

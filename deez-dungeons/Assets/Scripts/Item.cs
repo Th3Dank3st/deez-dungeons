@@ -8,15 +8,18 @@ public class Item : ScriptableObject
 {
     public int id;
     public string itemName;
-    public int value;
+    public int healValue;
+    public int defense;
     public Sprite icon;
     public ItemType itemType;
     public int amount = 1;
+    public int speed;
 
     public enum ItemType
     {
         Potion,
-        Sword,
+        Boots,
+        Armor,
 
     }
 
@@ -27,7 +30,9 @@ public class Item : ScriptableObject
             default:
                 case ItemType.Potion:
                 return true;
-                case ItemType.Sword:
+                case ItemType.Boots:
+                return false;
+                case ItemType.Armor:
                 return false;
         }
     }

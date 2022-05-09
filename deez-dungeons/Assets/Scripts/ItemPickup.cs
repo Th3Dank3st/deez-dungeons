@@ -11,9 +11,8 @@ public class ItemPickup : MonoBehaviour
             InventoryManager.Instance.Add(itemz);
             Destroy(gameObject);
     }
-    public void OnTriggerEnter2D()      // the original line of code for this function is Pickup(); only
+    public void OnCollisionEnter2D()      // the original line of code for this function is Pickup(); only
     {
-
         Pickup();
     }
 }
