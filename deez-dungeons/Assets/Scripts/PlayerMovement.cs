@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //stats
 
-    //public float spellDamage;
+    public float spellDamage;
     public float attackDamage;
     public float defense;
     public Text XPGoalText;
@@ -175,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        spellDamage = 1f;
         attackDamage = 1f;
         defense = 1f;
         currentLevel = 1f;

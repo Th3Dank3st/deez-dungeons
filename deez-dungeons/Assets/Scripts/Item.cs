@@ -16,7 +16,7 @@ public class Item : ScriptableObject
     public float speed;
     public float attackDamage;
     public float attackSpeed;
-   //public float spellDamage;
+    public float spellDamage;
     public float castSpeed;
 
     public enum ItemType

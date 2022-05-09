@@ -18,6 +18,7 @@ public class F_OrbSprayBullets : MonoBehaviour
 
     void Start()
     {
+        damage *= FindObjectOfType<PlayerMovement>().spellDamage;
         //Destroy(gameObject.GetComponent<SpriteRenderer>(), 0.6f);
         //Destroy(gameObject.GetComponent<Collider2D>(), 0.6f);
         //Destroy(gameObject.GetComponent<TrailRenderer>(), 0.6f);

@@ -22,4 +22,5 @@ MonoBehaviour:
   speed: 0
   attackDamage: 0
   attackSpeed: 0
-  castSpeed: 50
+  spellDamage: 10
+  castSpeed: 10

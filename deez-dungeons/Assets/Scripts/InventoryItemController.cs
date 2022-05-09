@@ -29,7 +29,7 @@ public class InventoryItemController : MonoBehaviour
     public void UseItem()
     {
         var castspeedcalc = 1 - (item.castSpeed * 0.01f);
-        //var spelldmgcalc = (item.spellDamage * 0.01f) + 1;
+        var spelldmgcalc = (item.spellDamage * 0.01f) + 1;
         var basicspeedcalc = 1 - (item.attackSpeed * 0.01f);
         var speedcalc = (item.speed * 0.01f) + 1f;
         switch (item.itemType)
@@ -49,6 +49,7 @@ public class InventoryItemController : MonoBehaviour
                 PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
                 break;
             case Item.ItemType.Ring:
+                PlayerMovement.Instance.spellDamage *= spelldmgcalc;
                 PlayerMovement.Instance.cooldown1 *= castspeedcalc;
                 PlayerMovement.Instance.cooldown2 *= castspeedcalc;
                 PlayerMovement.Instance.cooldown3 *= castspeedcalc;

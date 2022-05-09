@@ -8,6 +8,7 @@ public class PlasmaAoeExplosion : MonoBehaviour
 
     private void Awake()
     {
+        damage *= FindObjectOfType<PlayerMovement>().spellDamage;
         Destroy(gameObject, 0.35f);
     }
     public void OnCollisionEnter2D(Collision2D other)

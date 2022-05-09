@@ -26,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public float maxHealth;
     void Awake()
     {
+        shockDPS *= FindObjectOfType<PlayerMovement>().spellDamage;
+        burnDPS *= FindObjectOfType<PlayerMovement>().spellDamage;
         //enemyHealthBar.SetMaxHealth(maxHealth);
         health = maxHealth;        
     }
