@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     //stats
 
 
-
+    public float attackDamage;
     public float defense;
     public Text XPGoalText;
     public Text currentXPText;
@@ -175,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        attackDamage = 1f;
         defense = 1f;
         currentLevel = 1f;
         levelText.text = currentLevel.ToString();
@@ -511,6 +512,8 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(MuzzleBlast());
                 animator.SetTrigger("Attack");
                 GameObject bullet = Instantiate(basicBulletPrefab, firePoint.position, firePoint.rotation);
+                var attack = (attackDamage * .01f) + 1f;
+                bullet.GetComponent<Bullet>().damage *= attack;
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * basicBulletForce, ForceMode2D.Impulse);
                 basicCoolCounter = basicCooldown;

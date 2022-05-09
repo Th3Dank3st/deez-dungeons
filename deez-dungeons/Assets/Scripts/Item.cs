@@ -14,12 +14,14 @@ public class Item : ScriptableObject
     public ItemType itemType;
     public int amount = 1;
     public int speed;
+    public int attackDamage;
 
     public enum ItemType
     {
         Potion,
         Boots,
         Armor,
+        Staff,
 
     }
 
@@ -33,6 +35,8 @@ public class Item : ScriptableObject
                 case ItemType.Boots:
                 return false;
                 case ItemType.Armor:
+                return false;
+                case ItemType.Staff:
                 return false;
         }
     }

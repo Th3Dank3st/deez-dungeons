@@ -41,6 +41,9 @@ public class InventoryItemController : MonoBehaviour
                 PlayerMovement.Instance.moveSpeed *= speedcalc;
                 PlayerMovement.Instance.defense += (+(item.defense));
                 break;
+            case Item.ItemType.Staff:
+                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                break;
         }
         var d = PlayerMovement.Instance.moveSpeed;
         PlayerMovement.Instance.activeMoveSpeed = d;
