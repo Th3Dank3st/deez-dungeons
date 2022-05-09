@@ -6,6 +6,18 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //stats
+    
+
+
+
+
+
+
+
+
+
+    //unorganized
     private float currentLevel = 1f;
     private float currentXP;
     private float XPGoal;
@@ -726,6 +738,11 @@ public class PlayerMovement : MonoBehaviour
             currentXP = 0;
             XPGoal *= 1.2f;
             Debug.Log("YOU LEVELED UP!");
+            maxHealth += 15;
+            maxMana += 20;
+            basicCooldown *= 1.02f;
+            regenAmount *= 1.02f;
+            manaRegenAmount *= 1.025f;            
         }
     }
 
