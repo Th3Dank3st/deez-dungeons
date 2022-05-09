@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public GameObject stunIndicator;
     public GameObject slowIndicator;
     public float Experience;
     public bool alreadySlowed = false;
@@ -57,7 +58,61 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject collisionGameObject = collision.gameObject;
+        //Chill
+        if (collisionGameObject.tag == "ChillPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadySlowed)
+            {
+                StartCoroutine(Chilled2S());
+            }
+        }
+        //Root(immobilize)
+        if (collisionGameObject.tag == "RootPlayerProjectile")
+        {
+            if (!alreadyRooted)
+            {
+                StartCoroutine(Root2S());
+            }
+        }
+        //Stun
+        if (collisionGameObject.tag == "StunPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyStunned)
+            {
+                StartCoroutine(Stunned2S());
+            }
+        }
 
+        //Mini Stun
+        if (collisionGameObject.tag == "MiniStunPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyStunned)
+            {
+                StartCoroutine(MiniStun());
+            }
+        }
+
+        //Burn
+        if (collisionGameObject.tag == "FirePlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyBurning)
+            {
+                StartCoroutine(Burn4S());
+            }
+        }
+
+        //Shock
+        if (collisionGameObject.tag == "ShockPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
+        {
+            if (!alreadyShocked)
+            {
+                StartCoroutine(Shock6S());
+            }
+        }
+    }
     //hit effects
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -190,11 +245,13 @@ public class EnemyHealth : MonoBehaviour
                 }
                 path.maxSpeed = 0f;
                 alreadyStunned = true;
+                stunIndicator.SetActive(true);
             }
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(1f);
         }
+        stunIndicator.SetActive(false);
         if (gameObject.GetComponent<PathEnemyShooting>() != null)
         {
             gameObject.GetComponent<PathEnemyShooting>().enabled = true;
@@ -288,6 +345,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!alreadyStunned)
             {
+                stunIndicator.SetActive(true);
                 if (gameObject.GetComponent<PathEnemyShooting>() != null)
                 {
                     gameObject.GetComponent<PathEnemyShooting>().enabled = false;
@@ -298,11 +356,13 @@ public class EnemyHealth : MonoBehaviour
                 }
                 path.maxSpeed = 0f;
                 alreadyStunned = true;
+                
             }
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(.4f);
         }
+        stunIndicator.SetActive(false);
         if (gameObject.GetComponent<PathEnemyShooting>() != null)
         {
             gameObject.GetComponent<PathEnemyShooting>().enabled = true;

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8790702827267699358}
   m_Layer: 8
   m_Name: Player Basic Bullet Trail
-  m_TagString: ChillPlayerProjectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

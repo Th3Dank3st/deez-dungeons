@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+    public GameObject stunEffect;
     public GameObject slowEffect;
     //unorganized
     private float currentLevel = 1f;
@@ -705,6 +705,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!alreadyStunned)
             {
+                stunEffect.SetActive(true);
                 HitEffectImageStunned.gameObject.SetActive(true);
                 HitEffectStunnedBackground.gameObject.SetActive(true);
                 move.Disable();
@@ -716,6 +717,7 @@ public class PlayerMovement : MonoBehaviour
             i--;
             yield return new WaitForSeconds(1f);
         }
+        stunEffect.SetActive(false);
         move.Enable();
         alreadyStunned = false;
         // All Done!        
