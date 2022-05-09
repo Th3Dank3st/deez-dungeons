@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+    public HealthBar XPBar;
     public Text levelText;
     public GameObject stunEffect;
     public GameObject slowEffect;
@@ -175,9 +175,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+       
         currentLevel = 1f;
         levelText.text = currentLevel.ToString();
         XPGoal = 1000;
+        XPBar.SetMaxHealth(XPGoal);
+        currentXP = 0;
+        XPBar.SetHealth(currentXP);
         abilityImage4.fillAmount = 0;
         abilityImage3.fillAmount = 0;
         abilityImage2.fillAmount = 0;
@@ -737,13 +741,13 @@ public class PlayerMovement : MonoBehaviour
     public void UpdateXP(float experience)
     {
         currentXP += experience;
+        XPBar.SetHealth(currentXP);
         //experiencebar.sethealth(currentXP)
         if (currentXP >= XPGoal)
         {
             currentLevel++;
             levelText.text = currentLevel.ToString();
-            currentXP = 0;
-            XPGoal *= 1.2f;
+            XPGoal *= 1.2f;            
             Debug.Log("YOU LEVELED UP!");
             maxHealth += 15;
             maxMana += 20;
@@ -755,6 +759,9 @@ public class PlayerMovement : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             healthBarOverhead.SetHealth(currentHealth);
             manaBar.SetHealth(currentMana);
+            currentXP = 0;
+            XPBar.SetMaxHealth(XPGoal);
+            XPBar.SetHealth(currentXP);
         }
     }
 
