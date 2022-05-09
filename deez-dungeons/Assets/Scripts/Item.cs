@@ -8,13 +8,14 @@ public class Item : ScriptableObject
 {
     public int id;
     public string itemName;
-    public int healValue;
-    public int defense;
+    public float healValue;
+    public float defense;
     public Sprite icon;
     public ItemType itemType;
     public int amount = 1;
-    public int speed;
-    public int attackDamage;
+    public float speed;
+    public float attackDamage;
+    public float attackSpeed;
 
     public enum ItemType
     {

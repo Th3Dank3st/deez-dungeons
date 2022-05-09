@@ -28,6 +28,7 @@ public class InventoryItemController : MonoBehaviour
 
     public void UseItem()
     {
+        var basicspeedcalc = 1 - (item.attackSpeed * 0.01f);
         var speedcalc = (item.speed * 0.01f) + 1f;
         switch (item.itemType)
         {
@@ -43,6 +44,7 @@ public class InventoryItemController : MonoBehaviour
                 break;
             case Item.ItemType.Staff:
                 PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
                 break;
         }
         var d = PlayerMovement.Instance.moveSpeed;
