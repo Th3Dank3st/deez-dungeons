@@ -23,6 +23,12 @@ public class EnemyHealth : MonoBehaviour
     public HealthbarBehaviour Healthbar;
     public GameObject healthBar;
 
+    //public GameObject item1;
+    //public GameObject item2;
+    //public GameObject item3;
+    public GameObject[] items;
+    public Transform spawnLocation;
+
     [SerializeField] public float maxHealth;
     void Awake()
     {
@@ -54,6 +60,11 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (health <= 0f)
         {
+            float droprate = Random.Range(1, 100);
+            if (droprate <= 5)
+            {
+                Instantiate(items[Random.Range(0, 3)], spawnLocation.position, spawnLocation.rotation);
+            }
             FindObjectOfType<PlayerMovement>().UpdateXP(Experience);
             health = 0f;
             Destroy(this.gameObject);

@@ -632,7 +632,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6326105797061549914}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.02, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -814,6 +814,11 @@ MonoBehaviour:
   burnAnimation: {fileID: 8137128765585005856}
   Healthbar: {fileID: 2053193330419996287}
   healthBar: {fileID: 8429562804154286152}
+  items:
+  - {fileID: 5238186551389733582, guid: 5e1287ef279fdbd4596b3fa9757159db, type: 3}
+  - {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
+  - {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
+  spawnLocation: {fileID: 6326105797061549907}
   maxHealth: 100
 --- !u!50 &6326105797061549904
 Rigidbody2D:

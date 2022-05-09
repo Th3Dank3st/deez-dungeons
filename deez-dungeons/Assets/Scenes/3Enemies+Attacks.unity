@@ -5599,6 +5599,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 5406842281089657228, guid: 4c23a258795aec0468301c21c7574fe0, type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406842281089657228, guid: 4c23a258795aec0468301c21c7574fe0, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 4750579724569872942, guid: ba94211da5da7994f8db035ccaa4e949, type: 3}
+    - target: {fileID: 5406842281089657228, guid: 4c23a258795aec0468301c21c7574fe0, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 5238186551389733582, guid: 5e1287ef279fdbd4596b3fa9757159db, type: 3}
+    - target: {fileID: 5406842281089657228, guid: 4c23a258795aec0468301c21c7574fe0, type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c23a258795aec0468301c21c7574fe0, type: 3}
 --- !u!1001 &586394204
@@ -10444,6 +10460,22 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 361486207}
+    - target: {fileID: 8328666906649079161, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328666906649079161, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
+    - target: {fileID: 8328666906649079161, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 3344622530187651910, guid: 7e7586bb6438418498826873ec12c50e, type: 3}
+    - target: {fileID: 8328666906649079161, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
     - target: {fileID: 8328666906649079164, guid: 611333d5a13038b4c8e2036c17957d1b, type: 3}
       propertyPath: slowdownDistance
       value: 10
@@ -18002,6 +18034,22 @@ PrefabInstance:
       propertyPath: patrolRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7537250076533077058, guid: 9fc7ffadb61203d43a785893c00d54d5, type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537250076533077058, guid: 9fc7ffadb61203d43a785893c00d54d5, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 4750579724569872942, guid: ba94211da5da7994f8db035ccaa4e949, type: 3}
+    - target: {fileID: 7537250076533077058, guid: 9fc7ffadb61203d43a785893c00d54d5, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
+    - target: {fileID: 7537250076533077058, guid: 9fc7ffadb61203d43a785893c00d54d5, type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 3344622530187651910, guid: 7e7586bb6438418498826873ec12c50e, type: 3}
     - target: {fileID: 7537250076533077063, guid: 9fc7ffadb61203d43a785893c00d54d5, type: 3}
       propertyPath: m_RootOrder
       value: 4

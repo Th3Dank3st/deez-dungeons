@@ -422,6 +422,8 @@ MonoBehaviour:
   burnAnimation: {fileID: 2437052911430800679}
   Healthbar: {fileID: 5983082330402332511}
   healthBar: {fileID: 2199875171921388939}
+  items: []
+  spawnLocation: {fileID: 0}
   maxHealth: 100
 --- !u!50 &1895205299565793184
 Rigidbody2D:
