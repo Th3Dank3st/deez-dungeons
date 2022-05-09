@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //stats
 
-
+    //public float spellDamage;
     public float attackDamage;
     public float defense;
     public Text XPGoalText;
@@ -432,6 +432,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             GameObject bullet = Instantiate(lunarSlashPrefab, plasmaBlastFirepoint.position, plasmaBlastFirepoint.rotation);
+            //bullet.GetComponent<PlasmaAoeExplosion>().damage *= spellDamage;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * lunarSlashForce, ForceMode2D.Impulse);
             lunarCoolCounter = lunarCooldown;
@@ -476,6 +477,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(ShockDashing());
             animator.SetTrigger("Attack");
             GameObject summon = Instantiate(summonPrefab, mousePos, Quaternion.identity);
+            //summon.GetComponent<ShockBlastScript>().damage *= spellDamage;
             Destroy(summon, 0.3f);
             summonCoolCounter = summonCooldown;
             Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);

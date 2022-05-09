@@ -16,6 +16,8 @@ public class Item : ScriptableObject
     public float speed;
     public float attackDamage;
     public float attackSpeed;
+   //public float spellDamage;
+    public float castSpeed;
 
     public enum ItemType
     {
@@ -23,6 +25,7 @@ public class Item : ScriptableObject
         Boots,
         Armor,
         Staff,
+        Ring,
 
     }
 
@@ -38,6 +41,8 @@ public class Item : ScriptableObject
                 case ItemType.Armor:
                 return false;
                 case ItemType.Staff:
+                return false;
+                case ItemType.Ring:
                 return false;
         }
     }

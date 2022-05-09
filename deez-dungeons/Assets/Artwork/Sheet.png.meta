@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 2451002373052964623
     second: StaffAttackSpeed
+  - first:
+      213: 8108322230764480391
+    second: Cast speed ring
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -282,7 +285,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,6 +293,27 @@ TextureImporter:
       bones: []
       spriteID: f0f167d1ca5b30220800000000000000
       internalID: 2451002373052964623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast speed ring
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787ae11fb1c868070800000000000000
+      internalID: 8108322230764480391
       vertices: []
       indices: 
       edges: []
