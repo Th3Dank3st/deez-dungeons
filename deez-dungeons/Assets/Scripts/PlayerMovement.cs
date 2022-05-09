@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-
+    public Text XPGoalText;
+    public Text currentXPText;
     public HealthBar XPBar;
     public Text levelText;
     public GameObject stunEffect;
@@ -175,13 +175,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-       
         currentLevel = 1f;
         levelText.text = currentLevel.ToString();
         XPGoal = 1000;
-        XPBar.SetMaxHealth(XPGoal);
         currentXP = 0;
         XPBar.SetHealth(currentXP);
+        XPGoalText.text = XPGoal.ToString();
+        currentXPText.text = currentXP.ToString();
         abilityImage4.fillAmount = 0;
         abilityImage3.fillAmount = 0;
         abilityImage2.fillAmount = 0;
@@ -742,6 +742,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentXP += experience;
         XPBar.SetHealth(currentXP);
+        currentXPText.text = currentXP.ToString();
         //experiencebar.sethealth(currentXP)
         if (currentXP >= XPGoal)
         {
@@ -762,6 +763,8 @@ public class PlayerMovement : MonoBehaviour
             currentXP = 0;
             XPBar.SetMaxHealth(XPGoal);
             XPBar.SetHealth(currentXP);
+            currentXPText.text = currentXP.ToString();
+            XPGoalText.text = XPGoal.ToString();
         }
     }
 
