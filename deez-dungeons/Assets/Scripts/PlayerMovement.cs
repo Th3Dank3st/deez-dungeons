@@ -740,9 +740,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("YOU LEVELED UP!");
             maxHealth += 15;
             maxMana += 20;
-            basicCooldown *= 1.02f;
-            regenAmount *= 1.02f;
-            manaRegenAmount *= 1.025f;            
+            basicCooldown -= 0.065f;
+            regenAmount += 0.5f;
+            manaRegenAmount += 0.5f;
+            currentHealth = maxHealth;
+            currentMana = maxMana;
         }
     }
 
