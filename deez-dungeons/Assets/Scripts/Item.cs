@@ -18,6 +18,10 @@ public class Item : ScriptableObject
     public float attackSpeed;
     public float spellDamage;
     public float castSpeed;
+    public float maxMana;
+    public float manaRegen;
+    public float maxHealth;
+    public float healthRegen;
 
     public enum ItemType
     {
