@@ -79,7 +79,7 @@ public class EnemyTelegraphAttack : MonoBehaviour
             i--;
         }
         
-        Debug.Log("Attack Casted");
+        //Debug.Log("Attack Casted");
         GameObject newAttack = Instantiate(Attack1, playerLastPos, Quaternion.identity);
         Destroy (newAttack, 1f);
         Attacking = false;
