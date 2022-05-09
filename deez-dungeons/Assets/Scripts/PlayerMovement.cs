@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private float currentLevel = 1f;
+    private float currentXP;
+    private float XPGoal;
     private float durationShockDash = 6;
     private bool isShockDashing = false;
     public Image shockDashTimer;
@@ -160,6 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        XPGoal = 1000;
         abilityImage4.fillAmount = 0;
         abilityImage3.fillAmount = 0;
         abilityImage2.fillAmount = 0;
@@ -710,6 +714,19 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    public void UpdateXP(float experience)
+    {
+        currentXP += experience;
+        //experiencebar.sethealth(currentXP)
+        if (currentXP >= XPGoal)
+        {
+            currentLevel++;
+            currentXP = 0;
+            XPGoal *= 1.2f;
+            Debug.Log("YOU LEVELED UP!");
+        }
     }
 
     public void UpdateHealth(float damage)

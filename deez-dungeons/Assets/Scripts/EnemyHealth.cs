@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public float Experience;
     public bool alreadySlowed = false;
     public bool alreadyRooted = false;
     public bool alreadyStunned = false;
@@ -49,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (health <= 0f)
         {
+            FindObjectOfType<PlayerMovement>().UpdateXP(Experience);
             health = 0f;
             Destroy(this.gameObject);
         }
