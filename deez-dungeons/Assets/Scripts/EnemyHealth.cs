@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public float droprate;
     public GameObject stunIndicator;
     public GameObject slowIndicator;
     public float Experience;
@@ -58,9 +59,9 @@ public class EnemyHealth : MonoBehaviour
             phase1.SetActive(true);
             gameObject.GetComponent<PathEnemyShooting>().enabled = false;           
         }
-        else if (health <= 0f)
+        if (health <= 0f)
         {
-            float droprate = Random.Range(1, 100);
+            droprate = Random.Range(1, 100);
             if (droprate <= 10)
             {
                 Instantiate(items[Random.Range(0, 3)], spawnLocation.position, spawnLocation.rotation);
@@ -284,14 +285,17 @@ public class EnemyHealth : MonoBehaviour
     {
         float i = 4f;
         
-        while (i > 0)
+        while (i > 0 && gameObject != null)
         {
             if (!alreadyBurning)
             {
                 burnAnimation.SetActive(true);
                 alreadyBurning = true;
             }
-            UpdateHealth(-burnDPS);
+            if(gameObject != null)
+            {
+                UpdateHealth(-burnDPS);
+            }            
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(1f);
@@ -305,16 +309,18 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator Shock6S()
     {
         float i = 3f;
-        while (i > 0)
+        while (i > 0 && gameObject != null)
         {
             if (!alreadyShocked)
             {
                 alreadyShocked = true;
                 shockAnimation.SetActive(true);
             }
-            
-            StartCoroutine(Root1S());
-            UpdateHealth(-shockDPS);
+            if(gameObject != null)
+            {
+                StartCoroutine(Root1S());
+                UpdateHealth(-shockDPS);
+            }          
             // ^^Do something for i ammount of times times^^
             i--;
             yield return new WaitForSeconds(2f);

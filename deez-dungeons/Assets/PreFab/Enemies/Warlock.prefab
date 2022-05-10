@@ -1077,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e097ebbf2dcc16c48b0ec9e5f10dc6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droprate: 100
   stunIndicator: {fileID: 3842327183610167881}
   slowIndicator: {fileID: 4352488166054007559}
   Experience: 350
@@ -1092,7 +1093,7 @@ MonoBehaviour:
   Healthbar: {fileID: 1247718597170973285}
   healthBar: {fileID: 8822054098225700005}
   items:
-  - {fileID: 3344622530187651910, guid: 7e7586bb6438418498826873ec12c50e, type: 3}
+  - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
   - {fileID: 5609685506991896033, guid: e930e0effcb6cd644ac0db3340a57e8f, type: 3}
   - {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
   spawnLocation: {fileID: 7537250076533077063}
