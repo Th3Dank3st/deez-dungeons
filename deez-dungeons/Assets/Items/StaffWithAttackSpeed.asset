@@ -20,8 +20,8 @@ MonoBehaviour:
   itemType: 3
   amount: 1
   speed: 0
-  attackDamage: 40
-  attackSpeed: 15
+  attackDamage: 0
+  attackSpeed: 0
   spellDamage: 0
   castSpeed: 0
   maxMana: 0

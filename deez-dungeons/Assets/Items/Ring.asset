@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74160965ddeb23248a1a3423cdd2f2bb, type: 3}
-  m_Name: Cast Speed Ring
+  m_Name: Ring
   m_EditorClassIdentifier: 
   id: 5
   itemName: Ring
@@ -22,9 +22,9 @@ MonoBehaviour:
   speed: 0
   attackDamage: 0
   attackSpeed: 0
-  spellDamage: 10
-  castSpeed: 10
-  maxMana: 5
-  manaRegen: 5
+  spellDamage: 0
+  castSpeed: 0
+  maxMana: 0
+  manaRegen: 0
   maxHealth: 0
   healthRegen: 0

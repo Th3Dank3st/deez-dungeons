@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8569623959388529489}
   - component: {fileID: 8495069412430186569}
   m_Layer: 0
-  m_Name: Cast Speed RIng
+  m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
