@@ -7,8 +7,7 @@ public class ItemPickup : MonoBehaviour
 {
     public Item itemz;
     private Text pickedUpItemText;
-    private bool itemtxt = false;
-    private bool itemtxt2 = false;
+
 
     public void OnCollisionEnter2D(Collision2D other)      // the original line of code for this function is Pickup(); only
     {

@@ -61,7 +61,7 @@ public class EnemyHealth : MonoBehaviour
         else if (health <= 0f)
         {
             float droprate = Random.Range(1, 100);
-            if (droprate <= 5)
+            if (droprate <= 10)
             {
                 Instantiate(items[Random.Range(0, 3)], spawnLocation.position, spawnLocation.rotation);
             }

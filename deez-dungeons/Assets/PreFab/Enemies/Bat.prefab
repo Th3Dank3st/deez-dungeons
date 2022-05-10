@@ -802,7 +802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunIndicator: {fileID: 160991308634604034}
   slowIndicator: {fileID: 1490711231826376379}
-  Experience: 50
+  Experience: 75
   alreadySlowed: 0
   alreadyRooted: 0
   alreadyStunned: 0
