@@ -881,7 +881,10 @@ MonoBehaviour:
   burnAnimation: {fileID: 981729541753538047}
   Healthbar: {fileID: 7465875576487988583}
   healthBar: {fileID: 3994045192459841180}
-  items: []
+  items:
+  - {fileID: 3344622530187651910, guid: 7e7586bb6438418498826873ec12c50e, type: 3}
+  - {fileID: 4750579724569872942, guid: ba94211da5da7994f8db035ccaa4e949, type: 3}
+  - {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
   spawnLocation: {fileID: 5406842281089657201}
   maxHealth: 450
 --- !u!114 &5406842281089657229
