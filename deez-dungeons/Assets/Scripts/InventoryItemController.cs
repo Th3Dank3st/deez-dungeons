@@ -52,12 +52,12 @@ public class InventoryItemController : MonoBehaviour
                 PlayerMovement.Instance.summonCooldown *= castspeedcalc;
                 PlayerMovement.Instance.FireCooldown *= castspeedcalc;
 
-                PlayerMovement.Instance.defense += (+(item.defense));
                 PlayerMovement.Instance.maxHealth *= maxhpcalc;
                 PlayerMovement.Instance.regenAmount *= hpregencalc;
                 PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
                 PlayerMovement.Instance.maxMana *= maxmpcalc;
                 PlayerMovement.Instance.moveSpeed *= speedcalc;
+                PlayerMovement.Instance.defense += (+(item.defense));
                 PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
                 PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
                 break;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Item",menuName ="Item/Create New Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
 
 public class Item : ScriptableObject
 {
@@ -38,15 +38,15 @@ public class Item : ScriptableObject
         switch (itemType)
         {
             default:
-                case ItemType.Potion:
+            case ItemType.Potion:
                 return true;
-                case ItemType.Boots:
+            case ItemType.Boots:
                 return false;
-                case ItemType.Armor:
+            case ItemType.Armor:
                 return false;
-                case ItemType.Staff:
+            case ItemType.Staff:
                 return false;
-                case ItemType.Ring:
+            case ItemType.Ring:
                 return false;
         }
     }

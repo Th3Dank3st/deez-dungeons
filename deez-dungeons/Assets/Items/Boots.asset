@@ -15,8 +15,16 @@ MonoBehaviour:
   id: 3
   itemName: Boots
   healValue: 0
-  defense: 5
+  defense: 0
   icon: {fileID: -6033885931137250393, guid: fddc6c40c8153144fa871d137a156a4d, type: 3}
   itemType: 1
   amount: 1
-  speed: 10
+  speed: 0
+  attackDamage: 0
+  attackSpeed: 0
+  spellDamage: 0
+  castSpeed: 0
+  maxMana: 0
+  manaRegen: 0
+  maxHealth: 0
+  healthRegen: 0
