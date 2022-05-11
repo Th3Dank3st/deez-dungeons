@@ -24,6 +24,7 @@ public class InventoryItemController : MonoBehaviour
     private float test6;
     private float test7;
     private float test8;
+    
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -59,85 +60,8 @@ public class InventoryItemController : MonoBehaviour
                 potion = true;
                 break;
             case Item.ItemType.Armor:
-                test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
-                test1 = (test1 - PlayerMovement.Instance.spellDamage);
-                PlayerMovement.Instance.spellDamage += test1;
-
-
-                testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
-                testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
-                PlayerMovement.Instance.cooldown1 -= testc1;
-
-                testc2 = PlayerMovement.Instance.cooldown2 * castspeedcalc;
-                testc2 = (PlayerMovement.Instance.cooldown2 - testc2);
-                PlayerMovement.Instance.cooldown2 -= testc2;
-
-
-                testc3 = PlayerMovement.Instance.cooldown3 * castspeedcalc;
-                testc3 = (PlayerMovement.Instance.cooldown3 - testc3);
-                PlayerMovement.Instance.cooldown3 -= testc3;
-
-
-                testc4 = PlayerMovement.Instance.cooldown4 * castspeedcalc;
-                testc4 = (PlayerMovement.Instance.cooldown4 - testc4);
-                PlayerMovement.Instance.cooldown4 -= testc4;
-
-
-                testc5 = PlayerMovement.Instance.groundTargetCooldown * castspeedcalc;
-                testc5 = (PlayerMovement.Instance.groundTargetCooldown - testc5);
-                PlayerMovement.Instance.groundTargetCooldown -= testc5;
-
-
-                testc6 = PlayerMovement.Instance.lunarCooldown * castspeedcalc;
-                testc6 = (PlayerMovement.Instance.lunarCooldown - testc6);
-                PlayerMovement.Instance.lunarCooldown -= testc6;
-
-
-
-                testc7 = PlayerMovement.Instance.summonCooldown * castspeedcalc;
-                testc7 = (PlayerMovement.Instance.summonCooldown - testc7);
-                PlayerMovement.Instance.summonCooldown -= testc7;
-
-
-                testc8 = PlayerMovement.Instance.FireCooldown * castspeedcalc;
-                testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
-                PlayerMovement.Instance.FireCooldown -= testc8;
-
-                test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                PlayerMovement.Instance.maxHealth += test3;
-
-
-                test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                PlayerMovement.Instance.regenAmount += test4;
-
-
-                test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                PlayerMovement.Instance.manaRegenAmount += test5;
-
-
-                test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                test6 = (test6 - PlayerMovement.Instance.maxMana);
-                PlayerMovement.Instance.maxMana += test6;
-
-                test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
-                test7 = (test7 - PlayerMovement.Instance.moveSpeed);
-                PlayerMovement.Instance.moveSpeed += test7;
-
-
-                PlayerMovement.Instance.defense += (+(item.defense));
-
-
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
-
-
-                test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
-                test8 = (PlayerMovement.Instance.basicCooldown - test8);
-                PlayerMovement.Instance.basicCooldown -= test8;
-                break;
-            case Item.ItemType.Boots:
+                if(PlayerMovement.Instance.Armor1 == false)
+                {
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     PlayerMovement.Instance.spellDamage += test1;
@@ -215,164 +139,261 @@ public class InventoryItemController : MonoBehaviour
                     test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
                     test8 = (PlayerMovement.Instance.basicCooldown - test8);
                     PlayerMovement.Instance.basicCooldown -= test8;
+                    PlayerMovement.Instance.Armor1 = true;
+                    equippedButton.gameObject.SetActive(true);
+                }                
+                break;
+            case Item.ItemType.Boots:
+                if (PlayerMovement.Instance.Boots1 == false)
+                {
+                    test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
+                    test1 = (test1 - PlayerMovement.Instance.spellDamage);
+                    PlayerMovement.Instance.spellDamage += test1;
+
+
+                    testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
+                    testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
+                    PlayerMovement.Instance.cooldown1 -= testc1;
+
+                    testc2 = PlayerMovement.Instance.cooldown2 * castspeedcalc;
+                    testc2 = (PlayerMovement.Instance.cooldown2 - testc2);
+                    PlayerMovement.Instance.cooldown2 -= testc2;
+
+
+                    testc3 = PlayerMovement.Instance.cooldown3 * castspeedcalc;
+                    testc3 = (PlayerMovement.Instance.cooldown3 - testc3);
+                    PlayerMovement.Instance.cooldown3 -= testc3;
+
+
+                    testc4 = PlayerMovement.Instance.cooldown4 * castspeedcalc;
+                    testc4 = (PlayerMovement.Instance.cooldown4 - testc4);
+                    PlayerMovement.Instance.cooldown4 -= testc4;
+
+
+                    testc5 = PlayerMovement.Instance.groundTargetCooldown * castspeedcalc;
+                    testc5 = (PlayerMovement.Instance.groundTargetCooldown - testc5);
+                    PlayerMovement.Instance.groundTargetCooldown -= testc5;
+
+
+                    testc6 = PlayerMovement.Instance.lunarCooldown * castspeedcalc;
+                    testc6 = (PlayerMovement.Instance.lunarCooldown - testc6);
+                    PlayerMovement.Instance.lunarCooldown -= testc6;
+
+
+
+                    testc7 = PlayerMovement.Instance.summonCooldown * castspeedcalc;
+                    testc7 = (PlayerMovement.Instance.summonCooldown - testc7);
+                    PlayerMovement.Instance.summonCooldown -= testc7;
+
+
+                    testc8 = PlayerMovement.Instance.FireCooldown * castspeedcalc;
+                    testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
+                    PlayerMovement.Instance.FireCooldown -= testc8;
+
+                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
+                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
+                    PlayerMovement.Instance.maxHealth += test3;
+
+
+                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
+                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
+                    PlayerMovement.Instance.regenAmount += test4;
+
+
+                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
+                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
+                    PlayerMovement.Instance.manaRegenAmount += test5;
+
+
+                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
+                    test6 = (test6 - PlayerMovement.Instance.maxMana);
+                    PlayerMovement.Instance.maxMana += test6;
+
+                    test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
+                    test7 = (test7 - PlayerMovement.Instance.moveSpeed);
+                    PlayerMovement.Instance.moveSpeed += test7;
+
+
+                    PlayerMovement.Instance.defense += (+(item.defense));
+
+
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+
+
+                    test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
+                    test8 = (PlayerMovement.Instance.basicCooldown - test8);
+                    PlayerMovement.Instance.basicCooldown -= test8;
+                    PlayerMovement.Instance.Boots1 = true;
+                    equippedButton.gameObject.SetActive(true);
+                }
                 break;
             case Item.ItemType.Staff:
-                test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
-                test1 = (test1 - PlayerMovement.Instance.spellDamage);
-                PlayerMovement.Instance.spellDamage += test1;
+                if (PlayerMovement.Instance.Staff1 == false)
+                {
+                    test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
+                    test1 = (test1 - PlayerMovement.Instance.spellDamage);
+                    PlayerMovement.Instance.spellDamage += test1;
 
 
-                testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
-                testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
-                PlayerMovement.Instance.cooldown1 -= testc1;
+                    testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
+                    testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
+                    PlayerMovement.Instance.cooldown1 -= testc1;
 
-                testc2 = PlayerMovement.Instance.cooldown2 * castspeedcalc;
-                testc2 = (PlayerMovement.Instance.cooldown2 - testc2);
-                PlayerMovement.Instance.cooldown2 -= testc2;
-
-
-                testc3 = PlayerMovement.Instance.cooldown3 * castspeedcalc;
-                testc3 = (PlayerMovement.Instance.cooldown3 - testc3);
-                PlayerMovement.Instance.cooldown3 -= testc3;
+                    testc2 = PlayerMovement.Instance.cooldown2 * castspeedcalc;
+                    testc2 = (PlayerMovement.Instance.cooldown2 - testc2);
+                    PlayerMovement.Instance.cooldown2 -= testc2;
 
 
-                testc4 = PlayerMovement.Instance.cooldown4 * castspeedcalc;
-                testc4 = (PlayerMovement.Instance.cooldown4 - testc4);
-                PlayerMovement.Instance.cooldown4 -= testc4;
+                    testc3 = PlayerMovement.Instance.cooldown3 * castspeedcalc;
+                    testc3 = (PlayerMovement.Instance.cooldown3 - testc3);
+                    PlayerMovement.Instance.cooldown3 -= testc3;
 
 
-                testc5 = PlayerMovement.Instance.groundTargetCooldown * castspeedcalc;
-                testc5 = (PlayerMovement.Instance.groundTargetCooldown - testc5);
-                PlayerMovement.Instance.groundTargetCooldown -= testc5;
+                    testc4 = PlayerMovement.Instance.cooldown4 * castspeedcalc;
+                    testc4 = (PlayerMovement.Instance.cooldown4 - testc4);
+                    PlayerMovement.Instance.cooldown4 -= testc4;
 
 
-                testc6 = PlayerMovement.Instance.lunarCooldown * castspeedcalc;
-                testc6 = (PlayerMovement.Instance.lunarCooldown - testc6);
-                PlayerMovement.Instance.lunarCooldown -= testc6;
+                    testc5 = PlayerMovement.Instance.groundTargetCooldown * castspeedcalc;
+                    testc5 = (PlayerMovement.Instance.groundTargetCooldown - testc5);
+                    PlayerMovement.Instance.groundTargetCooldown -= testc5;
+
+
+                    testc6 = PlayerMovement.Instance.lunarCooldown * castspeedcalc;
+                    testc6 = (PlayerMovement.Instance.lunarCooldown - testc6);
+                    PlayerMovement.Instance.lunarCooldown -= testc6;
 
 
 
-                testc7 = PlayerMovement.Instance.summonCooldown * castspeedcalc;
-                testc7 = (PlayerMovement.Instance.summonCooldown - testc7);
-                PlayerMovement.Instance.summonCooldown -= testc7;
+                    testc7 = PlayerMovement.Instance.summonCooldown * castspeedcalc;
+                    testc7 = (PlayerMovement.Instance.summonCooldown - testc7);
+                    PlayerMovement.Instance.summonCooldown -= testc7;
 
 
-                testc8 = PlayerMovement.Instance.FireCooldown * castspeedcalc;
-                testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
-                PlayerMovement.Instance.FireCooldown -= testc8;
+                    testc8 = PlayerMovement.Instance.FireCooldown * castspeedcalc;
+                    testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
+                    PlayerMovement.Instance.FireCooldown -= testc8;
 
-                test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                PlayerMovement.Instance.maxHealth += test3;
-
-
-                test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                PlayerMovement.Instance.regenAmount += test4;
+                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
+                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
+                    PlayerMovement.Instance.maxHealth += test3;
 
 
-                test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                PlayerMovement.Instance.manaRegenAmount += test5;
+                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
+                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
+                    PlayerMovement.Instance.regenAmount += test4;
 
 
-                test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                test6 = (test6 - PlayerMovement.Instance.maxMana);
-                PlayerMovement.Instance.maxMana += test6;
-
-                test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
-                test7 = (test7 - PlayerMovement.Instance.moveSpeed);
-                PlayerMovement.Instance.moveSpeed += test7;
+                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
+                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
+                    PlayerMovement.Instance.manaRegenAmount += test5;
 
 
-                PlayerMovement.Instance.defense += (+(item.defense));
+                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
+                    test6 = (test6 - PlayerMovement.Instance.maxMana);
+                    PlayerMovement.Instance.maxMana += test6;
+
+                    test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
+                    test7 = (test7 - PlayerMovement.Instance.moveSpeed);
+                    PlayerMovement.Instance.moveSpeed += test7;
 
 
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                    PlayerMovement.Instance.defense += (+(item.defense));
 
 
-                test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
-                test8 = (PlayerMovement.Instance.basicCooldown - test8);
-                PlayerMovement.Instance.basicCooldown -= test8;
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+
+
+                    test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
+                    test8 = (PlayerMovement.Instance.basicCooldown - test8);
+                    PlayerMovement.Instance.basicCooldown -= test8;
+                    PlayerMovement.Instance.Staff1 = true;
+                    equippedButton.gameObject.SetActive(true);
+                }
                 break;
             case Item.ItemType.Ring:
-                test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
-                test1 = (test1 - PlayerMovement.Instance.spellDamage);
-                PlayerMovement.Instance.spellDamage += test1;
+                if (PlayerMovement.Instance.Ring1 == false)
+                {
+                    test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
+                    test1 = (test1 - PlayerMovement.Instance.spellDamage);
+                    PlayerMovement.Instance.spellDamage += test1;
 
 
-                testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
-                testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
-                PlayerMovement.Instance.cooldown1 -= testc1;
+                    testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
+                    testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
+                    PlayerMovement.Instance.cooldown1 -= testc1;
 
-                testc2 = PlayerMovement.Instance.cooldown2 * castspeedcalc;
-                testc2 = (PlayerMovement.Instance.cooldown2 - testc2);
-                PlayerMovement.Instance.cooldown2 -= testc2;
-
-
-                testc3 = PlayerMovement.Instance.cooldown3 * castspeedcalc;
-                testc3 = (PlayerMovement.Instance.cooldown3 - testc3);
-                PlayerMovement.Instance.cooldown3 -= testc3;
+                    testc2 = PlayerMovement.Instance.cooldown2 * castspeedcalc;
+                    testc2 = (PlayerMovement.Instance.cooldown2 - testc2);
+                    PlayerMovement.Instance.cooldown2 -= testc2;
 
 
-                testc4 = PlayerMovement.Instance.cooldown4 * castspeedcalc;
-                testc4 = (PlayerMovement.Instance.cooldown4 - testc4);
-                PlayerMovement.Instance.cooldown4 -= testc4;
+                    testc3 = PlayerMovement.Instance.cooldown3 * castspeedcalc;
+                    testc3 = (PlayerMovement.Instance.cooldown3 - testc3);
+                    PlayerMovement.Instance.cooldown3 -= testc3;
 
 
-                testc5 = PlayerMovement.Instance.groundTargetCooldown * castspeedcalc;
-                testc5 = (PlayerMovement.Instance.groundTargetCooldown - testc5);
-                PlayerMovement.Instance.groundTargetCooldown -= testc5;
+                    testc4 = PlayerMovement.Instance.cooldown4 * castspeedcalc;
+                    testc4 = (PlayerMovement.Instance.cooldown4 - testc4);
+                    PlayerMovement.Instance.cooldown4 -= testc4;
 
 
-                testc6 = PlayerMovement.Instance.lunarCooldown * castspeedcalc;
-                testc6 = (PlayerMovement.Instance.lunarCooldown - testc6);
-                PlayerMovement.Instance.lunarCooldown -= testc6;
+                    testc5 = PlayerMovement.Instance.groundTargetCooldown * castspeedcalc;
+                    testc5 = (PlayerMovement.Instance.groundTargetCooldown - testc5);
+                    PlayerMovement.Instance.groundTargetCooldown -= testc5;
+
+
+                    testc6 = PlayerMovement.Instance.lunarCooldown * castspeedcalc;
+                    testc6 = (PlayerMovement.Instance.lunarCooldown - testc6);
+                    PlayerMovement.Instance.lunarCooldown -= testc6;
 
 
 
-                testc7 = PlayerMovement.Instance.summonCooldown * castspeedcalc;
-                testc7 = (PlayerMovement.Instance.summonCooldown - testc7);
-                PlayerMovement.Instance.summonCooldown -= testc7;
+                    testc7 = PlayerMovement.Instance.summonCooldown * castspeedcalc;
+                    testc7 = (PlayerMovement.Instance.summonCooldown - testc7);
+                    PlayerMovement.Instance.summonCooldown -= testc7;
 
 
-                testc8 = PlayerMovement.Instance.FireCooldown * castspeedcalc;
-                testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
-                PlayerMovement.Instance.FireCooldown -= testc8;
+                    testc8 = PlayerMovement.Instance.FireCooldown * castspeedcalc;
+                    testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
+                    PlayerMovement.Instance.FireCooldown -= testc8;
 
-                test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                PlayerMovement.Instance.maxHealth += test3;
-
-
-                test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                PlayerMovement.Instance.regenAmount += test4;
+                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
+                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
+                    PlayerMovement.Instance.maxHealth += test3;
 
 
-                test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                PlayerMovement.Instance.manaRegenAmount += test5;
+                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
+                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
+                    PlayerMovement.Instance.regenAmount += test4;
 
 
-                test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                test6 = (test6 - PlayerMovement.Instance.maxMana);
-                PlayerMovement.Instance.maxMana += test6;
-
-                test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
-                test7 = (test7 - PlayerMovement.Instance.moveSpeed);
-                PlayerMovement.Instance.moveSpeed += test7;
+                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
+                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
+                    PlayerMovement.Instance.manaRegenAmount += test5;
 
 
-                PlayerMovement.Instance.defense += (+(item.defense));
+                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
+                    test6 = (test6 - PlayerMovement.Instance.maxMana);
+                    PlayerMovement.Instance.maxMana += test6;
+
+                    test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
+                    test7 = (test7 - PlayerMovement.Instance.moveSpeed);
+                    PlayerMovement.Instance.moveSpeed += test7;
 
 
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                    PlayerMovement.Instance.defense += (+(item.defense));
 
 
-                test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
-                test8 = (PlayerMovement.Instance.basicCooldown - test8);
-                PlayerMovement.Instance.basicCooldown -= test8;
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+
+
+                    test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
+                    test8 = (PlayerMovement.Instance.basicCooldown - test8);
+                    PlayerMovement.Instance.basicCooldown -= test8;
+                    PlayerMovement.Instance.Ring1 = true;
+                    equippedButton.gameObject.SetActive(true);
+                }
                 break;
         }
         var d = PlayerMovement.Instance.moveSpeed;
@@ -381,10 +402,6 @@ public class InventoryItemController : MonoBehaviour
         {
             RemoveItem();
         }
-        if (!potion)
-        {
-            equippedButton.gameObject.SetActive(true);
-        }       
     }
     
     public void UnequipItem()
@@ -409,6 +426,22 @@ public class InventoryItemController : MonoBehaviour
         PlayerMovement.Instance.defense += (-(item.defense));
         PlayerMovement.Instance.attackDamage += (-(item.attackDamage));
         PlayerMovement.Instance.basicCooldown += test8;
+        if(item.itemType == Item.ItemType.Armor)
+        {
+            PlayerMovement.Instance.Armor1 = false;
+        }
+        if (item.itemType == Item.ItemType.Ring)
+        {
+            PlayerMovement.Instance.Ring1 = false;
+        }
+        if (item.itemType == Item.ItemType.Staff)
+        {
+            PlayerMovement.Instance.Staff1 = false;
+        }
+        if (item.itemType == Item.ItemType.Boots)
+        {
+            PlayerMovement.Instance.Boots1 = false;
+        }
         Debug.Log("itemUnequipped");
     }
 
