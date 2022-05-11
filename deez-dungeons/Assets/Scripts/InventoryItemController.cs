@@ -426,7 +426,9 @@ public class InventoryItemController : MonoBehaviour
         PlayerMovement.Instance.defense += (-(item.defense));
         PlayerMovement.Instance.attackDamage += (-(item.attackDamage));
         PlayerMovement.Instance.basicCooldown += test8;
-        if(item.itemType == Item.ItemType.Armor)
+        var d = PlayerMovement.Instance.moveSpeed;
+        PlayerMovement.Instance.activeMoveSpeed = d;
+        if (item.itemType == Item.ItemType.Armor)
         {
             PlayerMovement.Instance.Armor1 = false;
         }
