@@ -30,6 +30,7 @@ public class Item : ScriptableObject
         Armor,
         Staff,
         Ring,
+        Amulet,
 
     }
 
@@ -38,6 +39,8 @@ public class Item : ScriptableObject
         switch (itemType)
         {
             default:
+            case ItemType.Amulet:
+                return false;
             case ItemType.Potion:
                 return true;
             case ItemType.Boots:

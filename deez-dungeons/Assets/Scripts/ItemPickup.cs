@@ -80,6 +80,11 @@ public class ItemPickup : MonoBehaviour
             //itemz.itemType = Item.ItemType.Ring;
             StartCoroutine(RingStatSelector(3));
         }
+
+        if (obj.itemType == Item.ItemType.Amulet)
+        {
+            StartCoroutine(RingStatSelector(2));
+        }
     }
 
 

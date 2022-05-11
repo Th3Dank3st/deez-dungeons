@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor
   m_EditorClassIdentifier: 
   id: 2
-  itemName: Armor
+  itemName: Magic Armor
   healValue: 0
   defense: 14
   icon: {fileID: -4004527290698857321, guid: fddc6c40c8153144fa871d137a156a4d, type: 3}

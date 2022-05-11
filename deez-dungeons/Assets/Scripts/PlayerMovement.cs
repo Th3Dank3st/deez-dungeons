@@ -77,10 +77,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isCooldownRoot = false;
     private bool muzzleBlast = false;
 
+    //equipment
     public bool Armor1 = false;
     public bool Boots1 = false;
     public bool Ring1 = false;
     public bool Staff1 = false;
+    public bool Amulet1 = false;
 
 
     public static PlayerMovement Instance;

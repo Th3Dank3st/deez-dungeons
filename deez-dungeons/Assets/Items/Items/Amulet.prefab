@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7840616515098727726}
   - component: {fileID: 8054283470621572662}
   m_Layer: 0
-  m_Name: Tutorial Necklace
+  m_Name: Amulet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
