@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class InventoryItemController : MonoBehaviour
 {
     Item item;
+    private bool potion = false;
+    public Button equippedButton;
 
     public Button RemoveButton;
     public void RemoveItem()
@@ -40,6 +42,7 @@ public class InventoryItemController : MonoBehaviour
         {
             case Item.ItemType.Potion:
                 PlayerMovement.Instance.UpdateHealth(+(item.healValue));
+                potion = true;
                 break;
             case Item.ItemType.Armor:
                 PlayerMovement.Instance.spellDamage *= spelldmgcalc;
@@ -124,6 +127,14 @@ public class InventoryItemController : MonoBehaviour
         }
         var d = PlayerMovement.Instance.moveSpeed;
         PlayerMovement.Instance.activeMoveSpeed = d;
-        RemoveItem();
+        if (potion)
+        {
+            RemoveItem();
+        }
+        if (!potion)
+        {
+            equippedButton.gameObject.SetActive(true);
+        }
+       
     }
 }

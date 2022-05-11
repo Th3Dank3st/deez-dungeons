@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 2
   itemName: Armor
   healValue: 0
-  defense: 10
+  defense: 14
   icon: {fileID: -4004527290698857321, guid: fddc6c40c8153144fa871d137a156a4d, type: 3}
   itemType: 2
   amount: 1
@@ -26,5 +26,5 @@ MonoBehaviour:
   castSpeed: 0
   maxMana: 0
   manaRegen: 0
-  maxHealth: 10
-  healthRegen: 10
+  maxHealth: 5
+  healthRegen: 6

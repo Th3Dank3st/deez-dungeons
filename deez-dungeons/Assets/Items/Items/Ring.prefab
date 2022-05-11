@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b60cc3aa6af7a4f8e536f7fd9941f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemz: {fileID: 11400000, guid: 149a5d48caab8524397cfcfbb0659460, type: 2}
+  obj: {fileID: 11400000, guid: 149a5d48caab8524397cfcfbb0659460, type: 2}
 --- !u!58 &8495069412430186569
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemPickup : MonoBehaviour
 {
-    public Item itemz;
+    //public Item itemz;
     private Text pickedUpItemText;
     private bool stat1 = false;
     private bool stat2 = false;
@@ -17,6 +17,14 @@ public class ItemPickup : MonoBehaviour
     private bool stat8 = false;
     private bool stat9 = false;
     private bool stat10 = false;
+    public Item obj;
+    private Item itemz;
+
+    private void Awake()
+    {
+        itemz = ScriptableObject.Instantiate(obj);
+
+    }
 
     public void OnCollisionEnter2D(Collision2D other)      // the original line of code for this function is Pickup(); only
     {
@@ -24,8 +32,8 @@ public class ItemPickup : MonoBehaviour
         {
             pickedUpItemText = FindObjectOfType<Text>();
             if (pickedUpItemText.name == "ItemFoundText")
-            {
-                string itemname = itemz.itemName;
+            {                
+                string itemname = obj.itemName;
                 pickedUpItemText.text = (itemname + " has been found!");
                 Pickup();
             }            
@@ -35,35 +43,41 @@ public class ItemPickup : MonoBehaviour
     void Pickup()
     {
         //redpot
-        if (itemz.itemType == Item.ItemType.Potion)
+        if (obj.itemType == Item.ItemType.Potion)
         {
+            //itemz.itemType = Item.ItemType.Potion;
+            itemz.healValue = 200;
             InventoryManager.Instance.Add(itemz);
             Destroy(gameObject);
         }
         //MagicBoots
-        if (itemz.itemType == Item.ItemType.Boots)
+        if (obj.itemType == Item.ItemType.Boots)
         {
+            //itemz.itemType = Item.ItemType.Boots;
             itemz.speed = Random.Range(0, 20);
             itemz.defense = Random.Range(0, 5);
             StartCoroutine(StatSelector(2));
         }
 
         //MagicArmor
-        if (itemz.itemType == Item.ItemType.Armor)
+        if (obj.itemType == Item.ItemType.Armor)
         {
+            //itemz.itemType = Item.ItemType.Armor;
             itemz.defense = Random.Range(1, 20);
             StartCoroutine(StatSelector(2));
         }
 
         //MagicStaff
-        if (itemz.itemType == Item.ItemType.Staff)
+        if (obj.itemType == Item.ItemType.Staff)
         {
+            //itemz.itemType = Item.ItemType.Staff;
             itemz.attackDamage = Random.Range(1, 20);
             StartCoroutine(StatSelectorStaff(2));
         }
 
-        if (itemz.itemType == Item.ItemType.Ring)
+        if (obj.itemType == Item.ItemType.Ring)
         {
+            //itemz.itemType = Item.ItemType.Ring;
             StartCoroutine(RingStatSelector(3));
         }
     }
@@ -112,7 +126,7 @@ public class ItemPickup : MonoBehaviour
         Debug.Log(itemz.manaRegen + " manaregen");
 
         InventoryManager.Instance.Add(itemz);
-        itemz.healValue = 0;
+       /*itemz.healValue = 0;
         itemz.defense = 0;
         itemz.speed = 0;
         itemz.attackDamage = 0;
@@ -122,7 +136,7 @@ public class ItemPickup : MonoBehaviour
         itemz.maxMana = 0;
         itemz.manaRegen = 0;
         itemz.maxHealth = 0;
-        itemz.healthRegen = 0;
+        itemz.healthRegen = 0;*/
         Destroy(gameObject);
     }
 
@@ -176,7 +190,7 @@ public class ItemPickup : MonoBehaviour
         Debug.Log(itemz.manaRegen + " manaregen");
 
         InventoryManager.Instance.Add(itemz);
-        itemz.healValue = 0;
+        /*itemz.healValue = 0;
         itemz.defense = 0;
         itemz.speed = 0;
         itemz.attackDamage = 0;
@@ -186,7 +200,7 @@ public class ItemPickup : MonoBehaviour
         itemz.maxMana = 0;
         itemz.manaRegen = 0;
         itemz.maxHealth = 0;
-        itemz.healthRegen = 0;
+        itemz.healthRegen = 0;*/
         Destroy(gameObject);
     }
     IEnumerator RingStatSelector(int numberOfStats)
@@ -278,7 +292,7 @@ public class ItemPickup : MonoBehaviour
         Debug.Log(itemz.castSpeed + " castSpeed");
 
         InventoryManager.Instance.Add(itemz);
-        itemz.healValue = 0;
+      /*  itemz.healValue = 0;
         itemz.defense = 0;
         itemz.speed = 0;
         itemz.attackDamage = 0;
@@ -288,7 +302,7 @@ public class ItemPickup : MonoBehaviour
         itemz.maxMana = 0;
         itemz.manaRegen = 0;
         itemz.maxHealth = 0;
-        itemz.healthRegen = 0;
+        itemz.healthRegen = 0;*/
         Destroy(gameObject);
     }
 }

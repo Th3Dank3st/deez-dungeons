@@ -110,10 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b60cc3aa6af7a4f8e536f7fd9941f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemz: {fileID: 11400000, guid: 5b229b784b0f07647b0621e542ec30cf, type: 2}
-  pickedUpItemText: {fileID: 7671356199655801068, guid: 449cb0d88e7c1e04585b1bf7df3388b6, type: 3}
-  Location: {x: 672, y: 186}
-  k: 
+  obj: {fileID: 11400000, guid: 5b229b784b0f07647b0621e542ec30cf, type: 2}
 --- !u!58 &7201950751003984377
 CircleCollider2D:
   m_ObjectHideFlags: 0
