@@ -8,8 +8,8 @@ public class InventoryItemController : MonoBehaviour
     Item item;
     private bool potion = false;
     public Button equippedButton;
-
     public Button RemoveButton;
+    private float test1;
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -45,84 +45,87 @@ public class InventoryItemController : MonoBehaviour
                 potion = true;
                 break;
             case Item.ItemType.Armor:
-                PlayerMovement.Instance.spellDamage *= spelldmgcalc;
-                PlayerMovement.Instance.cooldown1 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown2 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown3 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown4 *= castspeedcalc;
-                PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
-                PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
-                PlayerMovement.Instance.summonCooldown *= castspeedcalc;
-                PlayerMovement.Instance.FireCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.spellDamage *= spelldmgcalc;
+                    PlayerMovement.Instance.cooldown1 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown2 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown3 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown4 *= castspeedcalc;
+                    PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.summonCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.FireCooldown *= castspeedcalc;
 
-                PlayerMovement.Instance.maxHealth *= maxhpcalc;
-                PlayerMovement.Instance.regenAmount *= hpregencalc;
-                PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
-                PlayerMovement.Instance.maxMana *= maxmpcalc;
-                PlayerMovement.Instance.moveSpeed *= speedcalc;
-                PlayerMovement.Instance.defense += (+(item.defense));
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
-                PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
+                    PlayerMovement.Instance.maxHealth *= maxhpcalc;
+                    PlayerMovement.Instance.regenAmount *= hpregencalc;
+                    PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
+                    PlayerMovement.Instance.maxMana *= maxmpcalc;
+                    PlayerMovement.Instance.moveSpeed *= speedcalc;
+                    PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                    PlayerMovement.Instance.basicCooldown *= basicspeedcalc;               
                 break;
             case Item.ItemType.Boots:
-                PlayerMovement.Instance.spellDamage *= spelldmgcalc;
-                PlayerMovement.Instance.cooldown1 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown2 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown3 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown4 *= castspeedcalc;
-                PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
-                PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
-                PlayerMovement.Instance.summonCooldown *= castspeedcalc;
-                PlayerMovement.Instance.FireCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.spellDamage *= spelldmgcalc;
+                    PlayerMovement.Instance.cooldown1 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown2 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown3 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown4 *= castspeedcalc;
+                    PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.summonCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.FireCooldown *= castspeedcalc;
 
-                PlayerMovement.Instance.maxHealth *= maxhpcalc;
-                PlayerMovement.Instance.regenAmount *= hpregencalc;
-                PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
-                PlayerMovement.Instance.maxMana *= maxmpcalc;
-                PlayerMovement.Instance.moveSpeed *= speedcalc;
-                PlayerMovement.Instance.defense += (+(item.defense));
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
-                PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
+                    test1 = PlayerMovement.Instance.maxHealth * maxhpcalc;
+                    test1 = (test1 - PlayerMovement.Instance.maxHealth);
+                    PlayerMovement.Instance.maxHealth += test1;
+
+                    PlayerMovement.Instance.regenAmount *= hpregencalc;
+                    PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
+                    PlayerMovement.Instance.maxMana *= maxmpcalc;
+                    PlayerMovement.Instance.moveSpeed *= speedcalc;
+                    PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                    PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
                 break;
             case Item.ItemType.Staff:
-                PlayerMovement.Instance.spellDamage *= spelldmgcalc;
-                PlayerMovement.Instance.cooldown1 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown2 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown3 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown4 *= castspeedcalc;
-                PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
-                PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
-                PlayerMovement.Instance.summonCooldown *= castspeedcalc;
-                PlayerMovement.Instance.FireCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.spellDamage *= spelldmgcalc;
+                    PlayerMovement.Instance.cooldown1 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown2 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown3 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown4 *= castspeedcalc;
+                    PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.summonCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.FireCooldown *= castspeedcalc;
 
-                PlayerMovement.Instance.maxHealth *= maxhpcalc;
-                PlayerMovement.Instance.regenAmount *= hpregencalc;
-                PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
-                PlayerMovement.Instance.maxMana *= maxmpcalc;
-                PlayerMovement.Instance.moveSpeed *= speedcalc;
-                PlayerMovement.Instance.defense += (+(item.defense));
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
-                PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
+                    PlayerMovement.Instance.maxHealth *= maxhpcalc;
+                    PlayerMovement.Instance.regenAmount *= hpregencalc;
+                    PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
+                    PlayerMovement.Instance.maxMana *= maxmpcalc;
+                    PlayerMovement.Instance.moveSpeed *= speedcalc;
+                    PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                    PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
                 break;
             case Item.ItemType.Ring:
-                PlayerMovement.Instance.spellDamage *= spelldmgcalc;
-                PlayerMovement.Instance.cooldown1 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown2 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown3 *= castspeedcalc;
-                PlayerMovement.Instance.cooldown4 *= castspeedcalc;
-                PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
-                PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
-                PlayerMovement.Instance.summonCooldown *= castspeedcalc;
-                PlayerMovement.Instance.FireCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.spellDamage *= spelldmgcalc;
+                    PlayerMovement.Instance.cooldown1 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown2 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown3 *= castspeedcalc;
+                    PlayerMovement.Instance.cooldown4 *= castspeedcalc;
+                    PlayerMovement.Instance.groundTargetCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.lunarCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.summonCooldown *= castspeedcalc;
+                    PlayerMovement.Instance.FireCooldown *= castspeedcalc;
 
-                PlayerMovement.Instance.maxHealth *= maxhpcalc;
-                PlayerMovement.Instance.regenAmount *= hpregencalc;
-                PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
-                PlayerMovement.Instance.maxMana *= maxmpcalc;
-                PlayerMovement.Instance.moveSpeed *= speedcalc;
-                PlayerMovement.Instance.defense += (+(item.defense));
-                PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
-                PlayerMovement.Instance.basicCooldown *= basicspeedcalc;
+                    PlayerMovement.Instance.maxHealth *= maxhpcalc;
+                    PlayerMovement.Instance.regenAmount *= hpregencalc;
+                    PlayerMovement.Instance.manaRegenAmount *= mpregencalc;
+                    PlayerMovement.Instance.maxMana *= maxmpcalc;
+                    PlayerMovement.Instance.moveSpeed *= speedcalc;
+                    PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
+                    PlayerMovement.Instance.basicCooldown *= basicspeedcalc;              
                 break;
         }
         var d = PlayerMovement.Instance.moveSpeed;
@@ -134,7 +137,15 @@ public class InventoryItemController : MonoBehaviour
         if (!potion)
         {
             equippedButton.gameObject.SetActive(true);
-        }
-       
+        }       
     }
+    
+    public void UnequipItem()
+    {
+        PlayerMovement.Instance.maxHealth -= test1;
+        PlayerMovement.Instance.defense += (-(item.defense));
+        PlayerMovement.Instance.attackDamage += (-(item.attackDamage));
+        Debug.Log("itemUnequipped");
+    }
+
 }
