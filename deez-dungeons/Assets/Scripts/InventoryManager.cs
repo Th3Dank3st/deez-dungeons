@@ -57,18 +57,14 @@ public class InventoryManager : MonoBehaviour
     public void ListItems()
     {
         //clean content before open
-       // foreach (Transform item in ItemContent)         //changed transform to gameobject to try and debug
-        //{
-          //  Destroy(item.gameObject);
-        //}
 
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
-            var itemIcon = obj.transform.Find("Image").GetComponent<Image>();
+            var itemIcon = obj.transform.Find("Image").GetComponent<Image>();            
             var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
-
+            var equipButton = obj.transform.Find("EquipButton").GetComponent<Button>();
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             TextMeshProUGUI uiText = obj.transform.Find("amountText").GetComponent<TextMeshProUGUI>();     //added for ammount text on stackables, check below for bugs
@@ -83,6 +79,10 @@ public class InventoryManager : MonoBehaviour
 
             if (EnableRemove.isOn)
                 removeButton.gameObject.SetActive(true);
+            if(item.itemEquipped == true)
+            {
+                equipButton.gameObject.SetActive(true);
+            }
         }
 
         SetInventoryItems();
@@ -110,9 +110,16 @@ public class InventoryManager : MonoBehaviour
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
+        //if (InventoryItem.GetComponent<InventoryItemController>().itemEquipped == true)
+        //{
+            //Debug.Log(InventoryItem.GetComponent<InventoryItemController>().itemEquipped);
+            //InventoryItem.GetComponent<InventoryItemController>().equippedButton.gameObject.SetActive(true);
+        //}
+
         for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
+            
         }
     }
 }

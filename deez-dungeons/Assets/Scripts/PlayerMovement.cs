@@ -8,6 +8,14 @@ public class PlayerMovement : MonoBehaviour
 {
     //stats
 
+
+
+
+
+
+
+
+
     public float spellDamage;
     public float attackDamage;
     public float defense;

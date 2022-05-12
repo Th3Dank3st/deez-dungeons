@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1430174508621555223}
   - component: {fileID: 6349296465003571173}
   m_Layer: 5
-  m_Name: Button
+  m_Name: EquipButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 8430950335637082866}
   - component: {fileID: 2970021261811510625}
   - component: {fileID: -2395494399517544148}
+  - component: {fileID: -9076689564289258241}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -319,8 +320,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a878f273c874ce488e413aa0e5700a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
   equippedButton: {fileID: 6349296465003571173}
   RemoveButton: {fileID: 2194928312609171990}
+--- !u!114 &-9076689564289258241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129002450043636762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fbb8a5e22c9e24ebf079e65854fb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3916132901960319593
 GameObject:
   m_ObjectHideFlags: 0

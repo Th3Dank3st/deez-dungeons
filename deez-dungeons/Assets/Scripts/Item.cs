@@ -22,6 +22,23 @@ public class Item : ScriptableObject
     public float manaRegen;
     public float maxHealth;
     public float healthRegen;
+    public bool itemEquipped;
+
+    public float test1;
+    public float testc1;
+    public float testc2;
+    public float testc3;
+    public float testc4;
+    public float testc5;
+    public float testc6;
+    public float testc7;
+    public float testc8;
+    public float test3;
+    public float test4;
+    public float test5;
+    public float test6;
+    public float test7;
+    public float test8;
 
     public enum ItemType
     {
