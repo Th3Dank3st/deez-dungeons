@@ -19703,7 +19703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7603333838017331450, guid: 705f0c82bdaf66240bf30e026a4b48df, type: 3}
       propertyPath: m_Radius
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7603333838017331451, guid: 705f0c82bdaf66240bf30e026a4b48df, type: 3}
       propertyPath: enemyType
