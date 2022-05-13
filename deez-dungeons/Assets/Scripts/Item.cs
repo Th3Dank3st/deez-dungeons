@@ -39,6 +39,7 @@ public class Item : ScriptableObject
     public float test6;
     public float test7;
     public float test8;
+    public string rarity;
 
     public enum ItemType
     {

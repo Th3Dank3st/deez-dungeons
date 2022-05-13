@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class EquipmentMemory : MonoBehaviour
 {
-    private void Awake()
-    {
-        Debug.Log("Hello World");
-    }
 }

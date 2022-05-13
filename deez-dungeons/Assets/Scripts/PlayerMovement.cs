@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-
+    public float test;
+    public float cooldown;
     public float spellDamage;
     public float attackDamage;
     public float defense;
@@ -188,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        cooldown = 100f;
         spellDamage = 1f;
         attackDamage = 1f;
         defense = 1f;

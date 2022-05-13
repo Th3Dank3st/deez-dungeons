@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor
   m_EditorClassIdentifier: 
   id: 2
-  itemName: Magic Armor
+  itemName: Armor
   healValue: 0
   defense: 14
   icon: {fileID: -4004527290698857321, guid: fddc6c40c8153144fa871d137a156a4d, type: 3}
@@ -28,3 +28,20 @@ MonoBehaviour:
   manaRegen: 0
   maxHealth: 5
   healthRegen: 6
+  itemEquipped: 0
+  test1: 0
+  testc1: 0
+  testc2: 0
+  testc3: 0
+  testc4: 0
+  testc5: 0
+  testc6: 0
+  testc7: 0
+  testc8: 0
+  test3: 0
+  test4: 0
+  test5: 0
+  test6: 0
+  test7: 0
+  test8: 0
+  rarity: Magic

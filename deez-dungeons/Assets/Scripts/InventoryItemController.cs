@@ -9,6 +9,7 @@ public class InventoryItemController : MonoBehaviour
     private bool potion = false;
     public Button equippedButton;
     public Button RemoveButton;
+    private float test;
     private float test1;
     private float testc1;
     private float testc2;
@@ -25,7 +26,20 @@ public class InventoryItemController : MonoBehaviour
     private float test7;
     private float test8;
 
+    private void Awake()
+    {
+        /*itemy.defense = item.defense;
+        itemy.speed = item.speed;
+        itemy.attackDamage = item.attackDamage;
+        itemy.attackSpeed = item.attackSpeed;
+        itemy.spellDamage = item.spellDamage;
+        itemy.castSpeed = item.castSpeed;
+        itemy.maxMana = item.maxMana;
+        itemy.manaRegen = item.manaRegen;
+        itemy.maxHealth = item.maxHealth;
+        itemy.healthRegen = item.healthRegen;*/
 
+    }
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
@@ -36,6 +50,7 @@ public class InventoryItemController : MonoBehaviour
     public void AddItem(Item newItem)      //adding code here come back to debug
     {
         item = newItem;
+        
     }
 
 
@@ -67,6 +82,13 @@ public class InventoryItemController : MonoBehaviour
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
                     PlayerMovement.Instance.spellDamage += test1;
+
+                    //for player cooldown stat
+                    test = PlayerMovement.Instance.cooldown * castspeedcalc;
+                    test = (PlayerMovement.Instance.cooldown - test);
+                    PlayerMovement.Instance.test = test;
+                    PlayerMovement.Instance.cooldown -= test;
+
 
                     testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
                     testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
@@ -144,6 +166,7 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.Armor1 = true;
                     equippedButton.gameObject.SetActive(true);
                     item.itemEquipped = true;
+                    GameObject.Find("Player Stats").GetComponent<PlayerStats>().SetPlayerStats();
                 }                
                 break;
             case Item.ItemType.Boots:
@@ -153,6 +176,12 @@ public class InventoryItemController : MonoBehaviour
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
                     PlayerMovement.Instance.spellDamage += test1;
+
+                    //for player cooldown stat
+                    test = PlayerMovement.Instance.cooldown * castspeedcalc;
+                    test = (PlayerMovement.Instance.cooldown - test);
+                    PlayerMovement.Instance.test = test;
+                    PlayerMovement.Instance.cooldown -= test;
 
                     testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
                     testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
@@ -230,6 +259,7 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.Boots1 = true;
                     equippedButton.gameObject.SetActive(true);
                     item.itemEquipped = true;
+                    GameObject.Find("Player Stats").GetComponent<PlayerStats>().SetPlayerStats();
                 }
                 break;
             case Item.ItemType.Staff:
@@ -239,6 +269,12 @@ public class InventoryItemController : MonoBehaviour
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
                     PlayerMovement.Instance.spellDamage += test1;
+
+                    //for player cooldown stat
+                    test = PlayerMovement.Instance.cooldown * castspeedcalc;
+                    test = (PlayerMovement.Instance.cooldown - test);
+                    PlayerMovement.Instance.test = test;
+                    PlayerMovement.Instance.cooldown -= test;
 
                     testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
                     testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
@@ -316,6 +352,7 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.Staff1 = true;
                     equippedButton.gameObject.SetActive(true);
                     item.itemEquipped = true;
+                    GameObject.Find("Player Stats").GetComponent<PlayerStats>().SetPlayerStats();
 
                 }
                 break;
@@ -326,6 +363,12 @@ public class InventoryItemController : MonoBehaviour
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
                     PlayerMovement.Instance.spellDamage += test1;
+
+                    //for player cooldown stat
+                    test = PlayerMovement.Instance.cooldown * castspeedcalc;
+                    test = (PlayerMovement.Instance.cooldown - test);
+                    PlayerMovement.Instance.test = test;
+                    PlayerMovement.Instance.cooldown -= test;
 
                     testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
                     testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
@@ -403,6 +446,7 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.Ring1 = true;
                     equippedButton.gameObject.SetActive(true);
                     item.itemEquipped = true;
+                    GameObject.Find("Player Stats").GetComponent<PlayerStats>().SetPlayerStats();
 
                 }
                 break;
@@ -413,6 +457,12 @@ public class InventoryItemController : MonoBehaviour
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
                     PlayerMovement.Instance.spellDamage += test1;
+
+                    //for player cooldown stat
+                    test = 100 * castspeedcalc;
+                    test = (100 - test);
+                    PlayerMovement.Instance.test = test;
+                    PlayerMovement.Instance.cooldown -= test;
 
                     testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
                     testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
@@ -490,6 +540,7 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.Amulet1 = true;
                     equippedButton.gameObject.SetActive(true);
                     item.itemEquipped = true;
+                    GameObject.Find("Player Stats").GetComponent<PlayerStats>().SetPlayerStats();
 
                 }
                 break;
@@ -507,7 +558,7 @@ public class InventoryItemController : MonoBehaviour
         item.itemEquipped = false;
 
         PlayerMovement.Instance.spellDamage -= item.test1;
-
+        PlayerMovement.Instance.cooldown += PlayerMovement.Instance.test;
         PlayerMovement.Instance.cooldown1 += item.testc1;
         PlayerMovement.Instance.cooldown2 += item.testc2;
         PlayerMovement.Instance.cooldown3 += item.testc3;
@@ -547,7 +598,7 @@ public class InventoryItemController : MonoBehaviour
         {
             PlayerMovement.Instance.Boots1 = false;
         }
-        Debug.Log("itemUnequipped");
+        GameObject.Find("Player Stats").GetComponent<PlayerStats>().SetPlayerStats();
     }
 
 }
