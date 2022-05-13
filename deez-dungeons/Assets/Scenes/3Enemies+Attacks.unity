@@ -6184,7 +6184,7 @@ MonoBehaviour:
   spawner: {fileID: 649035642}
   spawnerobject: {fileID: 649035639}
   spawnRange: 10
-  spawnerActiveTime: 100000
+  spawnerActiveTime: 30
 --- !u!4 &649035642
 Transform:
   m_ObjectHideFlags: 0
@@ -6853,9 +6853,9 @@ MonoBehaviour:
   swarmerPrefab: {fileID: 354662410}
   bigSwarmerPrefab: {fileID: 354662410}
   swarmerInterval: 1000000
-  eliteInterval: 45
-  spawner: {fileID: 0}
-  spawnerobject: {fileID: 0}
+  eliteInterval: 60
+  spawner: {fileID: 728598282}
+  spawnerobject: {fileID: 728598281}
   spawnRange: 5
   spawnerActiveTime: 1000000
 --- !u!61 &728598284
@@ -17320,7 +17320,7 @@ MonoBehaviour:
   eliteInterval: 5
   spawner: {fileID: 1924392078}
   spawnerobject: {fileID: 1924392075}
-  spawnRange: 10
+  spawnRange: 30
   spawnerActiveTime: 100000
 --- !u!4 &1924392078
 Transform:
@@ -17467,7 +17467,7 @@ MonoBehaviour:
   spawner: {fileID: 1957614042}
   spawnerobject: {fileID: 1957614039}
   spawnRange: 15
-  spawnerActiveTime: 1000000
+  spawnerActiveTime: 90
 --- !u!4 &1957614042
 Transform:
   m_ObjectHideFlags: 0
