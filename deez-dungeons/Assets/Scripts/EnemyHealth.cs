@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
             gameObject.GetComponent<PathEnemyShooting>().enabled = false;           
         }
         if (health <= 0f)
-        {
+        {   
             int drop = Random.Range(1, 100);
             if (drop <= droprate)
             {

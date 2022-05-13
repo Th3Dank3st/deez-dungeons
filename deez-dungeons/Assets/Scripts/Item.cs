@@ -41,6 +41,18 @@ public class Item : ScriptableObject
     public float test8;
     public string rarity;
 
+    private void Awake()
+    {
+        int Rarity = Random.Range(1,100);
+        if(Rarity <= 15)
+        {
+            rarity = "Rare";
+        }
+        if(Rarity > 15)
+        {
+            rarity = "Magic";
+        }
+    }
     public enum ItemType
     {
         Potion,

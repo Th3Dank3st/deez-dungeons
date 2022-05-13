@@ -19,11 +19,13 @@ public class ItemPickup : MonoBehaviour
     private bool stat10 = false;
     public Item obj;
     private Item itemz;
+    private int numberOfStats;
+    private int statValueMin;
+    private int statValueMax;
 
     private void Awake()
     {
         itemz = ScriptableObject.Instantiate(obj);
-
     }
 
     public void OnCollisionEnter2D(Collision2D other)      // the original line of code for this function is Pickup(); only
@@ -42,106 +44,119 @@ public class ItemPickup : MonoBehaviour
 
     void Pickup()
     {
+        if (itemz.rarity == "Magic")
+        {
+            numberOfStats = 2;
+            statValueMin = 5;
+            statValueMax = 20;
+        }
+
+        if(itemz.rarity == "Rare")
+        {
+            numberOfStats = 5;
+            statValueMin = 5;
+            statValueMax = 20;
+        }
+
         //redpot
         if (obj.itemType == Item.ItemType.Potion)
         {
-            //itemz.itemType = Item.ItemType.Potion;
             itemz.healValue = 200;
             InventoryManager.Instance.Add(itemz);
             Destroy(gameObject);
         }
+
         //MagicBoots
         if (obj.itemType == Item.ItemType.Boots)
         {
-            //itemz.itemType = Item.ItemType.Boots;
-            itemz.speed = Random.Range(0, 20);
-            itemz.defense = Random.Range(0, 5);
-            StartCoroutine(StatSelector(2));
+            itemz.speed = Random.Range(statValueMin, statValueMax);
+            itemz.defense = Random.Range(statValueMin -1, 5);
+            if (itemz.rarity == "Magic")
+            {
+                StartCoroutine(StatSelector(numberOfStats));
+            }
+            if (itemz.rarity == "Rare")
+            {
+                StartCoroutine(RingStatSelector(numberOfStats));
+            }
         }
 
         //MagicArmor
         if (obj.itemType == Item.ItemType.Armor)
         {
-            //itemz.itemType = Item.ItemType.Armor;
-            itemz.defense = Random.Range(1, 20);
-            StartCoroutine(StatSelector(2));
+            itemz.defense = Random.Range(10, 20);
+            if (itemz.rarity == "Magic")
+            {
+                StartCoroutine(StatSelector(numberOfStats));
+            }
+            if (itemz.rarity == "Rare")
+            {
+                StartCoroutine(RingStatSelector(numberOfStats));
+            }
+            
         }
 
         //MagicStaff
         if (obj.itemType == Item.ItemType.Staff)
         {
-            //itemz.itemType = Item.ItemType.Staff;
-            itemz.attackDamage = Random.Range(1, 20);
-            StartCoroutine(StatSelectorStaff(2));
-        }
+            itemz.attackDamage = Random.Range(5, 20);
+            if(itemz.rarity == "Magic")
+            {
+                StartCoroutine(StatSelectorStaff(numberOfStats));
+            }
 
+            if(itemz.rarity == "Rare")
+            {
+                StartCoroutine(RingStatSelector(numberOfStats));
+            }            
+        }
         if (obj.itemType == Item.ItemType.Ring)
         {
-            //itemz.itemType = Item.ItemType.Ring;
-            StartCoroutine(RingStatSelector(3));
+            StartCoroutine(RingStatSelector(numberOfStats + 1));
         }
 
         if (obj.itemType == Item.ItemType.Amulet)
         {
-            StartCoroutine(RingStatSelector(2));
+            StartCoroutine(RingStatSelector(numberOfStats +1));
         }
     }
 
 
     IEnumerator StatSelector(int numberOfStats)
-    {
-        
+    {        
         while (numberOfStats > 0)
         {
             int statSelector1 = Random.Range(1, 5);
             if (statSelector1 == 1 && !stat1)
             {
-                itemz.healthRegen = Random.Range(1, 20);
+                itemz.healthRegen = Random.Range(statValueMin, 20);
                 numberOfStats--;
                 stat1 = true;
             }
 
             if (statSelector1 == 2 && !stat2)
             {
-                itemz.maxHealth = Random.Range(1, 20);
+                itemz.maxHealth = Random.Range(statValueMin, 20);
                 numberOfStats--;
                 stat2 = true;
             }
 
             if (statSelector1 == 3 && !stat3)
             {
-                itemz.maxMana = Random.Range(1, 20);
+                itemz.maxMana = Random.Range(statValueMin, 20);
                 numberOfStats--;
                 stat3 = true;
             }
 
             if (statSelector1 == 4 && !stat4)
             {
-                itemz.manaRegen = Random.Range(1, 20);
+                itemz.manaRegen = Random.Range(statValueMin, 20);
                 numberOfStats--;
                 stat4 = true;
             }
             yield return null;
         }
-        Debug.Log(itemz.speed + " spd");
-        Debug.Log(itemz.defense + " def");
-        Debug.Log(itemz.maxHealth + " hp");
-        Debug.Log(itemz.healthRegen + " hpRegen");
-        Debug.Log(itemz.maxMana + " mana");
-        Debug.Log(itemz.manaRegen + " manaregen");
-
         InventoryManager.Instance.Add(itemz);
-       /*itemz.healValue = 0;
-        itemz.defense = 0;
-        itemz.speed = 0;
-        itemz.attackDamage = 0;
-        itemz.attackSpeed = 0;
-        itemz.spellDamage = 0;
-        itemz.castSpeed = 0;
-        itemz.maxMana = 0;
-        itemz.manaRegen = 0;
-        itemz.maxHealth = 0;
-        itemz.healthRegen = 0;*/
         Destroy(gameObject);
     }
 
@@ -153,35 +168,35 @@ public class ItemPickup : MonoBehaviour
             int statSelector1 = Random.Range(1, 6);
             if (statSelector1 == 1 && !stat1)
             {
-                itemz.attackSpeed = Random.Range(1, 20);
+                itemz.attackSpeed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat1 = true;
             }
 
             if (statSelector1 == 2 && !stat2)
             {
-                itemz.spellDamage = Random.Range(1, 20);
+                itemz.spellDamage = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat2 = true;
             }
 
             if (statSelector1 == 3 && !stat3)
             {
-                itemz.maxMana = Random.Range(1, 20);
+                itemz.maxMana = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat3 = true;
             }
 
             if (statSelector1 == 4 && !stat4)
             {
-                itemz.manaRegen = Random.Range(1, 20);
+                itemz.manaRegen = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat4 = true;
             }
 
             if (statSelector1 == 5 && !stat5)
             {
-                itemz.castSpeed = Random.Range(1, 20);
+                itemz.castSpeed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat5 = true;
             }
@@ -193,21 +208,10 @@ public class ItemPickup : MonoBehaviour
         Debug.Log(itemz.spellDamage + " spell Damage");
         Debug.Log(itemz.maxMana + " mana");
         Debug.Log(itemz.manaRegen + " manaregen");
-
         InventoryManager.Instance.Add(itemz);
-        /*itemz.healValue = 0;
-        itemz.defense = 0;
-        itemz.speed = 0;
-        itemz.attackDamage = 0;
-        itemz.attackSpeed = 0;
-        itemz.spellDamage = 0;
-        itemz.castSpeed = 0;
-        itemz.maxMana = 0;
-        itemz.manaRegen = 0;
-        itemz.maxHealth = 0;
-        itemz.healthRegen = 0;*/
         Destroy(gameObject);
     }
+
     IEnumerator RingStatSelector(int numberOfStats)
     {
 
@@ -216,98 +220,76 @@ public class ItemPickup : MonoBehaviour
             int statSelector1 = Random.Range(1, 11);
             if (statSelector1 == 1 && !stat1)
             {
-                itemz.healthRegen = Random.Range(1, 10);
+                itemz.healthRegen = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat1 = true;
             }
 
             if (statSelector1 == 2 && !stat2)
             {
-                itemz.maxHealth = Random.Range(1, 10);
+                itemz.maxHealth = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat2 = true;
             }
 
             if (statSelector1 == 3 && !stat3)
             {
-                itemz.maxMana = Random.Range(1, 10);
+                itemz.maxMana = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat3 = true;
             }
 
             if (statSelector1 == 4 && !stat4)
             {
-                itemz.manaRegen = Random.Range(1, 10);
+                itemz.manaRegen = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat4 = true;
             }
             
             if (statSelector1 == 5 && !stat5)
             {
-                itemz.attackDamage = Random.Range(1, 10);
+                itemz.attackDamage = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat5 = true;
             }
 
             if (statSelector1 == 6 && !stat6)
             {
-                itemz.spellDamage = Random.Range(1, 10);
+                itemz.spellDamage = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat6 = true;
             }
 
             if (statSelector1 == 7 && !stat7)
             {
-                itemz.attackSpeed = Random.Range(1, 10);
+                itemz.attackSpeed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat7 = true;
             }
 
             if (statSelector1 == 8 && !stat8)
             {
-                itemz.castSpeed = Random.Range(1, 10);
+                itemz.castSpeed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat8 = true;
             }
            
             if (statSelector1 == 9 && !stat9)
             {
-                itemz.defense = Random.Range(1, 5);
+                itemz.defense = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat9 = true;
             }
 
             if (statSelector1 == 10 && !stat10)
             {
-                itemz.speed = Random.Range(1, 5);
+                itemz.speed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat10 = true;
             }
             yield return null;
         }
-        Debug.Log(itemz.speed + " spd");
-        Debug.Log(itemz.defense + " def");
-        Debug.Log(itemz.maxHealth + " hp");
-        Debug.Log(itemz.healthRegen + " hpRegen");
-        Debug.Log(itemz.maxMana + " mana");
-        Debug.Log(itemz.manaRegen + " manaregen");
-        Debug.Log(itemz.attackDamage + " attackDamage");
-        Debug.Log(itemz.attackSpeed + " attackSpeed");
-        Debug.Log(itemz.spellDamage + " spellDamage");
-        Debug.Log(itemz.castSpeed + " castSpeed");
-
         InventoryManager.Instance.Add(itemz);
-      /*  itemz.healValue = 0;
-        itemz.defense = 0;
-        itemz.speed = 0;
-        itemz.attackDamage = 0;
-        itemz.attackSpeed = 0;
-        itemz.spellDamage = 0;
-        itemz.castSpeed = 0;
-        itemz.maxMana = 0;
-        itemz.manaRegen = 0;
-        itemz.maxHealth = 0;
-        itemz.healthRegen = 0;*/
         Destroy(gameObject);
     }
 }

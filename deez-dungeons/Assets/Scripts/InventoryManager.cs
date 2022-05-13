@@ -140,6 +140,10 @@ public class InventoryManager : MonoBehaviour
             {
                 itemName.color = Color.blue;
             }
+            if(item.rarity == "Rare")
+            {
+                itemName.color = Color.yellow;
+            }
 
             itemIcon.sprite = item.icon;
             TextMeshProUGUI uiText = obj.transform.Find("amountText").GetComponent<TextMeshProUGUI>();     //added for ammount text on stackables, check below for bugs
