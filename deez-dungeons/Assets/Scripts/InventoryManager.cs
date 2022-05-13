@@ -112,7 +112,7 @@ public class InventoryManager : MonoBehaviour
                 text7.color = Color.green;
             }
             var text8 = Tooltip.Find("Text8").GetComponent<Text>();
-            text8.text = ("CastSpeed " + item.castSpeed.ToString());
+            text8.text = ("CastSPD " + item.castSpeed.ToString());
             if (item.castSpeed > 0)
             {
                 text8.color = Color.green;

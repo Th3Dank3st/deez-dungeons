@@ -19,16 +19,16 @@ public class PlayerStats : MonoBehaviour
 
     public void SetPlayerStats()
     {
-        text1.text = ("Defense = " + PlayerMovement.Instance.defense.ToString());
-        text2.text = ("Health = " + PlayerMovement.Instance.maxHealth.ToString());
+        text1.text = ("DEFENSE = " + PlayerMovement.Instance.defense.ToString());
+        text2.text = ("HEALTH = " + PlayerMovement.Instance.maxHealth.ToString());
         text3.text = ("HP/5 = " + PlayerMovement.Instance.regenAmount.ToString());
-        text4.text = ("Move Speed = " + PlayerMovement.Instance.activeMoveSpeed.ToString());
-        text5.text = ("Attack Damage = " + PlayerMovement.Instance.attackDamage.ToString());
-        text6.text = ("Attack Speed = " + PlayerMovement.Instance.basicCooldown.ToString());
-        text7.text = ("spellDamage = " + PlayerMovement.Instance.spellDamage.ToString());
-        text8.text = ("maxMana = " + PlayerMovement.Instance.maxMana.ToString());
-        text9.text = ("manaRegenAmount = " + PlayerMovement.Instance.manaRegenAmount.ToString());
-        text10.text = ("Cooldown = " + PlayerMovement.Instance.cooldown.ToString());
+        text4.text = ("MOVE SPEED = " + PlayerMovement.Instance.activeMoveSpeed.ToString());
+        text5.text = ("ATTACK DAMAGE = " + PlayerMovement.Instance.attackDamage.ToString());
+        text6.text = ("ATTACK SPEED = " + PlayerMovement.Instance.basicCooldown.ToString());
+        text7.text = ("SPELL DAMAGE = " + PlayerMovement.Instance.spellDamage.ToString());
+        text8.text = ("MANA = " + PlayerMovement.Instance.maxMana.ToString());
+        text9.text = ("MP/5 = " + PlayerMovement.Instance.manaRegenAmount.ToString());
+        text10.text = ("CAST SPEED = " + PlayerMovement.Instance.cooldown.ToString());
 
     }
 
