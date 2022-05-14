@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-
+    public float maxDamage;
+    public float minDamage;
     public float test;
     public float cooldown;
     public float spellDamage;
@@ -767,14 +767,14 @@ public class PlayerMovement : MonoBehaviour
         //experiencebar.sethealth(currentXP)
         if (currentXP >= XPGoal)
         {
+            //reference inventory, drag and drop inventory in editor, getcomponentinchild and find the inventoryitemcontrollers and update the stats
             currentLevel++;
             levelText.text = currentLevel.ToString();
-            XPGoal *= 1.2f;            
-            Debug.Log("YOU LEVELED UP!");
-            maxHealth += 15;
-            maxMana += 20;
-            basicCooldown -= 0.065f;
-            regenAmount += 0.5f;
+            XPGoal *= 1.35f;            
+            maxHealth += 5;
+            maxMana += 3;
+            basicCooldown -= 0.005f;
+            regenAmount += 0.3f;
             manaRegenAmount += 0.5f;
             currentHealth = maxHealth;
             currentMana = maxMana;

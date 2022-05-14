@@ -6,21 +6,31 @@ public class Bullet : MonoBehaviour
 {
     public float range;
     public float damage;
-    //public GameObject hitEffect;
-    //private Rigidbody2D rb;
-    //public float slowDuration;
-    private GameObject enemy;
+    public float minDamage;
+    public float maxDamage;
     public float explosionDuration;
+    private float resultDamage;
     public GameObject hitEffect;
-    //private bool alreadySlowed = false;
-    //public float mustBeLowerThanSlowDuration;
+    public float critchance;
 
-
-    //public float knockback;
-
-    void Start()
+    void Awake()
     {
-
+        if (gameObject.name == "Player Basic Bullet Trail")
+        {
+            
+            minDamage = (damage * .5f) + PlayerMovement.Instance.minDamage;
+            maxDamage = (damage * 1.35f) + PlayerMovement.Instance.maxDamage;
+            resultDamage = Random.Range(minDamage, maxDamage);
+            critchance = Random.Range(1, 100);
+            if (critchance <= 5)
+            {
+                resultDamage *= 1.5f;
+            }
+        }
+        if(gameObject.name != "Player Basic Bullet Trail")
+        {
+            resultDamage = damage;
+        }        
         Destroy(this.gameObject, range);
     }
 
@@ -31,7 +41,7 @@ public class Bullet : MonoBehaviour
         {
             if (other != null)
             {
-                other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-damage);
+                other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-resultDamage);
             }
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, explosionDuration);

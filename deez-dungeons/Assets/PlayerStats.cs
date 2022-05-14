@@ -22,7 +22,7 @@ public class PlayerStats : MonoBehaviour
         text1.text = ("DEFENSE = " + PlayerMovement.Instance.defense.ToString());
         text2.text = ("HEALTH = " + PlayerMovement.Instance.maxHealth.ToString());
         text3.text = ("HP/5 = " + PlayerMovement.Instance.regenAmount.ToString());
-        text4.text = ("MOVE SPEED = " + PlayerMovement.Instance.activeMoveSpeed.ToString());
+        text4.text = ("MOVE SPEED = " + PlayerMovement.Instance.moveSpeed.ToString());
         text5.text = ("ATTACK DAMAGE = " + PlayerMovement.Instance.attackDamage.ToString());
         text6.text = ("ATTACK SPEED = " + PlayerMovement.Instance.basicCooldown.ToString());
         text7.text = ("SPELL DAMAGE = " + PlayerMovement.Instance.spellDamage.ToString());

@@ -47,15 +47,15 @@ public class ItemPickup : MonoBehaviour
         if (itemz.rarity == "Magic")
         {
             numberOfStats = 2;
-            statValueMin = 5;
-            statValueMax = 20;
+            statValueMin = 1;
+            statValueMax = 10;
         }
 
         if(itemz.rarity == "Rare")
         {
             numberOfStats = 5;
             statValueMin = 5;
-            statValueMax = 20;
+            statValueMax = 25;
         }
 
         //redpot
