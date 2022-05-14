@@ -6179,12 +6179,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 1942617295}
   bigSwarmerPrefab: {fileID: 1599927303}
-  swarmerInterval: 5
-  eliteInterval: 5
+  swarmerInterval: 7
+  eliteInterval: 7
   spawner: {fileID: 649035642}
   spawnerobject: {fileID: 649035639}
   spawnRange: 10
-  spawnerActiveTime: 30
+  spawnerActiveTime: 20
 --- !u!4 &649035642
 Transform:
   m_ObjectHideFlags: 0
@@ -6851,9 +6851,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 354662410}
-  bigSwarmerPrefab: {fileID: 354662410}
+  bigSwarmerPrefab: {fileID: 1117870118}
   swarmerInterval: 1000000
-  eliteInterval: 60
+  eliteInterval: 45
   spawner: {fileID: 728598282}
   spawnerobject: {fileID: 728598281}
   spawnRange: 5
@@ -17316,12 +17316,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 1646158239}
   bigSwarmerPrefab: {fileID: 1117870118}
-  swarmerInterval: 5
-  eliteInterval: 5
+  swarmerInterval: 7
+  eliteInterval: 7
   spawner: {fileID: 1924392078}
   spawnerobject: {fileID: 1924392075}
-  spawnRange: 30
-  spawnerActiveTime: 100000
+  spawnRange: 10
+  spawnerActiveTime: 20
 --- !u!4 &1924392078
 Transform:
   m_ObjectHideFlags: 0
@@ -17462,12 +17462,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swarmerPrefab: {fileID: 649035639}
   bigSwarmerPrefab: {fileID: 1924392075}
-  swarmerInterval: 30
+  swarmerInterval: 60
   eliteInterval: 60
   spawner: {fileID: 1957614042}
   spawnerobject: {fileID: 1957614039}
   spawnRange: 15
-  spawnerActiveTime: 90
+  spawnerActiveTime: 120
 --- !u!4 &1957614042
 Transform:
   m_ObjectHideFlags: 0
