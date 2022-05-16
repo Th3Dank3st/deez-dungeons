@@ -37,6 +37,14 @@ public class ItemPickup : MonoBehaviour
             {                
                 string itemname = obj.itemName;
                 pickedUpItemText.text = (itemname + " has been found!");
+                if(itemz.rarity == "Magic")
+                {
+                    pickedUpItemText.color = Color.blue;
+                }
+                if (itemz.rarity == "Rare")
+                {
+                    pickedUpItemText.color = Color.yellow;
+                }
                 Pickup();
             }            
         }
@@ -202,12 +210,12 @@ public class ItemPickup : MonoBehaviour
             }
             yield return null;
         }
-        Debug.Log(itemz.castSpeed + " cast spd");
+        /*Debug.Log(itemz.castSpeed + " cast spd");
         Debug.Log(itemz.attackDamage + " attack dmg");
         Debug.Log(itemz.attackSpeed + " attack Spd");
         Debug.Log(itemz.spellDamage + " spell Damage");
         Debug.Log(itemz.maxMana + " mana");
-        Debug.Log(itemz.manaRegen + " manaregen");
+        Debug.Log(itemz.manaRegen + " manaregen");*/
         InventoryManager.Instance.Add(itemz);
         Destroy(gameObject);
     }
