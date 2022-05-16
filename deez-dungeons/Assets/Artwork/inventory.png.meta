@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -3860515135949180240
     second: SkillBar
+  - first:
+      213: -6734734834790175173
+    second: ItemTooltip
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,8 +115,8 @@ TextureImporter:
       name: inventory_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 118
+        x: 40
+        y: 103
         width: 658
         height: 332
       alignment: 0
@@ -138,7 +141,7 @@ TextureImporter:
         width: 634
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,6 +149,27 @@ TextureImporter:
       bones: []
       spriteID: 0b2fabf00f1bc6ac0800000000000000
       internalID: -3860515135949180240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemTooltip
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 314
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ee1e3995a6982a0800000000000000
+      internalID: -6734734834790175173
       vertices: []
       indices: 
       edges: []
