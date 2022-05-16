@@ -23,6 +23,9 @@ public class Item : ScriptableObject
     public float maxHealth;
     public float healthRegen;
     public bool itemEquipped;
+    public float minDamage;
+    public float maxDamage;
+    public float critBonus;
 
     public float test1;
     public float testc1;

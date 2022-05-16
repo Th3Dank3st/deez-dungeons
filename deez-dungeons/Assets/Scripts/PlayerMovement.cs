@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+    public float critBonus;
     public float maxDamage;
     public float minDamage;
     public float test;

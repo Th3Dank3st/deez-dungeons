@@ -17,6 +17,11 @@ public class ItemPickup : MonoBehaviour
     private bool stat8 = false;
     private bool stat9 = false;
     private bool stat10 = false;
+    private bool stat11 = false;
+    private bool stat12 = false;
+    private bool stat13 = false;
+
+    private int statSelector1;
     public Item obj;
     private Item itemz;
     private int numberOfStats;
@@ -173,7 +178,7 @@ public class ItemPickup : MonoBehaviour
 
         while (numberOfStats > 0)
         {
-            int statSelector1 = Random.Range(1, 6);
+            int statSelector1 = Random.Range(1, 9);
             if (statSelector1 == 1 && !stat1)
             {
                 itemz.attackSpeed = Random.Range(statValueMin, statValueMax);
@@ -208,6 +213,27 @@ public class ItemPickup : MonoBehaviour
                 numberOfStats--;
                 stat5 = true;
             }
+
+            if (statSelector1 == 6 && !stat6)
+            {
+                itemz.minDamage = Random.Range(statValueMin, (statValueMax * 0.65f));
+                numberOfStats--;
+                stat6 = true;
+            }
+
+            if (statSelector1 == 7 && !stat7)
+            {
+                itemz.maxDamage = Random.Range(statValueMin, (statValueMax * 0.65f));
+                numberOfStats--;
+                stat7 = true;
+            }
+
+            if (statSelector1 == 8 && !stat8)
+            {
+                itemz.critBonus = Random.Range((statValueMin * 0.3f), (statValueMax * 0.3f));
+                numberOfStats--;
+                stat8 = true;
+            }
             yield return null;
         }
         /*Debug.Log(itemz.castSpeed + " cast spd");
@@ -225,7 +251,15 @@ public class ItemPickup : MonoBehaviour
 
         while (numberOfStats > 0)
         {
-            int statSelector1 = Random.Range(1, 11);
+            if(itemz.itemType != Item.ItemType.Staff)
+            {
+                statSelector1 = Random.Range(1, 12);
+            }
+            if (itemz.itemType == Item.ItemType.Staff)
+            {
+                statSelector1 = Random.Range(1, 14);
+            }
+
             if (statSelector1 == 1 && !stat1)
             {
                 itemz.healthRegen = Random.Range(statValueMin, statValueMax);
@@ -294,6 +328,34 @@ public class ItemPickup : MonoBehaviour
                 itemz.speed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat10 = true;
+            }
+            if (statSelector1 == 11 && !stat11)
+            {
+                if (itemz.itemType != Item.ItemType.Staff)
+                {
+                    itemz.critBonus = Random.Range((statValueMin * 0.1f), (statValueMax * 0.1f));
+                    numberOfStats--;
+                    stat11 = true;
+                }
+                if (itemz.itemType == Item.ItemType.Staff)
+                {
+                    itemz.critBonus = Random.Range((statValueMin * 0.2f), (statValueMax * 0.3f));
+                    numberOfStats--;
+                    stat11 = true;
+                }
+
+            }
+            if (statSelector1 == 12 && !stat12)
+            {
+                itemz.maxDamage = Random.Range((statValueMin * 0.65f), (statValueMax * 0.65f));
+                numberOfStats--;
+                stat12 = true;
+            }
+            if (statSelector1 == 13 && !stat13)
+            {
+                itemz.minDamage = Random.Range((statValueMin * 0.65f), (statValueMax * 0.65f));
+                numberOfStats--;
+                stat13 = true;
             }
             yield return null;
         }

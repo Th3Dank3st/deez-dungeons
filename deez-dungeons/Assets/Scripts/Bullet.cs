@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private float resultDamage;
     public GameObject hitEffect;
     public float critchance;
+    public float critBonus;
 
     void Awake()
     {
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
             maxDamage = (damage * 1.35f) + PlayerMovement.Instance.maxDamage;
             resultDamage = Random.Range(minDamage, maxDamage);
             critchance = Random.Range(1, 100);
-            if (critchance <= 5)
+            if (critchance <= (5f + critBonus))
             {
                 resultDamage *= 1.5f;
             }
