@@ -94,6 +94,31 @@ public class ItemPickup : MonoBehaviour
             }
         }
 
+        //Gloves
+        if (obj.itemType == Item.ItemType.Gloves)
+        {
+            itemz.defense = Random.Range(statValueMin - 1, 5);
+            if (itemz.rarity == "Magic")
+            {
+                StartCoroutine(StatSelector(numberOfStats));
+            }
+            if (itemz.rarity == "Rare")
+            {
+                int p = Random.Range(1, 2);
+                if(p == 1)
+                {
+                    itemz.attackSpeed = Random.Range(statValueMin, statValueMax);
+                }
+                if(p == 2)
+                {
+                    itemz.castSpeed = Random.Range(statValueMin, statValueMax);
+                }
+
+                
+                StartCoroutine(RingStatSelector(numberOfStats));
+            }
+        }
+
         //MagicArmor
         if (obj.itemType == Item.ItemType.Armor)
         {
@@ -107,6 +132,21 @@ public class ItemPickup : MonoBehaviour
                 StartCoroutine(RingStatSelector(numberOfStats));
             }
             
+        }
+
+        //Head
+        if (obj.itemType == Item.ItemType.Head)
+        {
+            itemz.defense = Random.Range(5, 8);
+            if (itemz.rarity == "Magic")
+            {
+                StartCoroutine(StatSelector(numberOfStats));
+            }
+            if (itemz.rarity == "Rare")
+            {
+                StartCoroutine(RingStatSelector(numberOfStats));
+            }
+
         }
 
         //MagicStaff
@@ -139,7 +179,14 @@ public class ItemPickup : MonoBehaviour
     {        
         while (numberOfStats > 0)
         {
-            int statSelector1 = Random.Range(1, 5);
+            if(itemz.itemType != Item.ItemType.Gloves)
+            {
+                statSelector1 = Random.Range(1, 5);
+            }
+            if(itemz.itemType == Item.ItemType.Gloves)
+            {
+                statSelector1 = Random.Range (1, 6);
+            }
             if (statSelector1 == 1 && !stat1)
             {
                 itemz.healthRegen = Random.Range(statValueMin, 20);
@@ -166,6 +213,19 @@ public class ItemPickup : MonoBehaviour
                 itemz.manaRegen = Random.Range(statValueMin, 20);
                 numberOfStats--;
                 stat4 = true;
+            }
+
+            if(statSelector1 == 5 && !stat5)
+            {
+                int t = Random.Range(1, 2);
+                if (t == 1)
+                {
+                    itemz.attackSpeed = Random.Range(statValueMin, 20);
+                }
+                if (t == 2)
+                {
+                    itemz.castSpeed = Random.Range(statValueMin, 20);
+                }
             }
             yield return null;
         }
@@ -302,14 +362,14 @@ public class ItemPickup : MonoBehaviour
                 stat6 = true;
             }
 
-            if (statSelector1 == 7 && !stat7)
+            if (statSelector1 == 7 && !stat7 && itemz.itemType == Item.ItemType.Staff)
             {
                 itemz.attackSpeed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
                 stat7 = true;
             }
 
-            if (statSelector1 == 8 && !stat8)
+            if (statSelector1 == 8 && !stat8 && itemz.itemType == Item.ItemType.Staff)
             {
                 itemz.castSpeed = Random.Range(statValueMin, statValueMax);
                 numberOfStats--;
@@ -318,7 +378,7 @@ public class ItemPickup : MonoBehaviour
            
             if (statSelector1 == 9 && !stat9)
             {
-                itemz.defense = Random.Range(statValueMin, statValueMax);
+                itemz.defense = Random.Range((statValueMin * 0.3f), (statValueMax * 0.3f));
                 numberOfStats--;
                 stat9 = true;
             }

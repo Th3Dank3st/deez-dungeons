@@ -190,7 +190,7 @@ public class InventoryManager : MonoBehaviour
             }
             if(item.rarity == "Rare")
             {
-                description.text = "An item with a complex enchantment";
+                description.text = "An item with a very expensive enchantment";
                 tooltipName.color = Color.yellow;
                 itemName.color = Color.yellow;
             }

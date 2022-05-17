@@ -91,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
     public bool Ring1 = false;
     public bool Staff1 = false;
     public bool Amulet1 = false;
+    public bool Gloves1 = false;
+    public bool Head1 = false;
 
 
     public static PlayerMovement Instance;

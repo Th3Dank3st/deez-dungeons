@@ -64,6 +64,8 @@ public class Item : ScriptableObject
         Staff,
         Ring,
         Amulet,
+        Gloves,
+        Head,
 
     }
 
@@ -83,6 +85,10 @@ public class Item : ScriptableObject
             case ItemType.Staff:
                 return false;
             case ItemType.Ring:
+                return false;
+            case ItemType.Gloves:
+                return false;
+            case ItemType.Head:
                 return false;
         }
     }
