@@ -18,6 +18,8 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public float healthRegen;
 
     public GameObject gmo_toolTip;
+    public Text itemDescription;
+    public Text itemName;
     public Text text1;
     public Text text2;
     public Text text3;
@@ -30,6 +32,8 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Text text10;
     public Text text11;
     public Text text12;
+    public Text text13;
+    public Text text14;
 
 
 

@@ -135,14 +135,70 @@ public class InventoryManager : MonoBehaviour
             {
                 text11.color = Color.green;
             }
+            var text12 = Tooltip.Find("Text12").GetComponent<Text>();
+            
+            var d = item.critBonus.ToString();
+            if (d.Length > 4)
+            {
+                d = d.Substring(0, 4);
+            }
+            
+            text12.text = ("Crit " + d);
+            if (item.critBonus > 0)
+            {
+                text12.color = Color.green;
+            }
+            var text13 = Tooltip.Find("Text13").GetComponent<Text>();
+            var c = item.minDamage.ToString();
+            if (c.Length > 4)
+            {
+                c = c.Substring(0, 4);
+            }
+            text13.text = ("MinDMG " + c);
+            if (item.minDamage > 0)
+            {
+                text13.color = Color.green;
+            }
+            var text14 = Tooltip.Find("Text14").GetComponent<Text>();
+            var v = item.maxDamage.ToString();
+            if (v.Length > 4)
+            {
+                v = v.Substring(0, 4);
+            }
+            text14.text = ("MaxDMG " + v);
+            if (item.maxDamage > 0)
+            {
+                text14.color = Color.green;
+            }
+            var tooltipName = Tooltip.Find("TextName").GetComponent<Text>();
+            var description = Tooltip.Find("Description").GetComponent<Text>();
+            if (item.rarity != "Unique")
+            {
+                tooltipName.text = item.rarity + " " + item.itemName;
+            }
+            if(item.rarity == "Unique")
+            {
+                //list of item descriptions identied by item name
+                tooltipName.text = item.itemName;
+            }            
             itemName.text = item.itemName;
             if (item.rarity == "Magic")
             {
+                description.text = "An item with a simple enchantment";
+                tooltipName.color = Color.blue;
                 itemName.color = Color.blue;
             }
             if(item.rarity == "Rare")
             {
+                description.text = "An item with a complex enchantment";
+                tooltipName.color = Color.yellow;
                 itemName.color = Color.yellow;
+            }
+            if(item.rarity == "Unique")
+            {
+                description.text = "An item of unknown origin possessing vast power";
+                tooltipName.color = Color.magenta;
+                itemName.color = Color.magenta;
             }
 
             itemIcon.sprite = item.icon;

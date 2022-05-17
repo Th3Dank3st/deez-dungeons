@@ -329,6 +329,7 @@ public class ItemPickup : MonoBehaviour
                 numberOfStats--;
                 stat10 = true;
             }
+
             if (statSelector1 == 11 && !stat11)
             {
                 if (itemz.itemType != Item.ItemType.Staff)

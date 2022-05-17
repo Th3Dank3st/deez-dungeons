@@ -156,6 +156,9 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.moveSpeed += test7;
 
                     PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.critBonus += (+(item.critBonus));
+                    PlayerMovement.Instance.minDamage += (+(item.minDamage));
+                    PlayerMovement.Instance.maxDamage += (+(item.maxDamage));
 
                     PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
 
@@ -249,6 +252,9 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.moveSpeed += test7;
 
                     PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.critBonus += (+(item.critBonus));
+                    PlayerMovement.Instance.minDamage += (+(item.minDamage));
+                    PlayerMovement.Instance.maxDamage += (+(item.maxDamage));
 
                     PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
 
@@ -343,6 +349,10 @@ public class InventoryItemController : MonoBehaviour
 
                     PlayerMovement.Instance.defense += (+(item.defense));
 
+                    PlayerMovement.Instance.critBonus += (+(item.critBonus));
+                    PlayerMovement.Instance.minDamage += (+(item.minDamage));
+                    PlayerMovement.Instance.maxDamage += (+(item.maxDamage));
+
                     PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
 
                     test8 = PlayerMovement.Instance.basicCooldown * basicspeedcalc;
@@ -436,6 +446,9 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.moveSpeed += test7;
 
                     PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.critBonus += (+(item.critBonus));
+                    PlayerMovement.Instance.minDamage += (+(item.minDamage));
+                    PlayerMovement.Instance.maxDamage += (+(item.maxDamage));
 
                     PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
 
@@ -530,6 +543,9 @@ public class InventoryItemController : MonoBehaviour
                     PlayerMovement.Instance.moveSpeed += test7;
 
                     PlayerMovement.Instance.defense += (+(item.defense));
+                    PlayerMovement.Instance.critBonus += (+(item.critBonus));
+                    PlayerMovement.Instance.minDamage += (+(item.minDamage));
+                    PlayerMovement.Instance.maxDamage += (+(item.maxDamage));
 
                     PlayerMovement.Instance.attackDamage += (+(item.attackDamage));
 
@@ -574,6 +590,9 @@ public class InventoryItemController : MonoBehaviour
         PlayerMovement.Instance.maxMana -= item.test6;
         PlayerMovement.Instance.moveSpeed -= item.test7;
         PlayerMovement.Instance.defense += (-(item.defense));
+        PlayerMovement.Instance.critBonus += (-(item.critBonus));
+        PlayerMovement.Instance.minDamage += (-(item.minDamage));
+        PlayerMovement.Instance.maxDamage += (-(item.maxDamage));
         PlayerMovement.Instance.attackDamage += (-(item.attackDamage));
         PlayerMovement.Instance.basicCooldown += item.test8;
         var d = PlayerMovement.Instance.moveSpeed;
