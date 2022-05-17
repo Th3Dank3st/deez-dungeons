@@ -20,7 +20,9 @@ public class DropTable : MonoBehaviour
         int drop = Random.Range(1, 100);
         if (drop <= droprate)
         {
-            Instantiate(items[Random.Range(0, lengthOfTable)], spawnLocation.position, spawnLocation.rotation);
+            Debug.Log(lengthOfTable);
+            Instantiate(items[Random.Range(0, lengthOfTable -1)], spawnLocation.position, spawnLocation.rotation);
+
         }
 
     }

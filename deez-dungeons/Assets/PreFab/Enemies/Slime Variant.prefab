@@ -142,6 +142,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 31193055c1a5c4d46acf0cf8d3686ea8, type: 2}
     - target: {fileID: 6388892246042943467, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: items.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388892246042943467, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: items.Array.data[0]
       value: 
       objectReference: {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
@@ -149,6 +153,10 @@ PrefabInstance:
       propertyPath: items.Array.data[1]
       value: 
       objectReference: {fileID: 5609685506991896033, guid: e930e0effcb6cd644ac0db3340a57e8f, type: 3}
+    - target: {fileID: 6388892246042943467, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: items.Array.data[3]
+      value: 
+      objectReference: {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
     - target: {fileID: 7369743211139511974, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_Camera
       value: 

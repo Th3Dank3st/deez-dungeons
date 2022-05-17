@@ -158,19 +158,25 @@ public class EnemyHealth : MonoBehaviour
         //Burn
         if (collisionGameObject.tag == "FirePlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
         {
-            if (!alreadyBurning)
+            if (collisionGameObject.gameObject != null)
             {
-                StartCoroutine(Burn4S());
-            }
+                if (!alreadyBurning)
+                {
+                    StartCoroutine(Burn4S());
+                }
+            }            
         }
 
         //Shock
         if (collisionGameObject.tag == "ShockPlayerProjectile")   // the tag of the projectile that i want this effect to be triggered on
         {
-            if (!alreadyShocked)
+            if (collisionGameObject.gameObject != null)
             {
-                StartCoroutine(Shock6S());
-            }
+                if (!alreadyShocked)
+                {
+                    StartCoroutine(Shock6S());
+                }
+            }            
         }
     }
 
