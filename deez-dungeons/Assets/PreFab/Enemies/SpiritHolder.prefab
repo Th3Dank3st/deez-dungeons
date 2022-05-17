@@ -914,6 +914,7 @@ GameObject:
   - component: {fileID: 8328666906649079161}
   - component: {fileID: 8328666906649079136}
   - component: {fileID: 1507874841}
+  - component: {fileID: -7915901945542475818}
   m_Layer: 0
   m_Name: SpiritHolder
   m_TagString: Enemy
@@ -1084,7 +1085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e097ebbf2dcc16c48b0ec9e5f10dc6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droprate: 10
   stunIndicator: {fileID: 5798624792791869293}
   slowIndicator: {fileID: 8799375468014210816}
   Experience: 150
@@ -1099,12 +1099,6 @@ MonoBehaviour:
   burnAnimation: {fileID: 3748523766730986823}
   Healthbar: {fileID: 1659657924}
   healthBar: {fileID: 1659657923}
-  items:
-  - {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
-  - {fileID: 5609685506991896033, guid: e930e0effcb6cd644ac0db3340a57e8f, type: 3}
-  - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
-  - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
-  spawnLocation: {fileID: 8328666906649079137}
   maxHealth: 300
 --- !u!50 &8328666906649079136
 Rigidbody2D:
@@ -1140,6 +1134,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 8328666907578841999}
+--- !u!114 &-7915901945542475818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328666906649079158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ed6b8a154eac24991dd3d799bef2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4013383254865840988, guid: 4a2f26df3b69d8a4a9b4289b245883f2, type: 3}
+  - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
+  - {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
+  spawnLocation: {fileID: 8328666906649079137}
+  droprate: 10
 --- !u!1 &8328666906901043722
 GameObject:
   m_ObjectHideFlags: 0

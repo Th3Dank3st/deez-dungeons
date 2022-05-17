@@ -215,6 +215,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.17
       objectReference: {fileID: 0}
+    - target: {fileID: 6388892246042943467, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: droprate
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388892246042943467, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 4750579724569872942, guid: ba94211da5da7994f8db035ccaa4e949, type: 3}
+    - target: {fileID: 6388892246042943467, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 2515821251729879475, guid: fe18c79372d34b04b88b580d67d645ea, type: 3}
     - target: {fileID: 8853125466322772171, guid: 8c5b4e4b295ee174ca23b129c6137397, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.26

@@ -82,7 +82,7 @@ public class ItemPickup : MonoBehaviour
         //MagicBoots
         if (obj.itemType == Item.ItemType.Boots)
         {
-            itemz.speed = Random.Range(statValueMin, statValueMax);
+            itemz.speed = Random.Range(statValueMin * 0.5f, statValueMax * 0.5f);
             itemz.defense = Random.Range(statValueMin -1, 5);
             if (itemz.rarity == "Magic")
             {
@@ -385,7 +385,7 @@ public class ItemPickup : MonoBehaviour
 
             if (statSelector1 == 10 && !stat10)
             {
-                itemz.speed = Random.Range(statValueMin, statValueMax);
+                itemz.speed = Random.Range(statValueMin * 0.5f, statValueMax * 0.5f);
                 numberOfStats--;
                 stat10 = true;
             }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float droprate;
     public GameObject stunIndicator;
     public GameObject slowIndicator;
     public float Experience;
@@ -23,12 +22,6 @@ public class EnemyHealth : MonoBehaviour
     public GameObject burnAnimation;
     public HealthbarBehaviour Healthbar;
     public GameObject healthBar;
-
-    //public GameObject item1;
-    //public GameObject item2;
-    //public GameObject item3;
-    public GameObject[] items;
-    public Transform spawnLocation;
 
     [SerializeField] public float maxHealth;
     void Awake()
@@ -60,15 +53,12 @@ public class EnemyHealth : MonoBehaviour
             gameObject.GetComponent<PathEnemyShooting>().enabled = false;           
         }
         if (health <= 0f)
-        {   
-            int drop = Random.Range(1, 100);
-            if (drop <= droprate)
-            {
-                Instantiate(items[Random.Range(0, 3)], spawnLocation.position, spawnLocation.rotation);
-            }
+        {
+            gameObject.GetComponent<DropTable>().DropItem();
             FindObjectOfType<PlayerMovement>().UpdateXP(Experience);
             health = 0f;
             Destroy(this.gameObject);
+           
         }
     }
 
