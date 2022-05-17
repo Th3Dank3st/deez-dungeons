@@ -232,8 +232,8 @@ public class InventoryManager : MonoBehaviour
                 item.Find("RemoveButton").gameObject.SetActive(true);
             }
         }
-        else
-        {
+        if (!EnableRemove.isOn)
+        {   
             foreach (Transform item in ItemContent)
             {
                 item.Find("RemoveButton").gameObject.SetActive(false);
