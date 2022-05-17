@@ -23,7 +23,8 @@ public class Bullet : MonoBehaviour
             maxDamage = (damage * 1.35f) + PlayerMovement.Instance.maxDamage;
             resultDamage = Random.Range(minDamage, maxDamage);
             critchance = Random.Range(1, 100);
-            if (critchance <= (5f + critBonus))
+            critBonus = PlayerMovement.Instance.critBonus;
+            if (critchance <= (1f * critBonus))
             {
                 resultDamage *= 1.5f;
             }

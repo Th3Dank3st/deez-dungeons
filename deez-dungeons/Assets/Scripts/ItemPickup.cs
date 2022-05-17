@@ -332,15 +332,22 @@ public class ItemPickup : MonoBehaviour
 
             if (statSelector1 == 11 && !stat11)
             {
-                if (itemz.itemType != Item.ItemType.Staff)
+                if (itemz.itemType == Item.ItemType.Amulet)
                 {
-                    itemz.critBonus = Random.Range((statValueMin * 0.1f), (statValueMax * 0.1f));
+                    itemz.critBonus = Random.Range((statValueMin * 0.1f), (statValueMax * 0.25f));
+                    numberOfStats--;
+                    stat11 = true;
+                }
+
+                if (itemz.itemType == Item.ItemType.Ring)
+                {
+                    itemz.critBonus = Random.Range((statValueMin * 0.1f), (statValueMax * 0.25f));
                     numberOfStats--;
                     stat11 = true;
                 }
                 if (itemz.itemType == Item.ItemType.Staff)
                 {
-                    itemz.critBonus = Random.Range((statValueMin * 0.2f), (statValueMax * 0.3f));
+                    itemz.critBonus = Random.Range((statValueMin * 0.2f), (statValueMax * 0.6f));
                     numberOfStats--;
                     stat11 = true;
                 }
