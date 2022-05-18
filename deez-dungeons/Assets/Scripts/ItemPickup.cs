@@ -131,7 +131,7 @@ public class ItemPickup : MonoBehaviour
         //MagicArmor
         if (obj.itemType == Item.ItemType.Armor)
         {
-            itemz.defense = Random.Range(10, 20);
+            itemz.defense = Random.Range(5, 10);
             if (itemz.rarity == "Magic")
             {
                 StartCoroutine(StatSelector(numberOfStats));
@@ -146,7 +146,7 @@ public class ItemPickup : MonoBehaviour
         //Head
         if (obj.itemType == Item.ItemType.Head)
         {
-            itemz.defense = Random.Range(5, 8);
+            itemz.defense = Random.Range(3, 7);
             if (itemz.rarity == "Magic")
             {
                 StartCoroutine(StatSelector(numberOfStats));
@@ -387,8 +387,8 @@ public class ItemPickup : MonoBehaviour
            
             if (statSelector1 == 9 && !stat9)
             {
-                itemz.defense = Random.Range((statValueMin * 0.3f), (statValueMax * 0.3f));
-                numberOfStats--;
+                //itemz.defense = Random.Range((statValueMin * 0.1f), (statValueMax * 0.1f));
+                //numberOfStats--;
                 stat9 = true;
             }
 

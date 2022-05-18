@@ -39,7 +39,6 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void Awake()
     {
-
         // I added this in case I forgot to set the tooltip object
         if (gmo_toolTip != null)
         {

@@ -69,14 +69,24 @@ public class InventoryManager : MonoBehaviour
             
             var Tooltip = obj.transform.Find("ToolTip").GetComponent<RectTransform>();
             var text1 = Tooltip.Find("Text1").GetComponent<Text>();
-            text1.text = ("Def " + item.defense.ToString());
+            var f = item.defense.ToString();
+            if (f.Length > 4)
+            {
+                f = f.Substring(0, 4);
+            }
+            text1.text = ("Def " + f);
             if (item.defense > 0)
             {
                 text1.color = Color.green;
             }
             
             var text2 = Tooltip.Find("Text2").GetComponent<Text>();
-            text2.text = ("HP " + item.maxHealth.ToString());
+            var a = item.maxHealth.ToString();
+            if (a.Length > 4)
+            {
+                a = a.Substring(0, 4);
+            }
+            text2.text = ("HP " + a);
             if (item.maxHealth > 0)
             {
                 text2.color = Color.green;
@@ -88,7 +98,12 @@ public class InventoryManager : MonoBehaviour
                 text3.color = Color.green;
             }
             var text4 = Tooltip.Find("Text4").GetComponent<Text>();
-            text4.text = ("Speed " + item.speed.ToString());
+            var z = item.speed.ToString();
+            if (z.Length > 4)
+            {
+                z = z.Substring(0, 4);
+            }
+            text4.text = ("Speed " + z);
             if (item.speed > 0)
             {
                 text4.color = Color.green;
@@ -100,7 +115,12 @@ public class InventoryManager : MonoBehaviour
                 text5.color = Color.green;
             }
             var text6 = Tooltip.Find("Text6").GetComponent<Text>();
-            text6.text = ("AttackSPD " + item.attackSpeed.ToString());
+            var y = item.attackSpeed.ToString();
+            if (y.Length > 4)
+            {
+                y = y.Substring(0, 4);
+            }
+            text6.text = ("AttackSPD " + y);
             if (item.attackSpeed > 0)
             {
                 text6.color = Color.green;
@@ -112,7 +132,12 @@ public class InventoryManager : MonoBehaviour
                 text7.color = Color.green;
             }
             var text8 = Tooltip.Find("Text8").GetComponent<Text>();
-            text8.text = ("CastSPD " + item.castSpeed.ToString());
+            var L = item.castSpeed.ToString();
+            if (L.Length > 4)
+            {
+                L = L.Substring(0, 4);
+            }
+            text8.text = ("CastSPD " + L);
             if (item.castSpeed > 0)
             {
                 text8.color = Color.green;
