@@ -22,8 +22,8 @@ public class EnemyHealth : MonoBehaviour
     public GameObject burnAnimation;
     public HealthbarBehaviour Healthbar;
     public GameObject healthBar;
-
     [SerializeField] public float maxHealth;
+    private bool dropped = false;
     void Awake()
     {
         shockDPS *= FindObjectOfType<PlayerMovement>().spellDamage;
@@ -46,23 +46,26 @@ public class EnemyHealth : MonoBehaviour
         {
             health = maxHealth;
         }
-        if(health < 1500 && isWarlock && !alreadyActive)
+        if (health < 1500 && isWarlock && !alreadyActive)
         {
             alreadyActive = true;
             phase1.SetActive(true);
-            gameObject.GetComponent<PathEnemyShooting>().enabled = false;           
+            gameObject.GetComponent<PathEnemyShooting>().enabled = false;
         }
         if (health <= 0f)
         {
-            gameObject.GetComponent<DropTable>().DropItem();
             FindObjectOfType<PlayerMovement>().UpdateXP(Experience);
             health = 0f;
-            Destroy(this.gameObject);
-           
+            if (!dropped)
+            {
+                gameObject.GetComponent<DropTable>().DropItem();
+                dropped = true;
+            }
+            Destroy(gameObject);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collisionGameObject = collision.gameObject;
         //Chill

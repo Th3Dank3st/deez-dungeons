@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: -7666503209131449477}
   - component: {fileID: 4146982828209684165}
   - component: {fileID: 2123326396604860583}
-  - component: {fileID: 4964724222311593783}
+  - component: {fileID: -817454782210757627}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Enemy
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &4964724222311593783
+--- !u!114 &-817454782210757627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1059,10 +1059,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
+  - {fileID: 5162611467413070614, guid: 13a9b1bc848d90a44abfb68b88902a8d, type: 3}
   - {fileID: 4750579724569872942, guid: ba94211da5da7994f8db035ccaa4e949, type: 3}
-  - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
-  - {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
-  - {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
+  - {fileID: 4013383254865840988, guid: 4a2f26df3b69d8a4a9b4289b245883f2, type: 3}
   spawnLocation: {fileID: 5406842281089657201}
   droprate: 100
 --- !u!1 &5406842281159981667

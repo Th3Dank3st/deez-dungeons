@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 7537250076533077064}
   - component: {fileID: 7537250076533077065}
   - component: {fileID: 7537250076533077062}
-  - component: {fileID: -815645515705021945}
+  - component: {fileID: -2074393943775910023}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Enemy
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   FireRate: 4
   NextFire: 1
   bulletForce: 30
---- !u!114 &-815645515705021945
+--- !u!114 &-2074393943775910023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1275,10 +1275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
-  - {fileID: 4750579724569872942, guid: ba94211da5da7994f8db035ccaa4e949, type: 3}
+  - {fileID: 5162611467413070614, guid: 13a9b1bc848d90a44abfb68b88902a8d, type: 3}
   - {fileID: 4013383254865840988, guid: 4a2f26df3b69d8a4a9b4289b245883f2, type: 3}
-  - {fileID: 2515821251729879475, guid: fe18c79372d34b04b88b580d67d645ea, type: 3}
-  - {fileID: 2515821251729879475, guid: fe18c79372d34b04b88b580d67d645ea, type: 3}
   spawnLocation: {fileID: 7537250076533077063}
   droprate: 100
 --- !u!1 &7537250076588548481

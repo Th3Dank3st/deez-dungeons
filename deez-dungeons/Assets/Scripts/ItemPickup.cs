@@ -42,6 +42,10 @@ public class ItemPickup : MonoBehaviour
             {                
                 string itemname = obj.itemName;
                 pickedUpItemText.text = (itemname + " has been found!");
+                if(itemz.rarity == "Unique")
+                {
+                    pickedUpItemText.color = Color.magenta;
+                }
                 if(itemz.rarity == "Magic")
                 {
                     pickedUpItemText.color = Color.blue;
@@ -69,6 +73,11 @@ public class ItemPickup : MonoBehaviour
             numberOfStats = 5;
             statValueMin = 5;
             statValueMax = 25;
+        }
+        if(itemz.rarity == "Unique")
+        {
+            InventoryManager.Instance.Add(itemz);
+            Destroy(gameObject);
         }
 
         //redpot

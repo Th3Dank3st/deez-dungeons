@@ -47,14 +47,26 @@ public class Item : ScriptableObject
     private void Awake()
     {
         int Rarity = Random.Range(1,100);
-        if(Rarity <= 15)
+        if(rarity != "Unique")
         {
-            rarity = "Rare";
+            if (Rarity <= 15)
+            {
+                rarity = "Rare";
+            }
+            if (Rarity > 15)
+            {
+                rarity = "Magic";
+            }
         }
-        if(Rarity > 15)
+        
+        if(itemName == "Ring of Casting")
         {
-            rarity = "Magic";
+            castSpeed = Random.Range(20,30);
+            spellDamage = Random.Range(20,30);
+            manaRegen = Random.Range(5,15);
+            maxMana = Random.Range(5,20);
         }
+        
     }
     public enum ItemType
     {

@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 8328666906649079161}
   - component: {fileID: 8328666906649079136}
   - component: {fileID: 1507874841}
-  - component: {fileID: -7915901945542475818}
+  - component: {fileID: 4922258031840685578}
   m_Layer: 0
   m_Name: SpiritHolder
   m_TagString: Enemy
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 8328666907578841999}
---- !u!114 &-7915901945542475818
+--- !u!114 &4922258031840685578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1147,9 +1147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 4013383254865840988, guid: 4a2f26df3b69d8a4a9b4289b245883f2, type: 3}
   - {fileID: 2441371994846642382, guid: e26360bdae1a67c418fab7b7a4f53969, type: 3}
-  - {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
+  - {fileID: 6339809904771613598, guid: 876349d6052e82a479b81207331517e2, type: 3}
   - {fileID: 2408638060307722247, guid: ccf70101e371ab048a0f7183f935e474, type: 3}
   spawnLocation: {fileID: 8328666906649079137}
   droprate: 10

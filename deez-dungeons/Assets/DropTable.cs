@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,10 @@ public class DropTable : MonoBehaviour
     public Transform spawnLocation;
     public float droprate;
     private int lengthOfTable;
+    private bool dropped = false;
     public void DropItem()
     {
+        var lastKnownPos = spawnLocation;
         foreach (GameObject item in items)
         {
             if (item != null)
@@ -18,12 +21,14 @@ public class DropTable : MonoBehaviour
             }
         }
         int drop = Random.Range(1, 100);
-        if (drop <= droprate)
+        if (!dropped)
         {
-            Debug.Log(lengthOfTable);
-            Instantiate(items[Random.Range(0, lengthOfTable -1)], spawnLocation.position, spawnLocation.rotation);
-
-        }
-
+            if (drop <= droprate)
+            {
+                dropped = true;
+                Debug.Log(lengthOfTable);
+                Instantiate(items[Random.Range(0, lengthOfTable)], lastKnownPos.position, lastKnownPos.rotation);
+            }
+        }      
     }
 }
