@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     //stats
 
 
-
-
+    public GameObject overloadGO;
+    public GameObject overloadIndicator;
     public float critBonus;
     public float maxDamage;
     public float minDamage;
@@ -271,6 +271,7 @@ public class PlayerMovement : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());   // updates mouse position of the user in NEW INPUT SYSTEM
         aoeIndicator.position = mousePos;
         infernoIndicator.position = mousePos;
+        overloadIndicator.GetComponent<Transform>().position = gameObject.GetComponent<Transform>().position;
 
         //DASH
         if (playerControls.Player.Dash.triggered && !alreadyStunned)
@@ -390,6 +391,49 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Inferno
+        /* if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
+         {
+
+             if (groundTargetCoolCounter <= 0 && currentMana >= 20)
+             {
+                 UpdateMana(-20);
+                 //Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
+                 infernoIndicatorObject.SetActive(true);
+                 alreadyCasting = true;
+                 groundTargetPending = true;
+             }
+         }
+
+         if (playerControls.Player.Fire.triggered && groundTargetPending && !alreadyStunned)
+         {
+             animator.SetTrigger("Attack");
+             GameObject newEnemy = Instantiate(go, mousePos, Quaternion.identity);
+             Destroy(newEnemy, 4f);
+             groundTargetCoolCounter = groundTargetCooldown;
+             //Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+             abilityImage1.fillAmount = 1;
+             isCooldown = true;
+             groundTargetPending = false;
+             alreadyCasting = false;
+             infernoIndicatorObject.SetActive(false);
+         }
+
+         if (isCooldown)
+         {
+             abilityImage1.fillAmount -= 1 / cooldown1 * Time.deltaTime;
+             if (abilityImage1.fillAmount <= 0)
+             {
+                 abilityImage1.fillAmount = 0;
+                 isCooldown = false;
+             }
+         }
+
+         if (groundTargetCoolCounter > 0)
+         {
+             groundTargetCoolCounter -= Time.deltaTime;
+         }
+        */
+        //Overload (electric explosion thingy)
         if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
 
@@ -397,7 +441,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 UpdateMana(-20);
                 //Cursor.SetCursor(cursorForGroundTarget, hotSpot, cursorMode);
-                infernoIndicatorObject.SetActive(true);
+                overloadIndicator.SetActive(true);
                 alreadyCasting = true;
                 groundTargetPending = true;
             }
@@ -406,15 +450,16 @@ public class PlayerMovement : MonoBehaviour
         if (playerControls.Player.Fire.triggered && groundTargetPending && !alreadyStunned)
         {
             animator.SetTrigger("Attack");
-            GameObject newEnemy = Instantiate(go, mousePos, Quaternion.identity);
-            Destroy(newEnemy, 4f);
+            GameObject newEnemy = Instantiate(overloadGO, gameObject.GetComponent<Transform>().position, Quaternion.identity);
+            Destroy(newEnemy, .5f);
             groundTargetCoolCounter = groundTargetCooldown;
             //Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
             abilityImage1.fillAmount = 1;
+            //transform.position = new Vector2(gameObject.GetComponent<Transform>().position.x/* + distance*/, gameObject.GetComponent<Transform>().position.y);            
             isCooldown = true;
             groundTargetPending = false;
             alreadyCasting = false;
-            infernoIndicatorObject.SetActive(false);
+            overloadIndicator.SetActive(false);
         }
 
         if (isCooldown)
