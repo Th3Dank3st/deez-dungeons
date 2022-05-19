@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2116308426922246978}
   - component: {fileID: 5864513783041604188}
+  - component: {fileID: 8387714989685321631}
   m_Layer: 8
   m_Name: Overload
-  m_TagString: Untagged
+  m_TagString: StunPlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +50,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 6
+--- !u!114 &8387714989685321631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116308426922246979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8dc22e2c5f87b47bf53f87a070ada5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 150
 --- !u!1001 &2116308426825942095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,7 +76,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821671911593632927, guid: 4904090c7da843842806b2aed64d1d61, type: 3}
       propertyPath: damage
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191679728849959073, guid: 4904090c7da843842806b2aed64d1d61, type: 3}
       propertyPath: m_Enabled
@@ -140,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821671911593632927, guid: 4904090c7da843842806b2aed64d1d61, type: 3}
       propertyPath: damage
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191679728849959073, guid: 4904090c7da843842806b2aed64d1d61, type: 3}
       propertyPath: m_Radius

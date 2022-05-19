@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //stats
-
-
+    private float basicCooldown1;
+    private bool IASBuffed;
     public GameObject overloadGO;
     public GameObject overloadIndicator;
     public float critBonus;
@@ -372,7 +372,6 @@ public class PlayerMovement : MonoBehaviour
             isCooldown2 = true;
             alreadyCasting = false;
             FOrbPending = false;
-
         }
 
         if (isCooldown2)
@@ -433,6 +432,7 @@ public class PlayerMovement : MonoBehaviour
              groundTargetCoolCounter -= Time.deltaTime;
          }
         */
+
         //Overload (electric explosion thingy)
         if (playerControls.Player.GroundTarget.triggered && !alreadyCasting && !alreadyStunned && !globalCooldownActive)
         {
@@ -460,6 +460,7 @@ public class PlayerMovement : MonoBehaviour
             groundTargetPending = false;
             alreadyCasting = false;
             overloadIndicator.SetActive(false);
+            StartCoroutine(AttackSpeedBuff());
         }
 
         if (isCooldown)
@@ -944,5 +945,23 @@ IEnumerator DashChargeCooldown()
         }
         shockDashIndicator.SetActive(false);
         shockDashing = false;
+    }
+
+    IEnumerator AttackSpeedBuff()
+    {
+        int k = 1;
+        while (k > 0)
+        {
+            if (!IASBuffed)
+            {
+                basicCooldown1 = basicCooldown;
+                basicCooldown *= 0.5f;
+                IASBuffed = true;
+            }
+            k--;
+            yield return new WaitForSeconds(4f);
+        }
+        basicCooldown = basicCooldown1;
+        IASBuffed = false;
     }
 }
