@@ -352,7 +352,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (FireCoolCounter <= 0 && currentMana >= 20)
             {
-                UpdateMana(-20);
+                UpdateMana(-30);
                 FOrbIndicator.SetActive(true);
                 FOrbPending = true;
                 alreadyCasting = true;
