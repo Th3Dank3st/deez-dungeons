@@ -3854,7 +3854,7 @@ MonoBehaviour:
   firePoint: {fileID: 768366411}
   fireBulletPrefab: {fileID: 1037045664353931181, guid: 0b9f7926fdc49a14492573a670117b08, type: 3}
   lunarSlashPrefab: {fileID: 7191679728849959075, guid: 4904090c7da843842806b2aed64d1d61, type: 3}
-  fireBulletForce: 2
+  fireBulletForce: 10
   lunarSlashForce: 0
   FOrbIndicator: {fileID: 351310947}
   lunarPending: 0
