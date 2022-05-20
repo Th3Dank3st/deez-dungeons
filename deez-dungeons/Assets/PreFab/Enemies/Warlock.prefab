@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5260971053113918818}
   - component: {fileID: 1980074482763649202}
   - component: {fileID: 1289516693056246546}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ef_7_0005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 3143384766800235129}
   - component: {fileID: 48912216183196605}
   - component: {fileID: 1247718597170973285}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 743679537984374360}
   - component: {fileID: 4851030392639729232}
   - component: {fileID: 2956070444940507862}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Flame_2_0007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 2748074424234719551}
   - component: {fileID: 2354083101075015501}
   - component: {fileID: 2105254781565210057}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stun Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 5121676740688185485}
   - component: {fileID: 1935571264133863992}
   - component: {fileID: 2135821513875343488}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Slow Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 201706935876490780}
   - component: {fileID: 2357734856280510920}
   - component: {fileID: 4744966400958724508}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Phase1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 4480709170695845464}
   - component: {fileID: 5630258561175675203}
   - component: {fileID: 8643990023942372465}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7834505489031643561}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 7352530681418551266}
   - component: {fileID: 9099579897821934544}
   - component: {fileID: 4300834609369696450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: electricity_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 7537250076021026356}
   - component: {fileID: 7537250076021026357}
   - component: {fileID: 6379263036657707353}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AoeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 7537250076533077065}
   - component: {fileID: 7537250076533077062}
   - component: {fileID: -2074393943775910023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Warlock
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1086,7 +1086,7 @@ MonoBehaviour:
   alreadyStunned: 0
   alreadyBurning: 0
   alreadyShocked: 0
-  isWarlock: 1
+  isWarlock: 0
   phase1: {fileID: 4794908792038431178}
   shockAnimation: {fileID: 6486824525447948644}
   burnAnimation: {fileID: 2917616491592125558}
@@ -1243,7 +1243,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 3
 --- !u!114 &7537250076533077062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,7 +1288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7537250076588548480}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 981744752336329397}
   - component: {fileID: 6107715504060765654}
   - component: {fileID: 7170221594923338170}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092467351319141214}
   - component: {fileID: 3478154180563214549}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
