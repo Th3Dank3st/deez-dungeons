@@ -7,8 +7,12 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //stats
+    private float IASBuffedDuration = 4f;
+    private bool isIASBuffed = false;
+    public Image IASBuffTimerBackground;
+    public Image IASBuffTimer;
     private float basicCooldown1;
-    private bool IASBuffed;
+    private bool IASBuffed = false;
     public GameObject overloadGO;
     public GameObject overloadIndicator;
     public float critBonus;
@@ -634,6 +638,18 @@ public class PlayerMovement : MonoBehaviour
 
         //status effect cooldown timer indicators__________________________________________________________________
 
+        if (isIASBuffed)
+        {
+            IASBuffTimer.fillAmount -= 1 / IASBuffedDuration * Time.deltaTime;
+
+            if (IASBuffTimer.fillAmount <= 0)
+            {
+                IASBuffTimer.fillAmount = 0;
+                isIASBuffed = false;
+                IASBuffTimer.gameObject.SetActive(false);
+                IASBuffTimerBackground.gameObject.SetActive(false);
+            }
+        }
 
         //is shockdashing
         if (isShockDashing)
@@ -957,6 +973,10 @@ IEnumerator DashChargeCooldown()
                 basicCooldown1 = basicCooldown;
                 basicCooldown *= 0.5f;
                 IASBuffed = true;
+                isIASBuffed = true;
+                IASBuffTimer.gameObject.SetActive(true);
+                IASBuffTimerBackground.gameObject.SetActive(true);
+                IASBuffTimer.fillAmount = 1;
             }
             k--;
             yield return new WaitForSeconds(4f);
