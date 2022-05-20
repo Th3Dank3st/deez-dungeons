@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlasmaAoeExplosion : MonoBehaviour
 {
     public float damage = 50f;
-    private bool alreadyhit = false;
+    //private bool alreadyhit = false;
 
     private void Awake()
     {
@@ -16,10 +16,10 @@ public class PlasmaAoeExplosion : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            if (other.gameObject != null && alreadyhit == false)
+            if (other.gameObject != null /*&& alreadyhit == false*/)
             {
                 other.gameObject.GetComponent<EnemyHealth>().UpdateHealth(-damage);
-                alreadyhit = true;
+                //alreadyhit = true;
             }
         }
     }
