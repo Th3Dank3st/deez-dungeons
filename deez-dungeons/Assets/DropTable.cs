@@ -26,7 +26,7 @@ public class DropTable : MonoBehaviour
             if (drop <= droprate)
             {
                 dropped = true;
-                Debug.Log(lengthOfTable);
+                //Debug.Log(lengthOfTable);
                 Instantiate(items[Random.Range(0, lengthOfTable)], lastKnownPos.position, lastKnownPos.rotation);
             }
         }      

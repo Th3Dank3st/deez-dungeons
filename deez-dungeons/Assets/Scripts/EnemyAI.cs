@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
 
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndofPath = false;
+    //bool reachedEndofPath = false;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -53,12 +53,12 @@ public class EnemyAI : MonoBehaviour
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            reachedEndofPath = true;
+            //reachedEndofPath = true;
             return;
         }
         else 
         {
-            reachedEndofPath = false;
+            //reachedEndofPath = false;
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
