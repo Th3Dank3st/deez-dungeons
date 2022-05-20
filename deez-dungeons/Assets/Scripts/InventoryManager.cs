@@ -92,7 +92,12 @@ public class InventoryManager : MonoBehaviour
                 text2.color = Color.green;
             }
             var text3 = Tooltip.Find("Text3").GetComponent<Text>();
-            text3.text = ("HP/5 " + item.healthRegen.ToString());
+            var TE = item.healthRegen.ToString();
+            if(TE.Length > 4)
+            {
+                TE = TE.Substring(0, 4);
+            }
+            text3.text = ("HP/5 " + TE);
             if (item.healthRegen > 0)
             {
                 text3.color = Color.green;
@@ -109,7 +114,12 @@ public class InventoryManager : MonoBehaviour
                 text4.color = Color.green;
             }
             var text5 = Tooltip.Find("Text5").GetComponent<Text>();
-            text5.text = ("AttackDMG " + item.attackDamage.ToString());
+            var et = item.attackDamage.ToString();
+            if (et.Length > 4)
+            {
+                et = et.Substring(0, 4);
+            }
+            text5.text = ("AttackDMG " + et);
             if (item.attackDamage > 0)
             {
                 text5.color = Color.green;
@@ -126,7 +136,12 @@ public class InventoryManager : MonoBehaviour
                 text6.color = Color.green;
             }
             var text7 = Tooltip.Find("Text7").GetComponent<Text>();
-            text7.text = ("SpellDMG " + item.spellDamage.ToString());
+            var le = item.spellDamage.ToString();
+            if (le.Length > 4)
+            {
+                le = le.Substring(0, 4);
+            }
+            text7.text = ("SpellDMG " + le);
             if (item.spellDamage > 0)
             {
                 text7.color = Color.green;
@@ -143,13 +158,23 @@ public class InventoryManager : MonoBehaviour
                 text8.color = Color.green;
             }
             var text9 = Tooltip.Find("Text9").GetComponent<Text>();
-            text9.text = ("MP " + item.maxMana.ToString());
+            var T = item.maxMana.ToString();
+            if (T.Length > 4)
+            {
+                T = T.Substring(0, 4);
+            }
+            text9.text = ("MP " + T);
             if (item.maxMana > 0)
             {
                 text9.color = Color.green;
             }
             var text10 = Tooltip.Find("Text10").GetComponent<Text>();
-            text10.text = ("MP/5 " + item.manaRegen.ToString());
+            var U = item.manaRegen.ToString();
+            if(U.Length > 4)
+            {
+                U = U.Substring(0, 4);
+            }
+            text10.text = ("MP/5 " + U);
             if (item.manaRegen > 0)
             {
                 text10.color = Color.green;

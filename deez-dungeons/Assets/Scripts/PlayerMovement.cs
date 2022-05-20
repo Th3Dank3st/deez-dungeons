@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //stats
+    public bool leveledUp = false;
     private float IASBuffedDuration = 4f;
     private bool isIASBuffed = false;
     public Image IASBuffTimerBackground;
@@ -834,12 +835,12 @@ public class PlayerMovement : MonoBehaviour
             //reference inventory, drag and drop inventory in editor, getcomponentinchild and find the inventoryitemcontrollers and update the stats
             currentLevel++;
             levelText.text = currentLevel.ToString();
-            XPGoal *= 1.35f;            
+            XPGoal *= 1.4f;            
             maxHealth += 5;
             maxMana += 3;
-            basicCooldown -= 0.005f;
-            regenAmount += 0.3f;
-            manaRegenAmount += 0.5f;
+            basicCooldown -= 0f;
+            regenAmount += 0f;
+            manaRegenAmount += 0.2f;
             currentHealth = maxHealth;
             currentMana = maxMana;
             healthBar.SetHealth(currentHealth);
@@ -850,6 +851,7 @@ public class PlayerMovement : MonoBehaviour
             XPBar.SetHealth(currentXP);
             currentXPText.text = currentXP.ToString();
             XPGoalText.text = XPGoal.ToString();
+            leveledUp = true;
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour
 {
+    private bool levelingup = false;
     public Item item;
     private bool potion = false;
     public Button equippedButton;
@@ -26,19 +27,18 @@ public class InventoryItemController : MonoBehaviour
     private float test7;
     private float test8;
 
-    private void Awake()
-    {
-        /*itemy.defense = item.defense;
-        itemy.speed = item.speed;
-        itemy.attackDamage = item.attackDamage;
-        itemy.attackSpeed = item.attackSpeed;
-        itemy.spellDamage = item.spellDamage;
-        itemy.castSpeed = item.castSpeed;
-        itemy.maxMana = item.maxMana;
-        itemy.manaRegen = item.manaRegen;
-        itemy.maxHealth = item.maxHealth;
-        itemy.healthRegen = item.healthRegen;*/
 
+    private void Update()
+    {
+        if (item.itemEquipped && PlayerMovement.Instance.leveledUp)
+        {
+            levelingup = true;
+            UnequipItem();
+            UseItem();
+            levelingup = false;
+            PlayerMovement.Instance.leveledUp = false;
+
+        }
     }
     public void RemoveItem()
     {
@@ -79,6 +79,11 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Armor:
                 if(PlayerMovement.Instance.Armor1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
@@ -89,7 +94,6 @@ public class InventoryItemController : MonoBehaviour
                     test = (PlayerMovement.Instance.cooldown - test);
                     PlayerMovement.Instance.test = test;
                     PlayerMovement.Instance.cooldown -= test;
-
 
                     testc1 = PlayerMovement.Instance.cooldown1 * castspeedcalc;
                     testc1 = (PlayerMovement.Instance.cooldown1 - testc1);
@@ -130,26 +134,6 @@ public class InventoryItemController : MonoBehaviour
                     testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
-
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
 
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
@@ -176,6 +160,11 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Boots:
                 if (PlayerMovement.Instance.Boots1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
@@ -226,26 +215,6 @@ public class InventoryItemController : MonoBehaviour
                     testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
-
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
 
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
@@ -272,6 +241,11 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Staff:
                 if (PlayerMovement.Instance.Staff1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
@@ -323,33 +297,12 @@ public class InventoryItemController : MonoBehaviour
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
 
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
-
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
                     item.test7 = test7;
                     PlayerMovement.Instance.moveSpeed += test7;
 
                     PlayerMovement.Instance.defense += (+(item.defense));
-
                     PlayerMovement.Instance.critBonus += (+(item.critBonus));
                     PlayerMovement.Instance.minDamage += (+(item.minDamage));
                     PlayerMovement.Instance.maxDamage += (+(item.maxDamage));
@@ -370,6 +323,11 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Ring:
                 if (PlayerMovement.Instance.Ring1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
@@ -420,26 +378,6 @@ public class InventoryItemController : MonoBehaviour
                     testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
-
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
 
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
@@ -467,14 +405,19 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Amulet:
                 if (PlayerMovement.Instance.Amulet1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
                     PlayerMovement.Instance.spellDamage += test1;
 
                     //for player cooldown stat
-                    test = 100 * castspeedcalc;
-                    test = (100 - test);
+                    test = PlayerMovement.Instance.cooldown * castspeedcalc;
+                    test = (PlayerMovement.Instance.cooldown - test);
                     PlayerMovement.Instance.test = test;
                     PlayerMovement.Instance.cooldown -= test;
 
@@ -517,26 +460,6 @@ public class InventoryItemController : MonoBehaviour
                     testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
-
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
 
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
@@ -564,6 +487,11 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Head:
                 if (PlayerMovement.Instance.Head1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
@@ -614,26 +542,6 @@ public class InventoryItemController : MonoBehaviour
                     testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
-
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
 
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
@@ -660,6 +568,11 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Gloves:
                 if (PlayerMovement.Instance.Gloves1 == false)
                 {
+                    PlayerMovement.Instance.maxHealth += (+(item.maxHealth));
+                    PlayerMovement.Instance.regenAmount += (+(item.healthRegen));
+                    PlayerMovement.Instance.manaRegenAmount += (+(item.manaRegen));
+                    PlayerMovement.Instance.maxMana += (+(item.maxMana));
+
                     test1 = PlayerMovement.Instance.spellDamage * spelldmgcalc;
                     test1 = (test1 - PlayerMovement.Instance.spellDamage);
                     item.test1 = test1;
@@ -710,26 +623,6 @@ public class InventoryItemController : MonoBehaviour
                     testc8 = (PlayerMovement.Instance.FireCooldown - testc8);
                     item.testc8 = testc8;
                     PlayerMovement.Instance.FireCooldown -= testc8;
-
-                    test3 = PlayerMovement.Instance.maxHealth * maxhpcalc;
-                    test3 = (test3 - PlayerMovement.Instance.maxHealth);
-                    item.test3 = test3;
-                    PlayerMovement.Instance.maxHealth += test3;
-
-                    test4 = PlayerMovement.Instance.regenAmount * hpregencalc;
-                    test4 = (test4 - PlayerMovement.Instance.regenAmount);
-                    item.test4 = test4;
-                    PlayerMovement.Instance.regenAmount += test4;
-
-                    test5 = PlayerMovement.Instance.manaRegenAmount * mpregencalc;
-                    test5 = (test5 - PlayerMovement.Instance.manaRegenAmount);
-                    item.test5 = test5;
-                    PlayerMovement.Instance.manaRegenAmount += test5;
-
-                    test6 = PlayerMovement.Instance.maxMana * maxmpcalc;
-                    test6 = (test6 - PlayerMovement.Instance.maxMana);
-                    item.test6 = test6;
-                    PlayerMovement.Instance.maxMana += test6;
 
                     test7 = PlayerMovement.Instance.moveSpeed * speedcalc;
                     test7 = (test7 - PlayerMovement.Instance.moveSpeed);
@@ -764,7 +657,20 @@ public class InventoryItemController : MonoBehaviour
     
     public void UnequipItem()
     {
-        item.itemEquipped = false;
+        if (!levelingup)
+        {
+            item.itemEquipped = false;
+        }
+
+
+
+
+        PlayerMovement.Instance.maxHealth -= item.maxHealth;
+        PlayerMovement.Instance.regenAmount -= item.healthRegen;
+        PlayerMovement.Instance.manaRegenAmount -= item.manaRegen;
+        PlayerMovement.Instance.maxMana -= item.maxMana;
+
+
 
         PlayerMovement.Instance.spellDamage -= item.test1;
         PlayerMovement.Instance.cooldown += PlayerMovement.Instance.test;
@@ -777,10 +683,10 @@ public class InventoryItemController : MonoBehaviour
         PlayerMovement.Instance.summonCooldown += item.testc7;
         PlayerMovement.Instance.FireCooldown += item.testc8;
 
-        PlayerMovement.Instance.maxHealth -= item.test3;
-        PlayerMovement.Instance.regenAmount -= item.test4;
-        PlayerMovement.Instance.manaRegenAmount -= item.test5;
-        PlayerMovement.Instance.maxMana -= item.test6;
+        //PlayerMovement.Instance.maxHealth -= item.test3;
+        //PlayerMovement.Instance.regenAmount -= item.test4;
+        //PlayerMovement.Instance.manaRegenAmount -= item.test5;
+        //PlayerMovement.Instance.maxMana -= item.test6;
         PlayerMovement.Instance.moveSpeed -= item.test7;
         PlayerMovement.Instance.defense += (-(item.defense));
         PlayerMovement.Instance.critBonus += (-(item.critBonus));

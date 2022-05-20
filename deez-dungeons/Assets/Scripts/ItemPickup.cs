@@ -25,8 +25,8 @@ public class ItemPickup : MonoBehaviour
     public Item obj;
     private Item itemz;
     private int numberOfStats;
-    private int statValueMin;
-    private int statValueMax;
+    private float statValueMin;
+    private float statValueMax;
 
     private void Awake()
     {
@@ -198,7 +198,7 @@ public class ItemPickup : MonoBehaviour
             }
             if (statSelector1 == 1 && !stat1)
             {
-                itemz.healthRegen = Random.Range(statValueMin, 20);
+                itemz.healthRegen = Random.Range(statValueMin, 4);
                 numberOfStats--;
                 stat1 = true;
             }
@@ -219,7 +219,7 @@ public class ItemPickup : MonoBehaviour
 
             if (statSelector1 == 4 && !stat4)
             {
-                itemz.manaRegen = Random.Range(statValueMin, 20);
+                itemz.manaRegen = Random.Range(statValueMin, 4);
                 numberOfStats--;
                 stat4 = true;
             }
@@ -331,7 +331,7 @@ public class ItemPickup : MonoBehaviour
 
             if (statSelector1 == 1 && !stat1)
             {
-                itemz.healthRegen = Random.Range(statValueMin, statValueMax);
+                itemz.healthRegen = Random.Range(statValueMin, statValueMax *= 0.2f);
                 numberOfStats--;
                 stat1 = true;
             }
@@ -352,7 +352,7 @@ public class ItemPickup : MonoBehaviour
 
             if (statSelector1 == 4 && !stat4)
             {
-                itemz.manaRegen = Random.Range(statValueMin, statValueMax);
+                itemz.manaRegen = Random.Range(statValueMin, statValueMax *= 0.2f);
                 numberOfStats--;
                 stat4 = true;
             }
